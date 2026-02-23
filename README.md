@@ -5,6 +5,10 @@
 
 This is the repository of the [AI Content Disclosure Community Group](https://www.w3.org/community/ai-content-disclosure/).
 
+## Charter
+
+The group's charter is available at [charter.md](charter.md).
+
 ## Raising Issues
 
 As the work of this group is likely to involve raising issues on specifications from other groups, and on user agents we can use [Issues](../../issues) in this repo to discuss AI content disclosure related issues. We can then triage them and make sure things are raised in the right place.
