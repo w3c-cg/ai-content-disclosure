@@ -9,7 +9,7 @@ This directory contains meeting minutes for the W3C AI Content Disclosure Commun
 
 ## Index
 - 2026
-  - [9 March 2026](20260309/) — First presentation to W3C Web AI Working Group
+  - [9 March 2026](20260309/) — First presentation to W3C Web & AI Interest Group
 
 ## Template
 Create a new folder per meeting (example: `minutes/20260212/`) and add `README.md` with the following structure:
