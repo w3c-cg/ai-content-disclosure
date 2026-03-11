@@ -1,66 +1,928 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset='utf-8'>
-    <script src='https://www.w3.org/Tools/respec/respec-w3c' async class='remove'></script>
-    <script class='remove'>
-      // All config options at https://respec.org/docs/
+    <meta charset="utf-8" />
+    <title>AI Content Disclosure for HTML</title>
+    <script
+      src="https://www.w3.org/Tools/respec/respec-w3c"
+      async
+      class="remove"
+    ></script>
+    <script class="remove">
       var respecConfig = {
-        // Working Groups ids at https://respec.org/w3c/groups/
         group: "cg/ai-content-disclosure",
         specStatus: "CG-DRAFT",
-        editors: [{
-          name: "David E. Weekly",
-          url: "https://david.weekly.org/",
-        },{
-          name: "Doğu Abaris",
-          url: "https://doguabaris.bio/",
-        }],
+        shortName: "ai-content-disclosure",
+        editors: [
+          {
+            name: "David E. Weekly",
+            url: "https://david.weekly.org/",
+          },
+          {
+            name: "Doğu Abaris",
+            url: "https://doguabaris.bio/",
+          },
+        ],
         github: {
           branch: "main",
           repoURL: "https://github.com/w3c-cg/ai-content-disclosure",
         },
-        // See https://respec.org/docs/#xref for usage.
         xref: "web-platform",
+        latestVersion: "https://w3c-cg.github.io/ai-content-disclosure/",
+        noRecTrack: true,
       };
     </script>
   </head>
   <body>
     <h1 id="title">AI Content Disclosure for HTML</h1>
-    <section id='abstract'>
+
+    <section id="abstract" class="introductory">
       <p>
-        This is required.
+        This specification defines an <code>ai-disclosure</code> global HTML
+        attribute and a companion
+        <code>&lt;meta name="ai-disclosure"&gt;</code> tag that enable authors
+        to declare the degree of AI involvement in web content at both page
+        level and element level. It also defines optional metadata attributes
+        (<code>ai-model</code>, <code>ai-provider</code>,
+        <code>ai-prompt-url</code>) for supplementary information about the AI
+        systems used.
       </p>
     </section>
-    <section id='sotd'>
+
+    <section id="sotd" class="introductory">
       <p>
-        This is required.
+        This is a first working draft from the
+        <a href="https://www.w3.org/community/ai-content-disclosure/"
+          >AI Content Disclosure Community Group</a
+        >. It is based on the
+        <a href="https://github.com/dweekly/ai-content-disclosure"
+          >original proposal</a
+        >, restructured as a W3C Community Group Report.
+      </p>
+      <p>
+        Comments and feedback are welcome via
+        <a href="https://github.com/w3c-cg/ai-content-disclosure/issues"
+          >GitHub issues</a
+        >
+        or the
+        <a href="mailto:public-ai-content-disclosure@w3.org"
+          >public mailing list</a
+        >.
       </p>
     </section>
-    <section data-dfn-for="Foo">
-      <h2>Start your spec!</h2>
-      <pre class="idl">
-      [Exposed=Window]
-      interface Foo {
-        attribute DOMString bar;
-        undefined doTheFoo();
-      };
-      </pre>
+
+    <!-- ============================================================ -->
+    <!-- 1. Introduction                                               -->
+    <!-- ============================================================ -->
+    <section class="informative">
+      <h2>Introduction</h2>
+
       <section>
-        <h2><dfn>bar</dfn> attribute</h2>
-        <p>When getting, the {{Foo/bar}} attribute returns you a 🍹.</p>
+        <h3>Motivation</h3>
+        <p>
+          Web pages increasingly contain text produced with varying degrees of
+          AI involvement — from light AI-assisted editing to fully autonomous
+          generation. A modern news article page might contain a human-written
+          investigation alongside an AI-generated summary sidebar and
+          AI-moderated user comments. There is currently no standard HTML
+          mechanism for authors to disclose AI involvement at element-level
+          granularity within a page.
+        </p>
+        <p>Existing approaches operate at coarser granularity:</p>
+        <ul>
+          <li>
+            <a href="https://github.com/whatwg/html/issues/9479"
+              >WHATWG HTML #9479</a
+            >
+            proposes a page-level <code>&lt;meta&gt;</code> tag with four
+            values. It does not support marking individual elements. Commenters
+            on that issue identified element-level granularity as the critical
+            missing capability.
+          </li>
+          <li>
+            The
+            <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/"
+              >IETF <code>AI-Disclosure</code> HTTP response header</a
+            >
+            applies to entire HTTP responses and cannot distinguish mixed
+            content within a page.
+          </li>
+          <li>
+            <a href="https://spec.c2pa.org/">C2PA</a> provides cryptographic
+            provenance for media files but does not support HTML text content
+            and is designed for file-level, not element-level, assertions.
+          </li>
+        </ul>
       </section>
+
       <section>
-        <h2><dfn>doTheFoo()</dfn> method</h2>
-        <p>When called, {{Foo/doTheFoo()}} MUST behave as follows:</p>
-        <ol class="algorithm">
-          <li>If <var>thing</var>....</li>
-          <li>Let <var>someProp</var>... of the [[DOM]] spec.</li>
+        <h3>Regulatory context</h3>
+        <p>
+          The
+          <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+            >EU AI Act Article 50</a
+          >
+          (effective August 2026) requires that AI-generated text content be
+          "marked in a machine-readable format and detectable as artificially
+          generated or manipulated." Major platforms already require AI
+          disclosure in their policies. A standard mechanism at the HTML layer
+          can serve both regulatory compliance and voluntary transparency.
+        </p>
+      </section>
+
+      <section>
+        <h3>Design goals</h3>
+        <ol>
+          <li>
+            Enable authors to declare AI involvement at
+            <strong>element-level granularity</strong> in HTML.
+          </li>
+          <li>
+            Provide a <strong>machine-readable signal</strong> usable by
+            browsers, search engines, accessibility tools, and research
+            crawlers.
+          </li>
+          <li>
+            <strong>Align with existing vocabularies</strong> — specifically the
+            IETF <code>AI-Disclosure</code> header and
+            <a href="https://cv.iptc.org/newscodes/digitalsourcetype/"
+              >IPTC Digital Source Type</a
+            >
+            taxonomy — for cross-standard consistency.
+          </li>
+          <li>
+            <strong>Complement</strong> (not replace) HTTP-level and
+            cryptographic provenance mechanisms.
+          </li>
         </ol>
       </section>
     </section>
-    <section id='conformance'>
-      <!-- This section is filled automatically by ReSpec. -->
+
+    <!-- ============================================================ -->
+    <!-- 2. Terminology                                                -->
+    <!-- ============================================================ -->
+    <section>
+      <h2>Terminology</h2>
+      <p>
+        The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+        "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+        document are to be interpreted as described in
+        <a href="https://www.rfc-editor.org/rfc/rfc2119">BCP 14</a>
+        [[RFC2119]] [[RFC8174]] when, and only when, they appear in ALL
+        CAPITALS, as shown here.
+      </p>
+      <dl>
+        <dt><dfn>AI disclosure</dfn></dt>
+        <dd>
+          A declaration by the content author indicating the degree of AI
+          involvement in producing a piece of content.
+        </dd>
+        <dt><dfn>disclosure value</dfn></dt>
+        <dd>
+          One of the enumerated values defined in
+          <a href="#disclosure-values">Disclosure values</a>: <code>none</code>,
+          <code>ai-assisted</code>, <code>ai-generated</code>, or
+          <code>autonomous</code>.
+        </dd>
+        <dt><dfn>page-level default</dfn></dt>
+        <dd>
+          The <a>disclosure value</a> set by a
+          <code>&lt;meta name="ai-disclosure"&gt;</code> element, which applies
+          to all elements in the document unless overridden.
+        </dd>
+        <dt><dfn>generative AI</dfn></dt>
+        <dd>
+          Systems trained on data that produce novel outputs through inference,
+          as opposed to deterministic tools that apply fixed rules. See
+          <a href="#boundary-guidance">Boundary guidance</a> for detailed
+          guidance.
+        </dd>
+      </dl>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 3. The ai-disclosure attribute                                -->
+    <!-- ============================================================ -->
+    <section>
+      <h2>The <code>ai-disclosure</code> attribute</h2>
+
+      <section>
+        <h3>Attribute definition</h3>
+        <p>
+          The
+          <code><dfn data-dfn-type="element-attr">ai-disclosure</dfn></code>
+          attribute is a
+          <a
+            href="https://html.spec.whatwg.org/multipage/dom.html#global-attributes"
+            >global attribute</a
+          >
+          that MAY appear on any [^HTML element^]. Its value MUST be one of the
+          <a>disclosure values</a> defined below.
+        </p>
+        <p>
+          User agents MUST treat the <em>absence</em> of the
+          <code>ai-disclosure</code> attribute as meaning "unknown" — that is,
+          no assertion has been made about AI involvement. This is distinct from
+          a value of <code>none</code>, which is a positive assertion that no AI
+          was involved.
+        </p>
+      </section>
+
+      <section id="disclosure-values">
+        <h3>Disclosure values</h3>
+        <p>
+          The <code>ai-disclosure</code> attribute accepts the following
+          enumerated values, aligned with the
+          <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/"
+            >IETF <code>AI-Disclosure</code> header</a
+          >
+          and the
+          <a href="https://cv.iptc.org/newscodes/digitalsourcetype/"
+            >IPTC Digital Source Type</a
+          >
+          vocabulary:
+        </p>
+        <table class="simple">
+          <thead>
+            <tr>
+              <th>Value</th>
+              <th>Meaning</th>
+              <th>IETF equivalent</th>
+              <th>IPTC Digital Source Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <dfn><code>none</code></dfn>
+              </td>
+              <td>No AI involvement in producing this content.</td>
+              <td><code>none</code></td>
+              <td><code>digitalCapture</code></td>
+            </tr>
+            <tr>
+              <td>
+                <dfn><code>ai-assisted</code></dfn>
+              </td>
+              <td>
+                Human-authored content that was edited, refined, or enhanced
+                using AI tools.
+              </td>
+              <td><code>ai-modified</code></td>
+              <td><code>compositeWithTrainedAlgorithmicMedia</code></td>
+            </tr>
+            <tr>
+              <td>
+                <dfn><code>ai-generated</code></dfn>
+              </td>
+              <td>
+                Content generated by AI from human prompting and/or with human
+                review before publication.
+              </td>
+              <td><code>ai-originated</code></td>
+              <td><code>trainedAlgorithmicMedia</code></td>
+            </tr>
+            <tr>
+              <td>
+                <dfn><code>autonomous</code></dfn>
+              </td>
+              <td>
+                Content generated by AI without per-instance human prompting or
+                oversight.
+              </td>
+              <td><code>machine-generated</code></td>
+              <td><code>trainedAlgorithmicMedia</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          If the <code>ai-disclosure</code> attribute is present but its value
+          is not one of the above, user agents MUST treat it as invalid and
+          behave as if the attribute were absent (i.e., "unknown").
+        </p>
+      </section>
+
+      <section id="boundary-guidance">
+        <h3>Boundary guidance ("What counts as AI?")</h3>
+        <p>
+          The boundary is <a>generative AI</a> — systems trained on data that
+          produce novel outputs through inference. Deterministic tools that
+          apply fixed rules are not covered.
+        </p>
+        <p>The following categories provide guidance for authors:</p>
+        <p><strong>Not AI</strong> (no disclosure needed):</p>
+        <ul>
+          <li>Deterministic spell-check (dictionary lookup)</li>
+          <li>Thesaurus / synonym suggestions</li>
+          <li>Search engines used for research</li>
+          <li>Calculators and formula solvers</li>
+          <li>Template-based mail merge</li>
+        </ul>
+        <p>
+          <strong><code>ai-assisted</code></strong
+          >:
+        </p>
+        <ul>
+          <li>LLM-based grammar and style tools (e.g., Grammarly AI)</li>
+          <li>AI summarization of human-written text</li>
+          <li>
+            AI-powered translation (e.g., DeepL, Google Translate neural mode)
+          </li>
+          <li>AI rewriting of human-provided drafts</li>
+        </ul>
+        <p>
+          <strong><code>ai-generated</code></strong
+          >:
+        </p>
+        <ul>
+          <li>LLM-generated drafts from human prompts</li>
+          <li>AI expanding bullet points into prose</li>
+          <li>
+            Chatbot-generated responses with human review before publication
+          </li>
+        </ul>
+        <p>
+          <strong><code>autonomous</code></strong
+          >:
+        </p>
+        <ul>
+          <li>Agent-generated content without per-instance human prompting</li>
+          <li>
+            Automated reporting systems (weather, sports scores, financial
+            summaries)
+          </li>
+          <li>
+            Content produced by persistent AI agents with standing instructions
+          </li>
+        </ul>
+      </section>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 4. The <meta name="ai-disclosure"> element                    -->
+    <!-- ============================================================ -->
+    <section>
+      <h2>The <code>&lt;meta name="ai-disclosure"&gt;</code> element</h2>
+
+      <section>
+        <h3>Syntax</h3>
+        <p>
+          A <code>&lt;meta&gt;</code> element with
+          <code>name="ai-disclosure"</code> sets the
+          <a>page-level default</a> for the document. The
+          <code>content</code> attribute MUST contain a valid
+          <a>disclosure value</a> or the value <code>mixed</code>.
+        </p>
+        <pre class="example html">
+&lt;meta name="ai-disclosure" content="ai-assisted"&gt;
+        </pre>
+        <p>
+          There MUST NOT be more than one
+          <code>&lt;meta name="ai-disclosure"&gt;</code> element per document.
+          If more than one is present, user agents MUST use the first one in
+          document order and ignore the rest.
+        </p>
+      </section>
+
+      <section>
+        <h3>The <code>mixed</code> value</h3>
+        <p>
+          The value <dfn><code>mixed</code></dfn> is valid only on the
+          <code>&lt;meta name="ai-disclosure"&gt;</code> element, not on the
+          <code>ai-disclosure</code> attribute on other elements. It signals
+          that the page contains sections with different levels of AI
+          involvement and that consumers SHOULD inspect element-level
+          <code>ai-disclosure</code> attributes for detail.
+        </p>
+        <pre class="example html">
+&lt;meta name="ai-disclosure" content="mixed"&gt;
+        </pre>
+        <p>
+          When the meta value is <code>mixed</code>, elements without an
+          explicit <code>ai-disclosure</code> attribute are treated as
+          "unknown."
+        </p>
+      </section>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 5. Inheritance                                                -->
+    <!-- ============================================================ -->
+    <section>
+      <h2>Inheritance</h2>
+
+      <section>
+        <h3>Cascading rules</h3>
+        <p>
+          The <code>ai-disclosure</code> value for a given element is determined
+          as follows, in order of priority:
+        </p>
+        <ol class="algorithm">
+          <li>
+            If the element has an explicit <code>ai-disclosure</code> attribute
+            with a valid value, that value applies.
+          </li>
+          <li>
+            Otherwise, if the element has an ancestor with an explicit
+            <code>ai-disclosure</code> attribute, the value of the nearest such
+            ancestor applies.
+          </li>
+          <li>
+            Otherwise, if a
+            <code>&lt;meta name="ai-disclosure"&gt;</code> element is present
+            with a value other than <code>mixed</code>, that value applies as
+            the <a>page-level default</a>.
+          </li>
+          <li>Otherwise, the element's disclosure status is "unknown."</li>
+        </ol>
+        <p>
+          Child elements MAY override their parent's value by specifying their
+          own <code>ai-disclosure</code> attribute. This allows authors to mark
+          fine-grained regions within a larger container.
+        </p>
+      </section>
+
+      <section>
+        <h3>Absence vs. <code>none</code></h3>
+        <p>
+          The absence of the <code>ai-disclosure</code> attribute means
+          "unknown" — no assertion has been made. The value <code>none</code> is
+          a <em>positive assertion</em> that no <a>generative AI</a> was
+          involved in producing the content.
+        </p>
+        <p>
+          Authors SHOULD use <code>ai-disclosure="none"</code> explicitly when
+          they wish to assert human-only provenance.
+        </p>
+      </section>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 6. Optional metadata attributes                               -->
+    <!-- ============================================================ -->
+    <section>
+      <h2>Optional metadata attributes</h2>
+      <p>
+        The following attributes MAY appear on any element that also carries an
+        <code>ai-disclosure</code> attribute. They provide supplementary
+        information about the AI system used. All are OPTIONAL — authors may
+        have legitimate reasons not to disclose specific tools or providers.
+      </p>
+
+      <section>
+        <h3>
+          <code><dfn data-dfn-type="element-attr">ai-model</dfn></code>
+        </h3>
+        <p>
+          A free-form string identifying the AI model used (e.g.,
+          <code>"claude-3.5-sonnet"</code>, <code>"gpt-4o"</code>).
+        </p>
+        <p>
+          This attribute SHOULD NOT be present when
+          <code>ai-disclosure="none"</code>.
+        </p>
+      </section>
+
+      <section>
+        <h3>
+          <code><dfn data-dfn-type="element-attr">ai-provider</dfn></code>
+        </h3>
+        <p>
+          A free-form string identifying the AI provider or vendor (e.g.,
+          <code>"Anthropic"</code>, <code>"OpenAI"</code>).
+        </p>
+        <p>
+          This attribute SHOULD NOT be present when
+          <code>ai-disclosure="none"</code>.
+        </p>
+      </section>
+
+      <section>
+        <h3>
+          <code><dfn data-dfn-type="element-attr">ai-prompt-url</dfn></code>
+        </h3>
+        <p>
+          A [^URL^] pointing to documentation of the prompt or methodology used
+          to generate the content (e.g.,
+          <code>"/ai-methodology#summary"</code>).
+        </p>
+        <p>
+          The prompt text itself MUST NOT be embedded in the HTML. This
+          attribute links to an external resource, giving authors control over
+          what they disclose and when they revoke access.
+        </p>
+        <p>
+          This attribute SHOULD NOT be present when
+          <code>ai-disclosure="none"</code>.
+        </p>
+      </section>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 7. Relationship to HTTP headers                               -->
+    <!-- ============================================================ -->
+    <section class="informative">
+      <h2>Relationship to HTTP headers</h2>
+      <p>
+        The
+        <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/"
+          >IETF <code>AI-Disclosure</code> HTTP response header</a
+        >
+        provides disclosure at the HTTP response level. The HTML mechanisms
+        defined in this specification complement it by adding page-level and
+        element-level granularity.
+      </p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>Mechanism</th>
+            <th>Granularity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HTTP</td>
+            <td><code>AI-Disclosure</code> response header</td>
+            <td>Entire response</td>
+          </tr>
+          <tr>
+            <td>HTML page</td>
+            <td><code>&lt;meta name="ai-disclosure"&gt;</code></td>
+            <td>Entire document</td>
+          </tr>
+          <tr>
+            <td>HTML element</td>
+            <td><code>ai-disclosure</code> attribute</td>
+            <td>Any element</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        These layers are complementary. A CDN or reverse proxy can set the HTTP
+        header; a CMS can set the meta tag; an author or AI tool can set
+        element-level attributes. None supersedes the others.
+      </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 8. Use cases and examples                                     -->
+    <!-- ============================================================ -->
+    <section class="informative">
+      <h2>Use cases and examples</h2>
+
+      <section>
+        <h3>Mixed-content news page</h3>
+        <p>
+          A newsroom publishes an investigative piece with a human-written
+          article and an AI-generated summary:
+        </p>
+        <pre class="example html">
+&lt;meta name="ai-disclosure" content="mixed"&gt;
+
+&lt;article ai-disclosure="none"&gt;
+  &lt;h1&gt;Exclusive: City Budget Shortfall&lt;/h1&gt;
+  &lt;p&gt;After six months of records review...&lt;/p&gt;
+&lt;/article&gt;
+
+&lt;aside ai-disclosure="ai-generated"
+       ai-model="gpt-4o" ai-provider="OpenAI"&gt;
+  &lt;h3&gt;Key Takeaways (AI-Generated)&lt;/h3&gt;
+  &lt;ul&gt;&lt;li&gt;$4.2M discrepancy found...&lt;/li&gt;&lt;/ul&gt;
+&lt;/aside&gt;
+        </pre>
+      </section>
+
+      <section>
+        <h3>AI-edited blog post</h3>
+        <p>
+          A blogger writes a post and uses an LLM for grammar, style, and
+          clarity improvements:
+        </p>
+        <pre class="example html">
+&lt;meta name="ai-disclosure" content="ai-assisted"&gt;
+
+&lt;article ai-disclosure="ai-assisted"
+         ai-model="claude-3.5-sonnet" ai-provider="Anthropic"&gt;
+  &lt;h1&gt;My Trip to Kyoto&lt;/h1&gt;
+  &lt;p&gt;The bamboo grove felt otherworldly at dawn...&lt;/p&gt;
+&lt;/article&gt;
+        </pre>
+      </section>
+
+      <section>
+        <h3>Automated weather feed</h3>
+        <p>
+          An automated system generates weather reports without per-instance
+          human oversight:
+        </p>
+        <pre class="example html">
+&lt;meta name="ai-disclosure" content="autonomous"&gt;
+
+&lt;div ai-disclosure="autonomous"
+     ai-model="weather-llm-v2" ai-provider="WeatherCorp"&gt;
+  &lt;h2&gt;San Francisco Bay Area Forecast&lt;/h2&gt;
+  &lt;p&gt;Expect fog clearing by noon with highs near 62&deg;F...&lt;/p&gt;
+&lt;/div&gt;
+        </pre>
+      </section>
+
+      <section>
+        <h3>Human-only assertion</h3>
+        <p>A literary journal positively asserts that no AI was used:</p>
+        <pre class="example html">
+&lt;meta name="ai-disclosure" content="none"&gt;
+
+&lt;article ai-disclosure="none"&gt;
+  &lt;h1&gt;The Weight of Feathers&lt;/h1&gt;
+  &lt;p&gt;She found the letter tucked inside a volume of Neruda...&lt;/p&gt;
+&lt;/article&gt;
+        </pre>
+        <p>
+          Note: <code>ai-disclosure="none"</code> is a positive assertion. The
+          <em>absence</em> of the attribute means "unknown," not "none."
+        </p>
+      </section>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 9. Cross-standard alignment                                   -->
+    <!-- ============================================================ -->
+    <section class="informative">
+      <h2>Cross-standard alignment</h2>
+      <p>
+        This specification is designed to complement existing standards for
+        content provenance and AI transparency. The layers work together without
+        duplicating each other's responsibilities.
+      </p>
+
+      <section>
+        <h3>IETF <code>AI-Disclosure</code> header</h3>
+        <p>
+          The
+          <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/"
+            >IETF <code>AI-Disclosure</code> header</a
+          >
+          provides response-level disclosure. The HTML attribute values are
+          aligned with the IETF header modes:
+        </p>
+        <table class="simple">
+          <thead>
+            <tr>
+              <th><code>ai-disclosure</code> value</th>
+              <th>IETF header mode</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>none</code></td>
+              <td><code>none</code></td>
+            </tr>
+            <tr>
+              <td><code>ai-assisted</code></td>
+              <td><code>ai-modified</code></td>
+            </tr>
+            <tr>
+              <td><code>ai-generated</code></td>
+              <td><code>ai-originated</code></td>
+            </tr>
+            <tr>
+              <td><code>autonomous</code></td>
+              <td><code>machine-generated</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3>IPTC Digital Source Type</h3>
+        <p>
+          The
+          <a href="https://cv.iptc.org/newscodes/digitalsourcetype/"
+            >IPTC Digital Source Type</a
+          >
+          vocabulary is widely used in news media. The following mapping aligns
+          the HTML attribute values with IPTC terms:
+        </p>
+        <table class="simple">
+          <thead>
+            <tr>
+              <th><code>ai-disclosure</code> value</th>
+              <th>IPTC Digital Source Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>none</code></td>
+              <td><code>digitalCapture</code></td>
+            </tr>
+            <tr>
+              <td><code>ai-assisted</code></td>
+              <td><code>compositeWithTrainedAlgorithmicMedia</code></td>
+            </tr>
+            <tr>
+              <td><code>ai-generated</code></td>
+              <td><code>trainedAlgorithmicMedia</code></td>
+            </tr>
+            <tr>
+              <td><code>autonomous</code></td>
+              <td><code>trainedAlgorithmicMedia</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3>Schema.org / JSON-LD</h3>
+        <p>
+          For search engine discoverability, the same information can be
+          expressed as structured data using a proposed
+          <code>aiDisclosure</code>
+          property (see
+          <a href="https://github.com/schemaorg/schemaorg/issues/3391"
+            >schemaorg/schemaorg#3391</a
+          >):
+        </p>
+        <pre class="example json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Investigation: City Budget Shortfall",
+  "author": { "@type": "Person", "name": "Jane Doe" },
+  "aiDisclosure": "ai-assisted"
+}
+        </pre>
+        <p>An expanded form supports optional metadata:</p>
+        <pre class="example json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Investigation: City Budget Shortfall",
+  "author": { "@type": "Person", "name": "Jane Doe" },
+  "aiDisclosure": {
+    "level": "ai-assisted",
+    "tool": "Claude 3.5 Sonnet",
+    "provider": "Anthropic",
+    "description": "AI used for copy editing and fact-checking assistance",
+    "methodologyUrl": "https://example.com/ai-methodology"
+  }
+}
+        </pre>
+      </section>
+
+      <section>
+        <h3>C2PA</h3>
+        <p>
+          <a href="https://spec.c2pa.org/">C2PA</a> provides cryptographic,
+          tamper-evident provenance for media files. HTML pages are dynamically
+          assembled from templates, databases, and user input — they are not
+          single files with stable hashes. C2PA and this specification are
+          complementary: C2PA provides verified provenance for embedded media,
+          while <code>ai-disclosure</code> provides advisory metadata for HTML
+          text content.
+        </p>
+      </section>
+
+      <section>
+        <h3>IBM AI Attribution Toolkit</h3>
+        <p>
+          The
+          <a href="https://aiattribution.github.io/create-attribution"
+            >IBM AI Attribution Toolkit</a
+          >
+          is a research prototype for structured AI attribution statements via
+          human self-reporting. It uses a multi-axis model (proportion,
+          contribution type, initiative, human review) compared to this
+          specification's single-axis model. The approaches are complementary:
+          the toolkit addresses the "author guidance" layer, while this
+          specification addresses the "machine-readable metadata" layer.
+        </p>
+      </section>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 10. Security considerations                                   -->
+    <!-- ============================================================ -->
+    <section class="informative">
+      <h2>Security considerations</h2>
+      <p>
+        The <code>ai-disclosure</code> attribute is voluntary, author-declared
+        metadata. It carries no integrity protection. For verified provenance,
+        pair with <a href="https://spec.c2pa.org/">C2PA</a> or similar
+        cryptographic systems.
+      </p>
+      <p>
+        The voluntary nature means the attribute cannot be relied upon for
+        security decisions, the same as any self-declared metadata
+        (<code>robots.txt</code>, <code>rel=nofollow</code>, Schema.org markup).
+      </p>
+      <p>
+        No new information about the user (reader) is exposed. The attribute
+        describes the content, not the person viewing it. No new fingerprinting
+        surface is introduced — the attribute is author-declared metadata, not a
+        browser API.
+      </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 11. Privacy considerations                                    -->
+    <!-- ============================================================ -->
+    <section class="informative">
+      <h2>Privacy considerations</h2>
+      <p>
+        The <code>ai-model</code> and <code>ai-provider</code> attributes are
+        OPTIONAL to avoid requiring disclosure of trade secrets or proprietary
+        tooling.
+      </p>
+      <p>
+        Prompt text MUST NOT be embedded directly in HTML. The
+        <code>ai-prompt-url</code> attribute links to an external resource,
+        giving authors control over what they disclose and when they revoke
+        access.
+      </p>
+      <p>
+        This specification does not introduce any mechanisms that allow tracking
+        of users or collection of personal data.
+      </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 12. Accessibility considerations                              -->
+    <!-- ============================================================ -->
+    <section class="informative">
+      <h2>Accessibility considerations</h2>
+      <p>
+        Browsers and screen readers could optionally announce AI disclosure to
+        users (e.g., "AI-generated content follows"). The
+        <code>ai-disclosure</code> attribute SHOULD be exposed via the
+        <a href="https://wicg.github.io/aom/">Accessibility Object Model</a>.
+      </p>
+      <p>
+        No change to existing content rendering is required — the attribute is
+        purely informational. The attribute may be useful for accessibility
+        research into how AI-generated content affects comprehension for users
+        with cognitive disabilities.
+      </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 13. Internationalization considerations                       -->
+    <!-- ============================================================ -->
+    <section class="informative">
+      <h2>Internationalization considerations</h2>
+      <p>
+        The attribute values (<code>none</code>, <code>ai-assisted</code>,
+        <code>ai-generated</code>, <code>autonomous</code>) are English-language
+        tokens intended for machine consumption, not display. Human-readable
+        presentation of disclosure status is a user agent responsibility and can
+        be localized.
+      </p>
+      <p>
+        The <code>ai-prompt-url</code> attribute can link to localized
+        methodology pages.
+      </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Conformance (auto-generated by ReSpec)                        -->
+    <!-- ============================================================ -->
+    <section id="conformance">
+      <p>
+        All assertions, diagrams, examples, and notes in this specification are
+        non-normative. Everything else is normative.
+      </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Acknowledgements                                              -->
+    <!-- ============================================================ -->
+    <section class="informative" id="acknowledgements">
+      <h2>Acknowledgements</h2>
+      <p>
+        The editors thank the participants of the
+        <a href="https://www.w3.org/community/ai-content-disclosure/"
+          >AI Content Disclosure Community Group</a
+        >
+        for their contributions and feedback.
+      </p>
+      <p>
+        This specification builds on the
+        <a href="https://github.com/dweekly/ai-content-disclosure"
+          >original proposal</a
+        >
+        and incorporates ideas from the
+        <a href="https://github.com/whatwg/html/issues/9479"
+          >WHATWG HTML #9479</a
+        >
+        discussion, the
+        <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/"
+          >IETF <code>AI-Disclosure</code> header draft</a
+        >, and the
+        <a href="https://cv.iptc.org/newscodes/digitalsourcetype/"
+          >IPTC Digital Source Type</a
+        >
+        vocabulary.
+      </p>
     </section>
   </body>
 </html>
