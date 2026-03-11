@@ -17,9 +17,11 @@
 - Alexander Dawson
 - Pierre-Antoine Champin
 
+**Presentation:** [W3C AI Content Disclosure](https://docs.google.com/presentation/d/1Q8zpjz1SWqxh3CYkHG7R9IdkJiETbe6ELjmvr-nnUoM/edit) (public-visible)
+
 ### Summary
 
-First presentation of the AI Content Disclosure standard to the W3C Web AI Working Group. The standard was overall well received by the group, with substantive discussion on accessibility, use case documentation, incentives for adoption, JSON-LD integration, and the distinction between generative AI and deterministic programmatic content.
+First presentation of the AI Content Disclosure standard to the W3C Web AI Working Group. The standard was overall well received by the group, with substantive discussion on accessibility, use case documentation, incentives for adoption, JSON-LD integration, and the distinction between generative AI and deterministic programmatic content. IBM's AI Attribution Toolkit was also noted as a related effort for the first time.
 
 ### Discussion
 
@@ -47,6 +49,10 @@ Alexander asked whether the standard could be used for schema. David pointed out
 
 Alexander also asked about annotation of outbound links. David noted it might be difficult to reconcile a link tagged with one degree of AI involvement for the target and the target's own self-identification. David suggested that a browser could perform a speculative fetch of the target content to determine its AI "nutrition label" and decide how to display links to such material, without the link author needing to do anything themselves.
 
+#### IBM AI Attribution Toolkit (noted in meeting)
+
+IBM's [AI Attribution Toolkit](https://aiattribution.github.io/create-attribution) ([source](https://github.com/aiattribution/aiattribution.github.io)) was noted for the first time in this meeting as a related effort. The toolkit is a research prototype that guides creators through structured reflection prompts to produce standardized attribution statements documenting how generative AI contributed to their work. It centers on human judgment and self-reporting rather than automated detection, drawing inspiration from Creative Commons licenses and the CRediT contributor taxonomy. Licensed under Apache 2.0.
+
 #### Deterministic vs generative programmatic content (Pierre-Antoine Champin)
 
 Pierre-Antoine pointed out that some programmatically generated content is not from generative AI — for example, deterministic output like sensor readings — and wanted to distinguish this from non-deterministic generative AI output. The standard does not currently make this distinction; both would fall under `autonomous` since they had not been reviewed by a human. This is a potential area for improvement that would require further discussion and refinement.
@@ -56,3 +62,4 @@ Pierre-Antoine pointed out that some programmatically generated content is not f
 - [ ] Create example use case documents distinguishing `ai-assisted` from `ai-generated` (per Max Gendler's request)
 - [ ] Better highlight JSON-LD integration in the current proposal (per Alexander Dawson's feedback)
 - [ ] Consider whether the vocabulary should distinguish deterministic programmatic content from generative AI output (per Pierre-Antoine Champin's feedback)
+- [ ] Evaluate IBM's AI Attribution Toolkit for alignment opportunities and add to related efforts documentation

@@ -28,6 +28,8 @@ The spec intentionally complements (not duplicates) work in:
 - **IPTC** Digital Source Type vocabulary
 - **Schema.org** `aiDisclosure` structured data
 - **C2PA** cryptographic media provenance
+- **IBM AI Attribution Toolkit** ([site](https://aiattribution.github.io/create-attribution), [source](https://github.com/aiattribution/aiattribution.github.io)) — research prototype for structured AI attribution statements via human self-reporting
+- **WHATWG** HTML issue [#9479](https://github.com/whatwg/html/issues/9479) — page-level `<meta>` tag only
 
 ## Conventions
 
