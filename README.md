@@ -5,6 +5,10 @@
 
 This is the repository of the [AI Content Disclosure Community Group](https://www.w3.org/community/ai-content-disclosure/).
 
+## Background
+
+This specification builds on the original proposal at [dweekly/ai-content-disclosure](https://github.com/dweekly/ai-content-disclosure), which provides a comprehensive explainer covering the attribute design, inheritance rules, vocabulary, use cases, cross-standard alignment tables, privacy/security/accessibility considerations, and legislative context. The explainer follows the [W3C Explainer format](https://www.w3.org/TR/explainer-explainer/) and serves as the non-normative companion to this spec.
+
 ## Charter
 
 The group's charter is available at [charter.md](charter.md).
