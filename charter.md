@@ -4,7 +4,7 @@
 |---|---|
 | **This Charter** | https://github.com/w3c-cg/ai-content-disclosure/blob/main/charter.md |
 | **Start Date** | 2026-02-03 |
-| **Last Modified** | 2026-02-23 |
+| **Last Modified** | 2026-05-11 |
 
 ## Goals
 
@@ -22,7 +22,7 @@ The group intends to produce a Community Group Report suitable for adoption by a
 
 1. **HTML disclosure attributes.** A global `ai-disclosure` attribute on any HTML element, a `<meta name="ai-disclosure">` tag for page-level declaration, optional metadata attributes (model, provider, methodology URL), and rules for how values inherit from parent to child elements.
 
-2. **Disclosure vocabulary.** A set of values (such as `none`, `ai-assisted`, `ai-generated`, `autonomous`) with boundary guidance on what falls into each category. The vocabulary should align with existing taxonomies (IETF, IPTC) where practical.
+2. **Disclosure vocabulary.** A set of values (such as `none`, `ai-assisted`, `ai-generated`, `ai-autonomous`) with boundary guidance on what falls into each category. The vocabulary should align with existing taxonomies (IETF, IPTC) where practical.
 
 3. **Cross-standard coordination.** How the HTML-level disclosure relates to the IETF `AI-Disclosure` HTTP response header, IPTC Digital Source Type vocabulary, Schema.org structured data, and C2PA cryptographic provenance. The layers should complement each other without duplicating work.
 
@@ -92,7 +92,7 @@ The group may produce:
 - **GitHub:** [w3c-cg/ai-content-disclosure](https://github.com/w3c-cg/ai-content-disclosure) (issues and pull requests)
 - **Mailing list:** [public-ai-content-disclosure@w3.org](mailto:public-ai-content-disclosure@w3.org) ([archive](https://lists.w3.org/Archives/Public/public-ai-content-disclosure/))
 - **IRC:** [#ai-content-disclosure](irc://irc.w3.org:6667/#ai-content-disclosure) on irc.w3.org
-- **Teleconferences:** Monthly, with agendas posted at least 24 hours before each call. Meeting minutes are published in the repository under [`minutes/`](https://github.com/w3c-cg/ai-content-disclosure/tree/main/minutes).
+- **Teleconferences:** Monthly on Mondays at 09:00 Pacific (12:00 Eastern, 17:00 London), with the specific date announced per meeting. Agendas are posted at least 24 hours before each call. Meeting minutes are published in the repository under [`minutes/`](https://github.com/w3c-cg/ai-content-disclosure/tree/main/minutes).
 
 ## Community and Business Group Process
 
