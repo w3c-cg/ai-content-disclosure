@@ -63,7 +63,7 @@ No new mechanism proposals today. Current draft (`ai-disclosure` attribute + `<m
 
 ### Next steps and scheduling
 
-- Meeting cadence: **monthly on Mondays at 09:00 Pacific (12:00 Eastern, 17:00 London)**. Charter updated accordingly.
+- Meeting cadence: **the second Monday of each month at 09:00 Pacific (12:00 Eastern, 17:00 London)**. Charter updated accordingly.
 - **Next meeting: Monday, 8 June 2026** at 09:00 Pacific. Calendar invites to be sent to the public mailing list. Attendees are asked to mark their calendars.
 
 ### Action items

@@ -92,7 +92,7 @@ The group may produce:
 - **GitHub:** [w3c-cg/ai-content-disclosure](https://github.com/w3c-cg/ai-content-disclosure) (issues and pull requests)
 - **Mailing list:** [public-ai-content-disclosure@w3.org](mailto:public-ai-content-disclosure@w3.org) ([archive](https://lists.w3.org/Archives/Public/public-ai-content-disclosure/))
 - **IRC:** [#ai-content-disclosure](irc://irc.w3.org:6667/#ai-content-disclosure) on irc.w3.org
-- **Teleconferences:** Monthly on Mondays at 09:00 Pacific (12:00 Eastern, 17:00 London), with the specific date announced per meeting. Agendas are posted at least 24 hours before each call. Meeting minutes are published in the repository under [`minutes/`](https://github.com/w3c-cg/ai-content-disclosure/tree/main/minutes).
+- **Teleconferences:** The second Monday of each month at 09:00 Pacific (12:00 Eastern, 17:00 London). Agendas are posted at least 24 hours before each call. Meeting minutes are published in the repository under [`minutes/`](https://github.com/w3c-cg/ai-content-disclosure/tree/main/minutes).
 
 ## Community and Business Group Process
 
