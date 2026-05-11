@@ -9,7 +9,7 @@ Attendees:
 - David Weekly (co-chair)
 - Doğu Abaris (co-chair)
 - Chris Marstall
-- Sydney Cohen
+- Sydney Cohen (Applied Ontologist, Johns Hopkins Applied Physics Laboratory)
 - David Condrey (C2PA)
 
 ### Agenda review
