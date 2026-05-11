@@ -10,7 +10,7 @@ Attendees:
 - Doğu Abaris (co-chair)
 - Chris Marstall
 - Sydney Cohen
-- David Condrey
+- David Condrey (C2PA)
 
 ### Agenda review
 
