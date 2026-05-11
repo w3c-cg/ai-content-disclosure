@@ -54,7 +54,7 @@ No new mechanism proposals today. Current draft (`ai-disclosure` attribute + `<m
 
 ### Outreach
 
-**UL (Underwriters Laboratories)** is reportedly engaging in AI safety specifications and is likely to be interested in this group's work. David to reach out and invite participation.
+**UL (Underwriters Laboratories)** is reportedly engaging in AI safety specifications and is likely to be interested in this group's work. Sydney to reach out and invite participation.
 
 ### Working modes
 
@@ -68,7 +68,7 @@ No new mechanism proposals today. Current draft (`ai-disclosure` attribute + `<m
 
 ### Action items
 
-- [ ] David: outreach to UL re: AI safety specs and CG participation.
+- [ ] Sydney: outreach to UL re: AI safety specs and CG participation.
 - [ ] Chairs: send calendar invite for 8 June 2026 to the public mailing list.
 - [ ] File GitHub issues for the two boundary cases (DB-query / sensor content; unreviewed machine translation).
 
