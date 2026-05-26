@@ -44,8 +44,8 @@
         to declare the degree of AI involvement in web content at both page
         level and element level. It also defines optional metadata attributes
         (<code>ai-model</code>, <code>ai-provider</code>,
-        <code>ai-prompt-url</code>) for supplementary information about the AI
-        systems used.
+        <code>ai-prompt-url</code>, <code>ai-evidence-url</code>) for
+        supplementary information about the AI systems used.
       </p>
     </section>
 
@@ -571,6 +571,35 @@
           ignore it and behave as if the attribute were absent.
         </p>
       </section>
+
+      <section>
+        <h3>
+          <code><dfn data-dfn-type="element-attr">ai-evidence-url</dfn></code>
+        </h3>
+        <p>
+          A [^URL^] pointing to a machine-verifiable evidence resource that
+          supports the disclosure claim — for example, a
+          <a href="https://datatracker.ietf.org/doc/draft-condrey-rats-pop-protocol/"
+            >CPOE</a
+          >
+          witness report, a
+          <a href="https://spec.c2pa.org/">C2PA</a> manifest, or a
+          <a href="https://www.w3.org/TR/vc-data-model-2.0/"
+            >Verifiable Credential</a
+          >.
+        </p>
+        <p>
+          This attribute enables authors to upgrade a voluntary disclosure to a
+          machine-verifiable claim by linking to cryptographic evidence of the
+          content creation process.
+        </p>
+        <p>
+          This attribute MAY be present on elements with any
+          <a>disclosure value</a>, including <code>none</code>, where it can
+          link to evidence of human-only authorship (e.g., a CPOE Written
+          Authorship Report).
+        </p>
+      </section>
     </section>
 
     <!-- ============================================================ -->
@@ -697,6 +726,29 @@
           Note: <code>ai-disclosure="human-only"</code> is a positive assertion.
           The <em>absence</em> of the attribute means "unknown," not
           "human-only."
+        </p>
+      </section>
+
+      <section>
+        <h3>Evidence-backed disclosure</h3>
+        <p>
+          An author links their disclosure to cryptographic evidence of human
+          authorship:
+        </p>
+        <pre class="example html">
+&lt;article ai-disclosure="none"
+         ai-evidence-url="/evidence/war-2026-05.cbor"&gt;
+  &lt;h1&gt;Analysis: Supply Chain Risks in 2026&lt;/h1&gt;
+  &lt;p&gt;After reviewing three months of shipping data...&lt;/p&gt;
+&lt;/article&gt;
+        </pre>
+        <p>
+          The <code>ai-evidence-url</code> links to a
+          <a href="https://datatracker.ietf.org/doc/draft-condrey-rats-pop-protocol/"
+            >CPOE</a
+          >
+          Written Authorship Report, enabling verifiers to confirm the
+          human-authorship claim cryptographically.
         </p>
       </section>
     </section>
