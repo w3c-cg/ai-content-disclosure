@@ -11,6 +11,7 @@ Attendees:
 - David Weekly (co-chair)
 - David Condrey (C2PA)
 - Sydney Cohen (Applied Ontologist, Johns Hopkins Applied Physics Laboratory)
+- Luke Swartz
 
 Regrets:
 - Doğu Abaris (co-chair) — absent due to a medical issue.
