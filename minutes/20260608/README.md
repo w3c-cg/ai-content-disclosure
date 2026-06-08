@@ -24,7 +24,7 @@ Regulatory landscape, standards/coordination updates, and a working discussion o
 
 ### Regulatory updates
 
-- **EU AI Act, Article 50.** The enforcement deadline for machine-readable marking of AI-generated text moved from **2 August 2026 to 2 December 2026**, giving the group more runway. (The charter's August 2026 framing should be revisited.)
+- **EU AI Act, [Article 50](https://eur-lex.europa.eu/eli/reg/2024/1689/oj).** The enforcement deadline for machine-readable marking of AI-generated text moved from **2 August 2026 to 2 December 2026**, giving the group more runway. (The charter's August 2026 framing should be revisited.)
 - **New York S.8420-A.** Requires visual/auditory disclaimers when synthetic human actors are used. Not directly applicable to textual disclosure, but a signal that regulators are leaning into mandated AI disclosure.
 - **US FTC Act, Section 5.** Requires disclosure of AI virtual influencers and fake endorsements. Again adjacent rather than textual, but part of the same regulatory direction.
 
@@ -36,7 +36,7 @@ Takeaway: there is still no existing HTML standard that meets what legislators a
 - **Schema.org.** Issue [schemaorg#3391](https://github.com/schemaorg/schemaorg/issues/3391) on expressivity for AI disclosure now cites this group's work, and is considering allowing a software application to be named as author / contributor / editor.
 - **PR [#20](../../pull/20) — author decision guide** (dcondrey). Well received; seems solid and ready to advance.
 - **PR [#21](../../pull/21) — `ai-evidence-url` attribute** (dcondrey). Merits further discussion before adoption; carried over for group input. (Related: [#13](../../issues/13).)
-- **TextSeal.** Noted as emergent work on a textual LLM watermark for provenance / distillation protection — relevant as a possible signal that a span of text was machine-authored, but out of scope for this group to own.
+- **[TextSeal](https://arxiv.org/abs/2605.12456).** Noted as emergent work on a textual LLM watermark for provenance / distillation protection — relevant as a possible signal that a span of text was machine-authored, but out of scope for this group to own.
 
 ### Disclosure levels — moving from four values to three
 
