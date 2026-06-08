@@ -12,7 +12,7 @@ A modern news article page might have a human-written investigation next to an A
 
 This Community Group will develop an HTML mechanism that lets authors disclose AI involvement at both page level and element level. The group will define a small vocabulary of disclosure values, specify how disclosure inherits through the document tree, and coordinate with related efforts at the IETF, IPTC, Schema.org, and C2PA so that HTML-level disclosure fits into the content-provenance stack.
 
-The EU AI Act (Article 50) will require machine-readable marking of AI-generated text, with transparency obligations applying from 2 December 2026, but the need goes beyond regulation. Publishers want a way to be transparent with their audiences, accessibility tools need structured authorship signals, and search engines benefit from reliable metadata about how content was produced. A standard mechanism at the HTML layer can serve all of these needs at once.
+The EU AI Act (Article 50) will require machine-readable marking of AI-generated text, with transparency obligations applying from 2 August 2026 (and a transitional period to 2 December 2026 for generative AI systems already on the EU market), but the need goes beyond regulation. Publishers want a way to be transparent with their audiences, accessibility tools need structured authorship signals, and search engines benefit from reliable metadata about how content was produced. A standard mechanism at the HTML layer can serve all of these needs at once.
 
 The group intends to produce a Community Group Report suitable for adoption by a W3C Working Group or for integration into the WHATWG HTML Living Standard.
 
