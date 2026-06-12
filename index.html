@@ -702,6 +702,204 @@
     </section>
 
     <!-- ============================================================ -->
+    <!-- 8b. Author decision guide                                     -->
+    <!-- ============================================================ -->
+    <section class="informative">
+      <h2>Author decision guide</h2>
+      <p>
+        Choosing between <a><code>ai-assisted</code></a> and
+        <a><code>ai-generated</code></a> can be difficult. The following
+        decision tree and scenarios provide guidance. The core question is:
+        <strong>who held the pen?</strong>
+      </p>
+
+      <div class="note" title="Open question: which model governs?">
+        <p>
+          This guidance grades disclosure by <em>authorship effort</em>
+          ("who held the pen?"). An alternative model discussed in
+          <a href="https://github.com/w3c-cg/ai-content-disclosure/issues/14"
+            >issue&nbsp;#14</a
+          >
+          would instead grade by the <em>proportion</em> of human-authored
+          text and treat human review and accountability as a
+          <em>separate</em> attribute rather than folding it into the value.
+          The Community Group has not settled which model governs, so the
+          value boundaries below are provisional.
+        </p>
+        <p>
+          Relatedly, cases where AI produces all of the output text yet the
+          result is classed <a><code>ai-assisted</code></a> — notably machine
+          translation of a human-written source — remain unresolved and are
+          treated here by convention (see
+          <a href="#boundary-guidance">Boundary guidance</a>).
+        </p>
+      </div>
+
+      <section>
+        <h3>Decision tree</h3>
+        <ol>
+          <li>
+            <strong>Was <a>generative AI</a> involved in producing this
+            content at all?</strong>
+            <ul>
+              <li>
+                No → <a><code>none</code></a>
+              </li>
+              <li>
+                Yes → go to step 2
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Who did the substantial authoring — who held the
+            pen?</strong> Judge by authorship effort, not by who produced
+            the first keystroke (see
+            <a href="#substantial-rewrite-test">the "substantial rewrite"
+            test</a>).
+            <ul>
+              <li>
+                The human, with AI only editing, refining, or enhancing the
+                human's work → <a><code>ai-assisted</code></a>
+              </li>
+              <li>
+                The AI, with the human prompting, outlining, or lightly
+                editing → go to step 3
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Did a human review and approve the output before
+            publication?</strong>
+            <ul>
+              <li>
+                Yes → <a><code>ai-generated</code></a>
+              </li>
+              <li>
+                No (automated pipeline, standing instructions) →
+                <a><code>ai-autonomous</code></a>
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <p>
+          Some tool-style uses are classified by convention rather than by
+          this tree — for example, AI translation of a human-written source
+          is <a><code>ai-assisted</code></a>. See
+          <a href="#boundary-guidance">Boundary guidance</a>.
+        </p>
+        <p>
+          This guide covers a single piece of content. When one page combines
+          content with different disclosure values (for example, a
+          human-written article with an AI-generated summary), set the
+          <a>page-level default</a> to <a><code>mixed</code></a> and disclose
+          each part individually.
+        </p>
+      </section>
+
+      <section>
+        <h3>Scenarios</h3>
+        <table class="simple">
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>Who held the pen?</th>
+              <th>Recommended value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Author writes a blog post; uses AI for grammar and style fixes</td>
+              <td>Human</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>Author writes bullet notes; AI expands them into a polished memo</td>
+              <td>AI (from human outline)</td>
+              <td><code>ai-generated</code></td>
+            </tr>
+            <tr>
+              <td>Author dictates ideas verbally; AI structures and writes them up</td>
+              <td>AI (from human speech)</td>
+              <td><code>ai-generated</code></td>
+            </tr>
+            <tr>
+              <td>AI produces first draft from a prompt; author rewrites substantially</td>
+              <td>Human (after AI seed)</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>Author writes a first draft; AI rewrites it substantially</td>
+              <td>AI (took the pen)</td>
+              <td><code>ai-generated</code></td>
+            </tr>
+            <tr>
+              <td>AI produces first draft; author makes only minor edits</td>
+              <td>AI (human reviewed)</td>
+              <td><code>ai-generated</code></td>
+            </tr>
+            <tr>
+              <td>Human translates a document using AI translation tools</td>
+              <td>AI (human source text)</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>Automated agent publishes daily summaries from standing instructions</td>
+              <td>AI (no per-instance human input)</td>
+              <td><code>ai-autonomous</code></td>
+            </tr>
+            <tr>
+              <td>Human writes entirely without AI tools</td>
+              <td>Human</td>
+              <td><code>none</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          These are guidelines, not bright lines. The disclosure is
+          ultimately the author's honest assessment. When uncertain, authors
+          should choose the value that more fully represents AI involvement
+          — i.e., prefer <code>ai-generated</code> over
+          <code>ai-assisted</code> when the distinction is unclear.
+        </p>
+      </section>
+
+      <section id="substantial-rewrite-test">
+        <h3>The "substantial rewrite" test</h3>
+        <p>
+          When AI and a human both touch a piece — whichever drafted first —
+          the value follows <strong>whose words end up in the published
+          text</strong>, not who started:
+        </p>
+        <ul>
+          <li>
+            <strong>Minor edits</strong> to the other party's draft (fixing
+            typos, adjusting tone, correcting facts) leave the bulk of the
+            text as the drafter wrote it — the drafter held the pen.
+          </li>
+          <li>
+            <strong>Substantial rewrite</strong> of the other party's draft
+            (restructuring arguments, replacing most sentences, adding
+            original analysis) makes the reviser the author of the published
+            words — the reviser took the pen.
+          </li>
+        </ul>
+        <p>
+          So a human who lightly edits an AI draft, or whose own draft is
+          substantially rewritten by AI, ends up with mostly AI-authored text
+          → <code>ai-generated</code>. A human who writes the bulk of the
+          published words, with AI only refining them, holds the pen →
+          <code>ai-assisted</code>.
+        </p>
+        <p>
+          A useful heuristic: read the published sentences and ask
+          <em>whose words are these?</em> If most are the human's own,
+          <code>ai-assisted</code>; if most are the AI's — even when seeded by
+          a human draft, outline, or prompt — <code>ai-generated</code>.
+        </p>
+      </section>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- 9. Cross-standard alignment                                   -->
     <!-- ============================================================ -->
     <section class="informative">
