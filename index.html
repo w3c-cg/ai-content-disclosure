@@ -727,10 +727,10 @@
           value boundaries below are provisional.
         </p>
         <p>
-          Relatedly, cases where AI produces all of the output text yet the
-          result is classed <a><code>ai-assisted</code></a> — notably machine
-          translation of a human-written source — remain unresolved and are
-          treated here by convention (see
+          The group has resolved that machine translation should be split by
+          review status: unreviewed machine translation is
+          <a><code>ai-autonomous</code></a>, while reviewed/edited machine
+          translation is <a><code>ai-assisted</code></a> (see
           <a href="#boundary-guidance">Boundary guidance</a>).
         </p>
       </div>
@@ -783,8 +783,9 @@
         </ol>
         <p>
           Some tool-style uses are classified by convention rather than by
-          this tree — for example, AI translation of a human-written source
-          is <a><code>ai-assisted</code></a>. See
+          this tree — for example, reviewed machine translation is
+          <a><code>ai-assisted</code></a>, while unreviewed machine
+          translation is <a><code>ai-autonomous</code></a>. See
           <a href="#boundary-guidance">Boundary guidance</a>.
         </p>
         <p>
@@ -838,8 +839,13 @@
               <td><code>ai-generated</code></td>
             </tr>
             <tr>
-              <td>Human translates a document using AI translation tools</td>
-              <td>AI (human source text)</td>
+              <td>Unreviewed machine translation (e.g., automatic page translation)</td>
+              <td>AI (no human review)</td>
+              <td><code>ai-autonomous</code></td>
+            </tr>
+            <tr>
+              <td>Reviewed/edited machine translation (e.g., translator uses AI tool and edits output)</td>
+              <td>AI (human source text, human review)</td>
               <td><code>ai-assisted</code></td>
             </tr>
             <tr>
