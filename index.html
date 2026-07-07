@@ -328,7 +328,25 @@
           <li>Search engines used for research</li>
           <li>Calculators and formula solvers</li>
           <li>Template-based mail merge</li>
+          <li>
+            Database queries and sensor readings (e.g., "Temperature: 62°F"
+            rendered from a weather station)
+          </li>
+          <li>Deterministic rule engines and business logic</li>
+          <li>
+            Template rendering with programmatic data (e.g., stock tickers,
+            sports scoreboards, server-generated tables)
+          </li>
         </ul>
+        <p>
+          Deterministic programmatic content — output produced by fixed rules
+          from structured data without trained inference — is outside the scope
+          of this specification. The key distinction is whether a system was
+          <em>trained on data to produce novel outputs through inference</em>
+          (generative AI, in scope) or whether it applies
+          <em>fixed deterministic rules</em> to produce predictable output
+          (programmatic, out of scope).
+        </p>
         <p>
           <strong><code>ai-assisted</code></strong> (any human-plus-AI
           collaboration, from light editing to AI drafting with human review):
