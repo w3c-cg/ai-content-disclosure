@@ -4,7 +4,7 @@
 |---|---|
 | **This Charter** | https://github.com/w3c-cg/ai-content-disclosure/blob/main/charter.md |
 | **Start Date** | 2026-02-03 |
-| **Last Modified** | 2026-05-11 |
+| **Last Modified** | 2026-06-08 |
 
 ## Goals
 
@@ -12,7 +12,7 @@ A modern news article page might have a human-written investigation next to an A
 
 This Community Group will develop an HTML mechanism that lets authors disclose AI involvement at both page level and element level. The group will define a small vocabulary of disclosure values, specify how disclosure inherits through the document tree, and coordinate with related efforts at the IETF, IPTC, Schema.org, and C2PA so that HTML-level disclosure fits into the content-provenance stack.
 
-The EU AI Act (Article 50) will require machine-readable marking of AI-generated text by August 2026, but the need goes beyond regulation. Publishers want a way to be transparent with their audiences, accessibility tools need structured authorship signals, and search engines benefit from reliable metadata about how content was produced. A standard mechanism at the HTML layer can serve all of these needs at once.
+The EU AI Act (Article 50) will require machine-readable marking of AI-generated text, with transparency obligations applying from 2 August 2026 (and a transitional period to 2 December 2026 for generative AI systems already on the EU market), but the need goes beyond regulation. Publishers want a way to be transparent with their audiences, accessibility tools need structured authorship signals, and search engines benefit from reliable metadata about how content was produced. A standard mechanism at the HTML layer can serve all of these needs at once.
 
 The group intends to produce a Community Group Report suitable for adoption by a W3C Working Group or for integration into the WHATWG HTML Living Standard.
 
@@ -22,7 +22,7 @@ The group intends to produce a Community Group Report suitable for adoption by a
 
 1. **HTML disclosure attributes.** A global `ai-disclosure` attribute on any HTML element, a `<meta name="ai-disclosure">` tag for page-level declaration, optional metadata attributes (model, provider, methodology URL), and rules for how values inherit from parent to child elements.
 
-2. **Disclosure vocabulary.** A set of values (such as `none`, `ai-assisted`, `ai-generated`, `ai-autonomous`) with boundary guidance on what falls into each category. The vocabulary should align with existing taxonomies (IETF, IPTC) where practical.
+2. **Disclosure vocabulary.** A set of values (such as `human-only`, `ai-assisted`, `ai-autonomous`) with boundary guidance on what falls into each category, plus optional refinements such as an `ai-assisted-percent` figure. The vocabulary should align with existing taxonomies (IETF, IPTC) where practical.
 
 3. **Cross-standard coordination.** How the HTML-level disclosure relates to the IETF `AI-Disclosure` HTTP response header, IPTC Digital Source Type vocabulary, Schema.org structured data, and C2PA cryptographic provenance. The layers should complement each other without duplicating work.
 
