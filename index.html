@@ -707,28 +707,43 @@
     <section class="informative">
       <h2>Author decision guide</h2>
       <p>
-        Choosing between <a><code>ai-assisted</code></a> and
-        <a><code>ai-generated</code></a> can be difficult. The following
-        decision tree and scenarios provide guidance. The core question is:
-        <strong>who held the pen?</strong>
+        Once <a>generative AI</a> is involved, the choice is between
+        <a><code>ai-assisted</code></a> and <a><code>ai-autonomous</code></a>.
+        The following decision tree and scenarios provide guidance. The core
+        question is: <strong>was a human involved in producing this specific
+        content — authoring, prompting, editing, or reviewing it before
+        publication?</strong> If so, it is <code>ai-assisted</code>; content
+        published with no per-instance human involvement is
+        <code>ai-autonomous</code>.
       </p>
 
-      <div class="note" title="Open question: which model governs?">
+      <div
+        class="note"
+        title="Open question: does ai-assisted require human review?"
+      >
         <p>
-          This guidance grades disclosure by <em>authorship effort</em>
-          ("who held the pen?"). An alternative model discussed in
+          The Community Group has adopted a three-value vocabulary
+          (<a><code>human-only</code></a>, <a><code>ai-assisted</code></a>,
+          <a><code>ai-autonomous</code></a>) and deliberately does
+          <em>not</em> grade <code>ai-assisted</code> by the
+          <em>proportion</em> of human-authored text (see
           <a href="https://github.com/w3c-cg/ai-content-disclosure/issues/14"
             >issue&nbsp;#14</a
+          >). As currently defined, <code>ai-assisted</code> covers content
+          produced with human authorship <em>and/or</em> human review.
+          <a href="https://github.com/w3c-cg/ai-content-disclosure/issues/31"
+            >Issue&nbsp;#31</a
           >
-          would instead grade by the <em>proportion</em> of human-authored
-          text and treat human review and accountability as a
-          <em>separate</em> attribute rather than folding it into the value.
-          The Community Group has not settled which model governs, so the
-          value boundaries below are provisional.
+          proposes tightening this to require human <em>review</em> before
+          publication — under which AI output generated from a human prompt
+          but published unread would be <a><code>ai-autonomous</code></a>. A
+          decision is expected at the 13 July 2026 call, so the boundary
+          between <code>ai-assisted</code> and <code>ai-autonomous</code> below
+          is provisional.
         </p>
         <p>
-          The group has resolved that machine translation should be split by
-          review status: unreviewed machine translation is
+          The group has resolved that machine translation is split by review
+          status: unreviewed machine translation is
           <a><code>ai-autonomous</code></a>, while reviewed/edited machine
           translation is <a><code>ai-assisted</code></a> (see
           <a href="#boundary-guidance">Boundary guidance</a>).
@@ -743,7 +758,7 @@
             content at all?</strong>
             <ul>
               <li>
-                No → <a><code>none</code></a>
+                No → <a><code>human-only</code></a>
               </li>
               <li>
                 Yes → go to step 2
@@ -751,31 +766,16 @@
             </ul>
           </li>
           <li>
-            <strong>Who did the substantial authoring — who held the
-            pen?</strong> Judge by authorship effort, not by who produced
-            the first keystroke (see
-            <a href="#substantial-rewrite-test">the "substantial rewrite"
-            test</a>).
+            <strong>Was a human involved in producing this specific content
+            before publication — authoring part of it, prompting or outlining
+            it, editing it, or reviewing and approving the output?</strong>
             <ul>
               <li>
-                The human, with AI only editing, refining, or enhancing the
-                human's work → <a><code>ai-assisted</code></a>
+                Yes → <a><code>ai-assisted</code></a>
               </li>
               <li>
-                The AI, with the human prompting, outlining, or lightly
-                editing → go to step 3
-              </li>
-            </ul>
-          </li>
-          <li>
-            <strong>Did a human review and approve the output before
-            publication?</strong>
-            <ul>
-              <li>
-                Yes → <a><code>ai-generated</code></a>
-              </li>
-              <li>
-                No (automated pipeline, standing instructions) →
+                No (an automated pipeline running on standing instructions,
+                with no per-instance human input or oversight) →
                 <a><code>ai-autonomous</code></a>
               </li>
             </ul>
@@ -803,104 +803,55 @@
           <thead>
             <tr>
               <th>Scenario</th>
-              <th>Who held the pen?</th>
+              <th>Human involved per instance?</th>
               <th>Recommended value</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Author writes a blog post; uses AI for grammar and style fixes</td>
-              <td>Human</td>
+              <td>Yes — human authored the text</td>
               <td><code>ai-assisted</code></td>
             </tr>
             <tr>
-              <td>Author writes bullet notes; AI expands them into a polished memo</td>
-              <td>AI (from human outline)</td>
-              <td><code>ai-generated</code></td>
-            </tr>
-            <tr>
-              <td>Author dictates ideas verbally; AI structures and writes them up</td>
-              <td>AI (from human speech)</td>
-              <td><code>ai-generated</code></td>
-            </tr>
-            <tr>
-              <td>AI produces first draft from a prompt; author rewrites substantially</td>
-              <td>Human (after AI seed)</td>
+              <td>Author writes bullet notes; AI expands them into a memo the author then publishes</td>
+              <td>Yes — human prompted and reviewed</td>
               <td><code>ai-assisted</code></td>
             </tr>
             <tr>
-              <td>Author writes a first draft; AI rewrites it substantially</td>
-              <td>AI (took the pen)</td>
-              <td><code>ai-generated</code></td>
+              <td>AI produces a first draft from a prompt; author edits and approves it</td>
+              <td>Yes — human reviewed and edited</td>
+              <td><code>ai-assisted</code></td>
             </tr>
             <tr>
-              <td>AI produces first draft; author makes only minor edits</td>
-              <td>AI (human reviewed)</td>
-              <td><code>ai-generated</code></td>
+              <td>Reviewed/edited machine translation (translator uses an AI tool and edits the output)</td>
+              <td>Yes — human reviewed the output</td>
+              <td><code>ai-assisted</code></td>
             </tr>
             <tr>
               <td>Unreviewed machine translation (e.g., automatic page translation)</td>
-              <td>AI (no human review)</td>
+              <td>No — output published without human review</td>
               <td><code>ai-autonomous</code></td>
             </tr>
             <tr>
-              <td>Reviewed/edited machine translation (e.g., translator uses AI tool and edits output)</td>
-              <td>AI (human source text, human review)</td>
-              <td><code>ai-assisted</code></td>
-            </tr>
-            <tr>
               <td>Automated agent publishes daily summaries from standing instructions</td>
-              <td>AI (no per-instance human input)</td>
+              <td>No — no per-instance human input</td>
               <td><code>ai-autonomous</code></td>
             </tr>
             <tr>
               <td>Human writes entirely without AI tools</td>
-              <td>Human</td>
-              <td><code>none</code></td>
+              <td>n/a — no AI involved</td>
+              <td><code>human-only</code></td>
             </tr>
           </tbody>
         </table>
         <p>
           These are guidelines, not bright lines. The disclosure is
-          ultimately the author's honest assessment. When uncertain, authors
-          should choose the value that more fully represents AI involvement
-          — i.e., prefer <code>ai-generated</code> over
-          <code>ai-assisted</code> when the distinction is unclear.
-        </p>
-      </section>
-
-      <section id="substantial-rewrite-test">
-        <h3>The "substantial rewrite" test</h3>
-        <p>
-          When AI and a human both touch a piece — whichever drafted first —
-          the value follows <strong>whose words end up in the published
-          text</strong>, not who started:
-        </p>
-        <ul>
-          <li>
-            <strong>Minor edits</strong> to the other party's draft (fixing
-            typos, adjusting tone, correcting facts) leave the bulk of the
-            text as the drafter wrote it — the drafter held the pen.
-          </li>
-          <li>
-            <strong>Substantial rewrite</strong> of the other party's draft
-            (restructuring arguments, replacing most sentences, adding
-            original analysis) makes the reviser the author of the published
-            words — the reviser took the pen.
-          </li>
-        </ul>
-        <p>
-          So a human who lightly edits an AI draft, or whose own draft is
-          substantially rewritten by AI, ends up with mostly AI-authored text
-          → <code>ai-generated</code>. A human who writes the bulk of the
-          published words, with AI only refining them, holds the pen →
-          <code>ai-assisted</code>.
-        </p>
-        <p>
-          A useful heuristic: read the published sentences and ask
-          <em>whose words are these?</em> If most are the human's own,
-          <code>ai-assisted</code>; if most are the AI's — even when seeded by
-          a human draft, outline, or prompt — <code>ai-generated</code>.
+          ultimately the author's honest assessment. The vocabulary does not
+          grade by how much of the text the AI wrote — only by whether a human
+          was involved in producing this specific content. Where that
+          involvement is marginal (a bare prompt with no review), the open
+          question noted above may shift the boundary.
         </p>
       </section>
     </section>
