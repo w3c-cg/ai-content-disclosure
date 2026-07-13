@@ -12,6 +12,7 @@ This directory contains meeting minutes for the W3C AI Content Disclosure Commun
   - [9 March 2026](20260309/) — First presentation to W3C Web & AI Interest Group
   - [11 May 2026](20260511/) — Community Group kickoff meeting
   - [8 June 2026](20260608/) — Regulatory updates; consensus to move to three disclosure levels
+  - [13 July 2026](20260713/) — Consensus that `ai-assisted` requires human review; AI-intensity signal deferred; `ai-evidence-url` questions teed up
 
 ## Template
 Create a new folder per meeting (example: `minutes/20260212/`) and add `README.md` with the following structure:
