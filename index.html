@@ -702,6 +702,161 @@
     </section>
 
     <!-- ============================================================ -->
+    <!-- 8b. Author decision guide                                     -->
+    <!-- ============================================================ -->
+    <section class="informative">
+      <h2>Author decision guide</h2>
+      <p>
+        Once <a>generative AI</a> is involved, the choice is between
+        <a><code>ai-assisted</code></a> and <a><code>ai-autonomous</code></a>.
+        The following decision tree and scenarios provide guidance. The core
+        question is: <strong>was a human involved in producing this specific
+        content — authoring, prompting, editing, or reviewing it before
+        publication?</strong> If so, it is <code>ai-assisted</code>; content
+        published with no per-instance human involvement is
+        <code>ai-autonomous</code>.
+      </p>
+
+      <div
+        class="note"
+        title="Open question: does ai-assisted require human review?"
+      >
+        <p>
+          The Community Group has adopted a three-value vocabulary
+          (<a><code>human-only</code></a>, <a><code>ai-assisted</code></a>,
+          <a><code>ai-autonomous</code></a>) and deliberately does
+          <em>not</em> grade <code>ai-assisted</code> by the
+          <em>proportion</em> of human-authored text (see
+          <a href="https://github.com/w3c-cg/ai-content-disclosure/issues/14"
+            >issue&nbsp;#14</a
+          >). As currently defined, <code>ai-assisted</code> covers content
+          produced with human authorship <em>and/or</em> human review.
+          <a href="https://github.com/w3c-cg/ai-content-disclosure/issues/31"
+            >Issue&nbsp;#31</a
+          >
+          proposes tightening this to require human <em>review</em> before
+          publication — under which AI output generated from a human prompt
+          but published unread would be <a><code>ai-autonomous</code></a>. A
+          decision is expected at the 13 July 2026 call, so the boundary
+          between <code>ai-assisted</code> and <code>ai-autonomous</code> below
+          is provisional.
+        </p>
+        <p>
+          The group has resolved that machine translation is split by review
+          status: unreviewed machine translation is
+          <a><code>ai-autonomous</code></a>, while reviewed/edited machine
+          translation is <a><code>ai-assisted</code></a> (see
+          <a href="#boundary-guidance">Boundary guidance</a>).
+        </p>
+      </div>
+
+      <section>
+        <h3>Decision tree</h3>
+        <ol>
+          <li>
+            <strong>Was <a>generative AI</a> involved in producing this
+            content at all?</strong>
+            <ul>
+              <li>
+                No → <a><code>human-only</code></a>
+              </li>
+              <li>
+                Yes → go to step 2
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Was a human involved in producing this specific content
+            before publication — authoring part of it, prompting or outlining
+            it, editing it, or reviewing and approving the output?</strong>
+            <ul>
+              <li>
+                Yes → <a><code>ai-assisted</code></a>
+              </li>
+              <li>
+                No (an automated pipeline running on standing instructions,
+                with no per-instance human input or oversight) →
+                <a><code>ai-autonomous</code></a>
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <p>
+          Some tool-style uses are classified by convention rather than by
+          this tree — for example, reviewed machine translation is
+          <a><code>ai-assisted</code></a>, while unreviewed machine
+          translation is <a><code>ai-autonomous</code></a>. See
+          <a href="#boundary-guidance">Boundary guidance</a>.
+        </p>
+        <p>
+          This guide covers a single piece of content. When one page combines
+          content with different disclosure values (for example, a
+          human-written article with an AI-generated summary), set the
+          <a>page-level default</a> to <a><code>mixed</code></a> and disclose
+          each part individually.
+        </p>
+      </section>
+
+      <section>
+        <h3>Scenarios</h3>
+        <table class="simple">
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>Human involved per instance?</th>
+              <th>Recommended value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Author writes a blog post; uses AI for grammar and style fixes</td>
+              <td>Yes — human authored the text</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>Author writes bullet notes; AI expands them into a memo the author then publishes</td>
+              <td>Yes — human prompted and reviewed</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>AI produces a first draft from a prompt; author edits and approves it</td>
+              <td>Yes — human reviewed and edited</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>Reviewed/edited machine translation (translator uses an AI tool and edits the output)</td>
+              <td>Yes — human reviewed the output</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>Unreviewed machine translation (e.g., automatic page translation)</td>
+              <td>No — output published without human review</td>
+              <td><code>ai-autonomous</code></td>
+            </tr>
+            <tr>
+              <td>Automated agent publishes daily summaries from standing instructions</td>
+              <td>No — no per-instance human input</td>
+              <td><code>ai-autonomous</code></td>
+            </tr>
+            <tr>
+              <td>Human writes entirely without AI tools</td>
+              <td>n/a — no AI involved</td>
+              <td><code>human-only</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          These are guidelines, not bright lines. The disclosure is
+          ultimately the author's honest assessment. The vocabulary does not
+          grade by how much of the text the AI wrote — only by whether a human
+          was involved in producing this specific content. Where that
+          involvement is marginal (a bare prompt with no review), the open
+          question noted above may shift the boundary.
+        </p>
+      </section>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- 9. Cross-standard alignment                                   -->
     <!-- ============================================================ -->
     <section class="informative">
