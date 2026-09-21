@@ -27,6 +27,11 @@ It removes the expired HTTP-draft dependency, corrects the informative IPTC
 correspondence, and adds current Commission guidance and Code of Practice links.
 These processing clarifications are part of the text to be voted on, rather
 than changes to make silently after approval. The report includes a change log.
+The final readiness review also makes clear that human review does not identify
+the reviewer, record sign-off, or establish editorial responsibility. It corrects
+the descriptions of deterministic operation and C2PA's text support, and
+distinguishes local metadata processing from the privacy effects of following
+a methodology link. No new disclosure values or processing rules are added.
 There were no open issues or pull requests when preparation began on
 21 September 2026. Recheck before opening the vote; a closed issue list alone
 does not establish approval to publish.
@@ -39,6 +44,11 @@ browser checks for parsing, inheritance, metadata, text alternatives, mutation,
 templates, and shadow DOM. This is not evidence of independent interoperable
 implementations. External links and publication-specific
 final metadata must be checked again before final publication.
+The 21 September readiness check resolved all 38 distinct external reference
+URLs in the report; the IPTC vocabulary server requires an `Accept: text/html`
+request header. The Article 50 review and transition statements were checked
+against the Commission FAQ, and the C2PA description against its technical
+specification.
 
 During editing, render to the ignored `build/` directory for validation; do not
 maintain a generated copy alongside the source. When the text is ready for the

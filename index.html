@@ -116,7 +116,7 @@
           mechanism for authors to disclose AI involvement at element-level
           granularity within a page.
         </p>
-        <p>Existing approaches operate at coarser granularity:</p>
+        <p>Related approaches address different parts of this problem:</p>
         <ul>
           <li>
             <a href="https://github.com/whatwg/html/issues/9479"
@@ -128,9 +128,10 @@
             missing capability.
           </li>
           <li>
-            <a href="https://spec.c2pa.org/">C2PA</a> provides cryptographic
-            provenance for media files but does not support HTML text content
-            and is designed for file-level, not element-level, assertions.
+            <a href="https://spec.c2pa.org/">C2PA</a> provides signed provenance
+            claims bound to digital assets, including support for text and
+            regions within assets. This report instead defines lightweight
+            author declarations and inheritance through the HTML element tree.
           </li>
         </ul>
       </section>
@@ -264,6 +265,15 @@
             <a href="#regulatory-context">Regulatory context</a>.
           </li>
           <li>
+            <strong>Reviewer identity and sign-off:</strong> the report does
+            not identify or authenticate the person who reviewed a text,
+            record approval to publish, or identify the person or organization
+            accountable for publication. An <code>ai-assisted</code> declaration
+            asserts that human review occurred; it does not attest to a
+            particular person's sign-off or acceptance of editorial
+            responsibility. Such records can be maintained separately.
+          </li>
+          <li>
             <strong>Additional provenance detail:</strong> media provenance,
             quantitative percentages of AI authorship, and registries of
             models or providers are outside this report's scope. Optional
@@ -323,10 +333,10 @@
         <dt><dfn>generative AI</dfn></dt>
         <dd>
           Systems trained on data that produce novel outputs through
-          inference, as opposed to <dfn>deterministic</dfn> tools that apply
-          fixed rules. "Deterministic" is used here in the computer-science
-          sense: given the same input, the tool always produces the same
-          output, with no learned or inferred behavior. See
+          inference. <dfn>Deterministic</dfn> means that the same inputs and
+          conditions produce the same output; a generative AI system can also
+          operate deterministically. The tools excluded here are non-generative
+          tools that apply fixed rules, not all tools with repeatable outputs. See
           <a href="#boundary-guidance">Boundary guidance</a> for detailed
           guidance.
         </dd>
@@ -480,8 +490,11 @@
           resulting AI-generated or AI-edited text.
         </p>
         <p class="note">
-          An assertion of human review does not by itself establish eligibility
-          for a legal disclosure exception. See
+          An assertion of human review does not identify the reviewer, record
+          sign-off or editorial responsibility, or by itself establish eligibility
+          for a legal disclosure exception. Reviewer identity and approval
+          records are outside this vocabulary; see
+          <a href="#scope-and-non-goals">Scope and non-goals</a> and
           <a href="#regulatory-context">Regulatory context</a> for the
           relationship to EU AI Act Article 50.
         </p>
@@ -526,8 +539,9 @@
         <h3>Boundary guidance ("What counts as AI?")</h3>
         <p>
           The boundary is <a>generative AI</a> — systems trained on data that
-          produce novel outputs through inference. <a>Deterministic</a> tools
-          that apply fixed rules are not covered.
+          produce novel outputs through inference. Non-generative,
+          <a>deterministic</a> tools that apply fixed rules are not covered.
+          Repeatable output alone does not exclude a generative AI system.
         </p>
         <p>
           <a>AI disclosure</a> concerns AI involvement in producing the textual
@@ -1193,13 +1207,20 @@
       <section>
         <h3>C2PA</h3>
         <p>
-          <a href="https://spec.c2pa.org/">C2PA</a> provides cryptographic,
-          tamper-evident provenance for media files. HTML pages are dynamically
-          assembled from templates, databases, and user input — they are not
-          single files with stable hashes. C2PA and this specification are
-          complementary: C2PA provides verified provenance for embedded media,
-          while <code>ai-disclosure</code> provides advisory metadata for HTML
-          text content.
+          <a href="https://spec.c2pa.org/">C2PA</a> binds signed provenance
+          claims to digital assets. Its
+          <a href="https://spec.c2pa.org/specifications/specifications/2.3/specs/C2PA_Specification.html"
+            >technical specification</a
+          > includes unstructured text and regions of interest within assets;
+          it is not limited to whole image, audio, or video files. Cryptographic
+          validation establishes the integrity and signer of a claim, not by
+          itself the truth of a claim about human authorship or review.
+        </p>
+        <p>
+          This report defines advisory HTML declarations and DOM inheritance,
+          without cryptographic binding. The approaches can complement each
+          other, but no C2PA integration or automatic mapping to this report's
+          disclosure values is defined.
         </p>
       </section>
 
@@ -1299,9 +1320,11 @@
       <h2>Security considerations</h2>
       <p>
         The <code>ai-disclosure</code> attribute is voluntary, author-declared
-        metadata. It carries no integrity protection. For verified provenance,
-        pair with <a href="https://spec.c2pa.org/">C2PA</a> or similar
-        cryptographic systems.
+        metadata. It carries no integrity protection. Systems such as
+        <a href="https://spec.c2pa.org/">C2PA</a> can provide signed,
+        tamper-evident provenance claims through a separate integration;
+        cryptographic validation alone does not establish that a human actually
+        authored or reviewed the text.
       </p>
       <p>
         The voluntary nature means the attribute cannot be relied upon for
@@ -1346,8 +1369,9 @@
         fetching can reveal reader activity to the resource's operator.
       </p>
       <p>
-        This specification does not introduce any mechanisms that allow tracking
-        of users or collection of personal data.
+        Computing disclosure and inherited metadata requires no network request
+        or collection of reader data. Following a methodology link is a separate
+        action with the privacy implications of accessing that resource.
       </p>
     </section>
 
@@ -1423,6 +1447,14 @@
           checks, updated regulatory references and editor credits, and
           encouraged explicit <code>human-only</code> declarations
           (<a href="https://github.com/w3c-cg/ai-content-disclosure/pull/41">PR #41</a>).
+        </li>
+        <li>
+          Made scope and non-goals explicit, including reviewer identity,
+          sign-off, cryptographic proofs, and substantive-review criteria.
+          Corrected the description of determinism and C2PA, clarified privacy
+          implications of methodology links, and retained one maintained report
+          source with generated snapshots for voting and publication
+          (<a href="https://github.com/w3c-cg/ai-content-disclosure/pull/43">PR #43</a>).
         </li>
       </ul>
     </section>
