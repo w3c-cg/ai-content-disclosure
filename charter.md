@@ -4,7 +4,7 @@
 |---|---|
 | **This Charter** | https://github.com/w3c-cg/ai-content-disclosure/blob/main/charter.md |
 | **Start Date** | 2026-02-03 |
-| **Last Modified** | 2026-06-08 |
+| **Last Modified** | 2026-09-21 |
 
 ## Goals
 
@@ -140,7 +140,7 @@ Participants in this group choose their Chair(s) and can replace their Chair(s) 
 
 However, if 5 participants -- no two from the same organization -- call for an election, the group must use the following process: any participant may nominate themselves during a 14-day candidacy period; votes are cast during a 21-day voting period; the candidate with the most votes wins; ties are broken using [RFC 2777](https://www.rfc-editor.org/rfc/rfc2777).
 
-Current Chairs: [David Weekly](https://github.com/dweekly) and [Dogu Abaris](https://github.com/doguabaris).
+Current Chairs: [David Weekly](https://github.com/dweekly) and [Sydney Cohen](https://www.linkedin.com/in/sydney-cohen-159566171/).
 
 ## Amendments to this Charter
 

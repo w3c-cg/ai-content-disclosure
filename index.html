@@ -13,11 +13,21 @@
         group: "cg/ai-content-disclosure",
         specStatus: "CG-DRAFT",
         shortName: "ai-content-disclosure",
+        publishDate: "2026-09-21",
+        thisVersion:
+          "https://w3c-cg.github.io/ai-content-disclosure/reports/CG-DRAFT-ai-content-disclosure-20260921/",
+        edDraftURI: "https://w3c-cg.github.io/ai-content-disclosure/",
         editors: [
           {
             name: "David E. Weekly",
             url: "https://david.weekly.org/",
           },
+          {
+            name: "Sydney Cohen",
+            url: "https://www.linkedin.com/in/sydney-cohen-159566171/",
+          },
+        ],
+        formerEditors: [
           {
             name: "Doğu Abaris",
             url: "https://doguabaris.bio/",
@@ -51,10 +61,12 @@
 
     <section id="sotd" class="introductory">
       <p>
-        This is a first working draft from the
+        This is a proposed final report from the
         <a href="https://www.w3.org/community/ai-content-disclosure/"
           >AI Content Disclosure Community Group</a
-        >. It is based on the
+        >, prepared for the group's publication vote. It remains a Draft
+        Community Group Report until the group approves publication as a Final
+        Community Group Report. It is based on the
         <a href="https://github.com/dweekly/ai-content-disclosure"
           >original proposal</a
         >, restructured as a W3C Community Group Report.
@@ -67,6 +79,24 @@
         or the
         <a href="mailto:public-ai-content-disclosure@w3.org"
           >public mailing list</a
+        >.
+      </p>
+      <p>
+        The proposal defines author-declared metadata for textual content in
+        HTML. Its inclusion here does not add these attributes to the HTML
+        Living Standard or establish implementation support. The group offers
+        the report for consideration by relevant standards communities and
+        implementers.
+      </p>
+      <p>
+        The public record includes the
+        <a href="https://github.com/w3c-cg/ai-content-disclosure/commits/main/"
+          >contribution history</a
+        >, <a href="https://github.com/w3c-cg/ai-content-disclosure/issues?q=is%3Aissue+is%3Aclosed"
+          >issue resolutions</a
+        >, and
+        <a href="https://lists.w3.org/Archives/Public/public-ai-content-disclosure/"
+          >mailing-list archive</a
         >.
       </p>
     </section>
@@ -262,15 +292,19 @@
             href="https://html.spec.whatwg.org/multipage/dom.html#global-attributes"
             >global attribute</a
           >
-          that MAY appear on any [^HTML element^]. Its value MUST be one of the
+          that MAY appear on any
+          <a href="https://html.spec.whatwg.org/multipage/dom.html#elements-in-the-dom"
+            >HTML element</a
+          >. Its value MUST be one of the
           <a>disclosure values</a> defined below.
         </p>
         <p>
-          User agents MUST treat the <em>absence</em> of the
-          <code>ai-disclosure</code> attribute as meaning "unknown" — that is,
-          no assertion has been made about AI involvement. This is distinct from
-          a value of <code>human-only</code>, which is a positive assertion that
-          no AI was involved.
+          The <em>absence</em> of the <code>ai-disclosure</code> attribute makes
+          no new assertion about AI involvement. User agents MUST apply the
+          <a href="#inheritance">inheritance rules</a> to determine the
+          applicable value; if no declaration applies, the value is "unknown."
+          This is distinct from <code>human-only</code>, which is a positive
+          assertion that no generative AI was involved in producing the text.
         </p>
       </section>
 
@@ -405,19 +439,23 @@
           that apply fixed rules are not covered.
         </p>
         <p>
-          AI disclosure concerns AI involvement in producing the textual
+          <a>AI disclosure</a> concerns AI involvement in producing the textual
           content of an HTML document. Using AI to generate HTML tags,
           document structure, CSS, or JavaScript without generating or
           modifying that text does not affect its <a>disclosure value</a>.
         </p>
         <p>
           For example, human-written text placed in an AI-generated page
-          scaffold can be marked <code>human-only</code>, provided AI was not
+          scaffold should be marked <code>human-only</code>, provided AI was not
           involved in drafting or editing the text. AI involvement in drafting
           or editing the text itself is covered by the guidance below.
         </p>
         <p>The following categories provide guidance for authors:</p>
-        <p><strong>Not AI</strong> (no disclosure needed):</p>
+        <p>
+          <strong>No generative AI involvement</strong> (disclose as
+          <code>human-only</code> if no generative AI was otherwise involved in
+          producing the text):
+        </p>
         <ul>
           <li>Deterministic spell-check (dictionary lookup)</li>
           <li>Thesaurus / synonym suggestions</li>
@@ -436,8 +474,9 @@
         </ul>
         <p>
           Deterministic programmatic content — output produced by fixed rules
-          from structured data without trained inference — is outside the scope
-          of this specification. The key distinction is whether a system was
+          from structured data without trained inference — does not count as
+          generative AI involvement for disclosure. The key distinction is
+          whether a system was
           <em>trained on data to produce novel outputs through inference</em>
           (generative AI, in scope) or whether it applies
           <em>fixed deterministic rules</em> to produce predictable output
@@ -547,14 +586,19 @@
       <section>
         <h3>Absence vs. <code>human-only</code></h3>
         <p>
-          The absence of the <code>ai-disclosure</code> attribute means
-          "unknown" — no assertion has been made. The value
+          When no element, ancestor, or page-level declaration applies, the
+          disclosure status is "unknown" — no assertion has been made. The value
           <code>human-only</code> is a <em>positive assertion</em> that no
           <a>generative AI</a> was involved in producing the content.
         </p>
         <p>
-          Authors SHOULD use <code>ai-disclosure="human-only"</code> explicitly
-          when they wish to assert human-only provenance.
+          Authors are encouraged to disclose content with no generative AI
+          involvement as <code>human-only</code>, at the element level or through
+          a <a>page-level default</a>. Authors SHOULD use
+          <code>ai-disclosure="human-only"</code> explicitly when they wish to
+          assert human-only provenance. Without an applicable declaration,
+          readers and tools cannot distinguish content produced without AI
+          from content whose AI involvement has not been disclosed.
         </p>
       </section>
     </section>
@@ -604,7 +648,7 @@
           <code><dfn data-dfn-type="element-attr">ai-prompt-url</dfn></code>
         </h3>
         <p>
-          A [^URL^] pointing to documentation of the prompt or methodology used
+          A [=URL=] pointing to documentation of the prompt or methodology used
           to generate the content (e.g.,
           <code>"/ai-methodology#summary"</code>).
         </p>
@@ -751,8 +795,8 @@
         </pre>
         <p>
           Note: <code>ai-disclosure="human-only"</code> is a positive assertion.
-          The <em>absence</em> of the attribute means "unknown," not
-          "human-only."
+          Without an applicable element, ancestor, or page-level declaration,
+          the value is "unknown," not "human-only."
         </p>
       </section>
     </section>
