@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AI disclosure processing examples</title>
+  </head>
+  <body>
+    <h1>AI disclosure processing examples</h1>
+    <p>Illustrative consumer checks; not a browser interoperability report.</p>
+    <pre id="results">Running…</pre>
+    <script type="module">
+      import { runTests } from "./disclosure.js";
+      const output = document.getElementById("results");
+      try {
+        const names = runTests();
+        output.textContent = names.map(name => `PASS ${name}`).join("\n");
+        document.documentElement.dataset.result = "pass";
+      } catch (error) {
+        output.textContent = error.stack;
+        document.documentElement.dataset.result = "fail";
+        throw error;
+      }
+    </script>
+  </body>
+</html>

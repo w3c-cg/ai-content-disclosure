@@ -202,10 +202,9 @@
             crawlers.
           </li>
           <li>
-            Make classification depend on <strong>two clear questions</strong>
-            authors can answer from knowledge of how the content was produced:
-            was generative AI involved, and did a human review the resulting
-            content before publication?
+            Make classification depend on <strong>AI involvement and human
+            review</strong>, using the two questions in the
+            <a href="#classification-procedure">classification procedure</a>.
           </li>
           <li>
             <strong>Relate to existing vocabularies</strong>, including the
@@ -321,6 +320,23 @@
           This is distinct from <code>human-only</code>, which is a positive
           assertion that no generative AI was involved in producing the text.
         </p>
+        <p>
+          The declaration applies to human-readable text associated with the
+          element, including descendant text and authored text alternatives
+          such as <code>alt</code>, <code>title</code>,
+          <code>aria-label</code>, and <code>placeholder</code>. More specific
+          declarations override it as described in
+          <a href="#inheritance">Inheritance</a>. Script and stylesheet code,
+          and the image, audio, or video data itself, are outside this scope.
+        </p>
+        <p class="note">
+          On an <code>img</code> element, the declaration describes its authored
+          text alternative, not the image's provenance. If there is no text,
+          there is no textual content to classify. For media provenance, use
+          a mechanism designed for media, such as C2PA or IPTC metadata.
+          This proposal does not provide separate values for different text
+          attributes on the same element.
+        </p>
       </section>
 
       <section id="disclosure-values">
@@ -378,14 +394,14 @@
         <ol id="classification-procedure">
           <li>
             <strong>Was generative AI involved in producing the content?</strong>
-            If no, use <code>human-only</code>. If yes, continue to the second
+            If no, use <a><code>human-only</code></a>. If yes, continue to the second
             question. See <a href="#boundary-guidance">Boundary guidance</a>
             for what counts as AI involvement.
           </li>
           <li>
             <strong>Did a human review the resulting content before
-            publication?</strong> If yes, use <code>ai-assisted</code>.
-            If no, use <code>ai-autonomous</code>.
+            publication?</strong> If yes, use <a><code>ai-assisted</code></a>.
+            If no, use <a><code>ai-autonomous</code></a>.
           </li>
         </ol>
         <p>
@@ -422,10 +438,20 @@
             >issue #25</a
           > for the proposal.
         </p>
-        <p>
-          If the <code>ai-disclosure</code> attribute is present but its value
-          is not one of the above, user agents MUST treat it as invalid and
-          behave as if the attribute were absent (i.e., "unknown").
+        <p id="value-parsing">
+          Consumers MUST compare the complete attribute value with the three
+          keywords using
+          <a href="https://infra.spec.whatwg.org/#ascii-case-insensitive"
+            >ASCII case-insensitive</a
+          > matching. Leading or trailing whitespace is not stripped. This
+          follows HTML's
+          <a href="https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#keywords-and-enumerated-attributes"
+            >enumerated attribute</a
+          > convention. Authors SHOULD use the lowercase spellings shown above.
+          Empty and unrecognized values supply no local declaration; consumers
+          MUST continue the inheritance lookup rather than discard a valid
+          ancestor or page default. These parsing rules also apply to the
+          <code>content</code> of the page-level disclosure <code>meta</code>.
         </p>
       </section>
 
@@ -530,7 +556,8 @@
           <code>name="ai-disclosure"</code> sets the
           <a>page-level default</a> for the document. The
           <code>content</code> attribute MUST contain a valid
-          <a>disclosure value</a>.
+          <a>disclosure value</a>, parsed using
+          <a href="#value-parsing">the same rules as the attribute</a>.
         </p>
         <pre class="example html">
 &lt;meta name="ai-disclosure" content="ai-assisted"&gt;
@@ -538,8 +565,12 @@
         <p>
           There MUST NOT be more than one
           <code>&lt;meta name="ai-disclosure"&gt;</code> element per document.
-          If more than one is present, user agents MUST use the first one in
-          document order and ignore the rest.
+          The page default is taken from the first <code>meta</code> element in
+          the document's <code>head</code>, in tree order, whose
+          <code>name</code> is an ASCII case-insensitive match for
+          <code>ai-disclosure</code>. Consumers MUST ignore later matching
+          elements, even if the first has an invalid or missing
+          <code>content</code> value. An invalid first value supplies no default.
         </p>
       </section>
     </section>
@@ -550,35 +581,63 @@
     <section id="inheritance">
       <h2>Inheritance</h2>
 
-      <section>
+      <section id="effective-disclosure">
         <h3>Cascading rules</h3>
         <p>
-          The <code>ai-disclosure</code> value for a given element is determined
-          as follows, in order of priority:
+          Consumers MUST determine the effective <code>ai-disclosure</code>
+          value for a given element or text node using this procedure:
         </p>
         <ol class="algorithm">
           <li>
-            If the element has an explicit <code>ai-disclosure</code> attribute
-            with a valid value, that value applies.
+            For a text node, start with its parent element. For an element
+            (including when classifying one of its text attributes), start
+            with that element. If there is no starting element, return
+            "unknown."
           </li>
           <li>
-            Otherwise, if the element has an ancestor with an explicit
-            <code>ai-disclosure</code> attribute, the value of the nearest such
-            ancestor applies.
+            If the current element has an <code>ai-disclosure</code> attribute
+            that parses to a valid value, return its canonical lowercase value.
+            Otherwise, move to its parent element and repeat. Stop when there
+            is no parent element.
           </li>
           <li>
-            Otherwise, if a
-            <code>&lt;meta name="ai-disclosure"&gt;</code> element is present
-            with a valid <a>disclosure value</a>, that value applies as
-            the <a>page-level default</a>.
+            If the starting element is connected to a document, use that
+            document's <a>page-level default</a>, if valid, and return its
+            canonical lowercase value.
           </li>
-          <li>Otherwise, the element's disclosure status is "unknown."</li>
+          <li>Otherwise, return "unknown."</li>
         </ol>
         <p>
           Child elements MAY override their parent's value by specifying their
           own <code>ai-disclosure</code> attribute. This allows authors to mark
           fine-grained regions within a larger container.
         </p>
+        <p>
+          Parent and ancestor relationships in this procedure follow the DOM
+          tree, not the flattened tree. Slot assignment does not change a
+          node's disclosure ancestry. Lookup within a shadow root does not
+          cross to its host, although a connected node can still use its
+          document's page default. A detached subtree or inert
+          <code>template</code> content can inherit from ancestors within that
+          subtree, but has no page default until connected to a document.
+        </p>
+        <p>
+          The result describes the current DOM. Consumers MUST recompute it
+          when relevant declarations, ancestry, or the page default change.
+          Dynamically inserted content uses the same procedure. Authors remain
+          responsible for updating declarations when the production history
+          changes, including AI edits made after human review.
+        </p>
+        <pre class="example html">
+&lt;meta name="ai-disclosure" content="human-only"&gt;
+&lt;main&gt;
+  &lt;p&gt;Human-written reporting inherits the page default.&lt;/p&gt;
+  &lt;section ai-disclosure="ai-autonomous"&gt;
+    &lt;p&gt;This unreviewed AI summary overrides the page default.&lt;/p&gt;
+    &lt;p ai-disclosure="human-only"&gt;A human-written correction overrides the section.&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+        </pre>
       </section>
 
       <section>
@@ -604,14 +663,42 @@
     <!-- ============================================================ -->
     <!-- 6. Optional metadata attributes                               -->
     <!-- ============================================================ -->
-    <section>
+    <section id="optional-metadata">
       <h2>Optional metadata attributes</h2>
       <p>
-        The following attributes MAY appear on any element that also carries an
-        <code>ai-disclosure</code> attribute. They provide supplementary
+        The following attributes MAY appear on an element with an explicit or
+        inherited AI-involved disclosure value, or on the page-level
+        disclosure <code>meta</code> element. They provide supplementary
         information about the AI system used. All are OPTIONAL — authors may
         have legitimate reasons not to disclose specific tools or providers.
       </p>
+      <p>
+        Consumers MUST resolve each metadata attribute independently: use the
+        attribute on the element itself if present, otherwise the nearest DOM
+        ancestor carrying that attribute, otherwise the attribute on the
+        document's first matching disclosure <code>meta</code> element if the
+        target is connected to that document. If none is present, no value is
+        supplied. An explicitly empty attribute clears that metadata field and
+        stops lookup. Text nodes start at their parent element. The same DOM,
+        shadow-root, and connection rules apply as for disclosure inheritance.
+      </p>
+      <p>
+        Overriding <code>ai-disclosure</code> does not by itself override the
+        inherited model, provider, or prompt URL. Authors should override or
+        clear metadata that no longer describes the content. Consumers MUST
+        ignore AI metadata for a target whose effective disclosure is
+        <code>human-only</code> or "unknown." Optional metadata alone does not
+        establish AI involvement or human review.
+      </p>
+      <pre class="example html">
+&lt;meta name="ai-disclosure" content="ai-assisted"
+      ai-model="example-model-v1" ai-provider="Example Provider"&gt;
+&lt;article&gt;
+  &lt;p&gt;Inherits ai-assisted, the model, and the provider.&lt;/p&gt;
+  &lt;p ai-model="example-model-v2"&gt;Overrides only the model.&lt;/p&gt;
+  &lt;p ai-model=""&gt;Clears the model; still inherits the provider.&lt;/p&gt;
+&lt;/article&gt;
+      </pre>
 
       <section>
         <h3>
@@ -619,11 +706,11 @@
         </h3>
         <p>
           A free-form string identifying the AI model used (e.g.,
-          <code>"claude-3.5-sonnet"</code>, <code>"gpt-4o"</code>).
+          <code>"example-model-v1"</code>, <code>"example-model-v2"</code>).
         </p>
         <p>
-          This attribute SHOULD NOT be present when
-          <code>ai-disclosure="human-only"</code>.
+          This attribute SHOULD NOT be present when the effective disclosure
+          value is <code>human-only</code>.
         </p>
       </section>
 
@@ -633,11 +720,11 @@
         </h3>
         <p>
           A free-form string identifying the AI provider or vendor (e.g.,
-          <code>"Anthropic"</code>, <code>"OpenAI"</code>).
+          <code>"Example Provider"</code>).
         </p>
         <p>
-          This attribute SHOULD NOT be present when
-          <code>ai-disclosure="human-only"</code>.
+          This attribute SHOULD NOT be present when the effective disclosure
+          value is <code>human-only</code>.
         </p>
       </section>
 
@@ -646,7 +733,7 @@
           <code><dfn data-dfn-type="element-attr">ai-prompt-url</dfn></code>
         </h3>
         <p>
-          A [=URL=] pointing to documentation of the prompt or methodology used
+          A nonempty value is a [=URL=] pointing to documentation of the prompt or methodology used
           to generate the content (e.g.,
           <code>"/ai-methodology#summary"</code>).
         </p>
@@ -657,14 +744,14 @@
           or required fields. It does not require publication of the exact
           prompt, model parameters, source materials, or evidence of review.
         </p>
-        <p>
-          The prompt text itself MUST NOT be embedded in the HTML. This
-          attribute links to an external resource, giving authors control over
-          what they disclose and when they revoke access.
+        <p class="note">
+          The attribute carries a link, not inline prompt text. A separate
+          resource lets authors choose what to disclose without requiring the
+          prompt to be embedded in the page.
         </p>
         <p>
-          This attribute SHOULD NOT be present when
-          <code>ai-disclosure="human-only"</code>.
+          This attribute SHOULD NOT be present when the effective disclosure
+          value is <code>human-only</code>.
         </p>
       </section>
     </section>
@@ -713,7 +800,7 @@
 &lt;/article&gt;
 
 &lt;aside ai-disclosure="ai-assisted"
-       ai-model="gpt-4o" ai-provider="OpenAI"&gt;
+       ai-model="example-model-v2" ai-provider="Example Provider"&gt;
   &lt;h3&gt;Key Takeaways (AI-Generated)&lt;/h3&gt;
   &lt;ul&gt;&lt;li&gt;$4.2M discrepancy found...&lt;/li&gt;&lt;/ul&gt;
 &lt;/aside&gt;
@@ -731,7 +818,7 @@
 &lt;meta name="ai-disclosure" content="ai-assisted"&gt;
 
 &lt;article ai-disclosure="ai-assisted"
-         ai-model="claude-3.5-sonnet" ai-provider="Anthropic"&gt;
+         ai-model="example-model-v1" ai-provider="Example Provider"&gt;
   &lt;h1&gt;My Trip to Kyoto&lt;/h1&gt;
   &lt;p&gt;The bamboo grove felt otherworldly at dawn...&lt;/p&gt;
 &lt;/article&gt;
@@ -781,42 +868,15 @@
       <h2>Author decision guide</h2>
       <p>
         This guide applies the <a href="#disclosure-values">disclosure
-        values</a> to common publishing workflows. Classification depends on
-        two questions: was <a>generative AI</a> involved in producing the text,
-        and did a human review the resulting content before publication?
+        values</a> to common publishing workflows. Use the normative
+        <a href="#classification-procedure">two-question classification
+        procedure</a> to choose a value.
         The amount of AI-authored text and the extent of human editing do not
         determine the value.
       </p>
 
       <section>
-        <h3>Decision tree</h3>
-        <ol>
-          <li>
-            <strong>Was <a>generative AI</a> involved in producing the textual
-            content itself?</strong>
-            <ul>
-              <li>
-                No → <a><code>human-only</code></a>
-              </li>
-              <li>
-                Yes → go to step 2
-              </li>
-            </ul>
-          </li>
-          <li>
-            <strong>Did a human review the resulting content before
-            publication?</strong>
-            <ul>
-              <li>
-                Yes → <a><code>ai-assisted</code></a>
-              </li>
-              <li>
-                No → <a><code>ai-autonomous</code></a>, including output
-                generated from a human prompt but published unread
-              </li>
-            </ul>
-          </li>
-        </ol>
+        <h3>Applying the classification procedure</h3>
         <p>
           Human authorship of notes, a prompt, or an earlier draft does not
           establish review of the resulting AI-generated or AI-edited text.
@@ -1032,8 +1092,8 @@
   "author": { "@type": "Person", "name": "Jane Doe" },
   "aiDisclosure": {
     "level": "ai-assisted",
-    "tool": "Claude 3.5 Sonnet",
-    "provider": "Anthropic",
+    "tool": "Example Model",
+    "provider": "Example Provider",
     "description": "AI used for copy editing and fact-checking assistance",
     "methodologyUrl": "https://example.com/ai-methodology"
   }
@@ -1130,6 +1190,44 @@
     <!-- ============================================================ -->
     <!-- 10. Security considerations                                   -->
     <!-- ============================================================ -->
+    <section class="informative" id="implementation-status">
+      <h2>Implementation status and adoption</h2>
+      <p>
+        This report proposes new HTML attributes; it does not make them part of
+        the HTML Living Standard. Native browser support, a reflected
+        <code>element.aiDisclosure</code> property, and acceptance by HTML
+        validators are not established by this report. The adoption path is
+        implementation experiments and review by the HTML standards community,
+        including the existing
+        <a href="https://github.com/whatwg/html/issues/9479">WHATWG discussion</a>.
+        A future HTML integration would need to specify any IDL reflection.
+      </p>
+      <p>
+        Experimental consumers can use <code>getAttribute()</code> and the
+        <a href="#effective-disclosure">processing algorithm</a>. A publisher
+        needing conforming custom HTML attributes during experimentation can
+        use a private <code>data-ai-disclosure</code> convention, with equivalent
+        <code>data-</code> names for metadata, and explicitly configure its
+        consumer for those names. Those experimental names are not aliases
+        defined by this specification and are not automatically interoperable
+        with consumers of the proposed unprefixed attributes.
+      </p>
+      <p>
+        The repository includes an
+        <a href="https://github.com/w3c-cg/ai-content-disclosure/blob/spec/final-community-group-report/examples/resolve-disclosure.js"
+          >illustrative JavaScript consumer</a
+        > and
+        <a href="https://github.com/w3c-cg/ai-content-disclosure/blob/spec/final-community-group-report/tests/disclosure.js"
+          >executable processing checks</a
+        > for inheritance, parsing, text alternatives, metadata overrides,
+        dynamic content, templates, and shadow roots. These demonstrate the
+        proposed algorithm, not independent implementations or browser
+        interoperability. No cross-browser implementation report is claimed.
+        The IBM toolkit described above is related work, not evidence of
+        conformance to this processing model.
+      </p>
+    </section>
+
     <section class="informative">
       <h2>Security considerations</h2>
       <p>
@@ -1142,6 +1240,18 @@
         The voluntary nature means the attribute cannot be relied upon for
         security decisions, the same as any self-declared metadata
         (<code>robots.txt</code>, <code>rel=nofollow</code>, Schema.org markup).
+      </p>
+      <p>
+        Sanitizers, rich-text editors, and CMS transformations may remove
+        unfamiliar attributes. For example,
+        <a href="https://github.com/cure53/DOMPurify#control-our-allow-lists-and-block-lists"
+          >DOMPurify provides attribute allow-list configuration</a
+        >. Publishers should test that their actual sanitization and publishing
+        pipeline preserves the disclosure and metadata attributes they intend
+        to support, using narrowly scoped configuration rather than disabling
+        sanitization. Losing a local override can silently expose an unrelated
+        inherited value, including a <code>human-only</code> page default.
+        Declarations from untrusted authors remain unverified even when kept.
       </p>
       <p>
         No new information about the user (reader) is exposed. The attribute
@@ -1158,14 +1268,15 @@
       <h2>Privacy considerations</h2>
       <p>
         The <code>ai-model</code> and <code>ai-provider</code> attributes are
-        OPTIONAL to avoid requiring disclosure of trade secrets or proprietary
+        optional to avoid requiring disclosure of trade secrets or proprietary
         tooling.
       </p>
       <p>
-        Prompt text MUST NOT be embedded directly in HTML. The
-        <code>ai-prompt-url</code> attribute links to an external resource,
-        giving authors control over what they disclose and when they revoke
-        access.
+        The <code>ai-prompt-url</code> attribute links to a resource rather than
+        carrying prompt text inline. Authors should avoid disclosing confidential
+        prompts or personal information through that resource. Consumers should
+        not fetch a prompt URL automatically merely to compute disclosure;
+        fetching can reveal reader activity to the resource's operator.
       </p>
       <p>
         This specification does not introduce any mechanisms that allow tracking
@@ -1181,8 +1292,11 @@
       <p>
         Browsers and screen readers could optionally announce AI disclosure to
         users (e.g., "AI-generated content follows"). The
-        <code>ai-disclosure</code> attribute SHOULD be exposed via the
-        <a href="https://wicg.github.io/aom/">Accessibility Object Model</a>.
+        disclosure could be exposed through accessibility APIs and appropriate
+        user-facing controls. This report does not define an accessibility-tree
+        mapping or require a particular browser API. AI-generated text
+        alternatives, including <code>alt</code> text, are within the textual
+        scope; the declaration does not describe the associated image itself.
       </p>
       <p>
         No change to existing content rendering is required — the attribute is
@@ -1213,12 +1327,7 @@
     <!-- ============================================================ -->
     <!-- Conformance (auto-generated by ReSpec)                        -->
     <!-- ============================================================ -->
-    <section id="conformance">
-      <p>
-        All assertions, diagrams, examples, and notes in this specification are
-        non-normative. Everything else is normative.
-      </p>
-    </section>
+    <section id="conformance"></section>
 
     <!-- ============================================================ -->
     <!-- Acknowledgements                                              -->

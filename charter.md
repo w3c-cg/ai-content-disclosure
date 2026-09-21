@@ -26,7 +26,7 @@ The group intends to produce a Community Group Report suitable for adoption by a
 
 3. **Cross-standard coordination.** How the HTML-level disclosure relates to the HTTP-level disclosure, IPTC Digital Source Type vocabulary, Schema.org structured data, and C2PA cryptographic provenance. The layers should complement each other without duplicating work.
 
-4. **Accessibility integration.** How disclosure attributes are exposed to assistive technology through the Accessibility Object Model, and how user agents might present disclosure information.
+4. **Accessibility integration.** How disclosure attributes are exposed to assistive technology through accessibility APIs, and how user agents might present disclosure information.
 
 5. **Implementation guidance.** Non-normative advice for content authors, CMS developers, AI tool vendors, and browser implementers.
 
@@ -42,7 +42,7 @@ The group intends to produce a Community Group Report suitable for adoption by a
 
 5. **Rendering requirements.** How browsers display or surface disclosure information is a user-agent decision, not part of this specification.
 
-6. **Owning related specifications.** The HTTP-level disclosure and Schema.org `aiDisclosure` property are governed by their respective communities. This group coordinates alignment but does not author those specifications.
+6. **Owning related specifications.** HTTP disclosure mechanisms and Schema.org vocabulary proposals are governed by their respective communities. This group coordinates alignment but does not author those specifications.
 
 7. **Interpreting regulation.** The group produces technical standards. It does not offer legal advice or prescribe how to comply with specific regulations.
 
@@ -77,7 +77,7 @@ The group may produce:
 
 - **[WHATWG HTML](https://whatwg.org/)** -- The HTML Living Standard, where `ai-disclosure` could ultimately land.
 - **[W3C Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/)** -- For architectural review of the proposal.
-- **[Accessible Rich Internet Applications (ARIA) Working Group](https://www.w3.org/WAI/ARIA/)** -- For guidance on exposing disclosure attributes to assistive technology through the Accessibility Object Model.
+- **[Accessible Rich Internet Applications (ARIA) Working Group](https://www.w3.org/WAI/ARIA/)** -- For guidance on exposing disclosure attributes to assistive technology through accessibility APIs.
 - **[Schema.org Community Group](https://www.w3.org/community/schemaorg/)** -- For alignment of the `aiDisclosure` structured data property with the HTML attribute vocabulary.
 
 ### External Organizations
