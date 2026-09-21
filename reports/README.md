@@ -1,13 +1,14 @@
 # Final Community Group Report preparation
 
-The [21 September 2026 candidate](CG-DRAFT-ai-content-disclosure-20260921/index.html)
-is a static Draft Community Group Report proposed for final publication. The
-group has not yet voted on it. Publication and external notifications follow
-the vote; the message drafts below have not been sent.
+The [editor's draft](https://w3c-cg.github.io/ai-content-disclosure/) is proposed
+for final publication. The root [`index.html`](../index.html) is the single
+maintained report source; static HTML is generated output. The group has not
+yet voted on the report. Publication and external notifications follow the
+vote; the message drafts below have not been sent.
 
-## Candidate and review record
+## Report and review record
 
-The candidate includes the three disclosure values, required human review for
+The report includes the three disclosure values, required human review for
 `ai-assisted`, the textual-content boundary, the author decision guide, and the
 scope clarifications agreed during issue triage. It incorporates
 [PR #39](https://github.com/w3c-cg/ai-content-disclosure/pull/39),
@@ -19,33 +20,46 @@ repairs ReSpec terminology links, and encourages explicit `human-only`
 declarations instead of leaving provenance ambiguous. It also aligns the
 absence wording with the existing inheritance rules. Sydney Cohen joins the
 current editor list, and Doğu Abaris retains credit as a former editor.
-The candidate retains the three classification values. Publication review also
+The report retains the three classification values. Publication review also
 clarifies the definition of human review, the text-only scope (including text
 alternatives), the DOM processing model, value parsing, and metadata inheritance.
 It removes the expired HTTP-draft dependency, corrects the informative IPTC
 correspondence, and adds current Commission guidance and Code of Practice links.
 These processing clarifications are part of the text to be voted on, rather
 than changes to make silently after approval. The report includes a change log.
+The final readiness review also makes clear that human review does not identify
+the reviewer, record sign-off, or establish editorial responsibility. It corrects
+the descriptions of deterministic operation and C2PA's text support, and
+distinguishes local metadata processing from the privacy effects of following
+a methodology link. No new disclosure values or processing rules are added.
 There were no open issues or pull requests when preparation began on
 21 September 2026. Recheck before opening the vote; a closed issue list alone
 does not establish approval to publish.
 
-Validation completed for this candidate: ReSpec export with no errors or
+Validation completed for the proposed text: ReSpec export with no errors or
 warnings; unique IDs and working internal fragment links in the rendered
-snapshot; both source JSON examples parsed; and visual inspection of the report
+output; both source JSON examples parsed; and visual inspection of the report
 header and ten-scenario author guide. The illustrative consumer also passes 13
 browser checks for parsing, inheritance, metadata, text alternatives, mutation,
 templates, and shadow DOM. This is not evidence of independent interoperable
 implementations. External links and publication-specific
 final metadata must be checked again before final publication.
+The 21 September readiness check resolved all 38 distinct external reference
+URLs in the report; the IPTC vocabulary server requires an `Accept: text/html`
+request header. The Article 50 review and transition statements were checked
+against the Commission FAQ, and the C2PA description against its technical
+specification.
 
-The candidate's eventual public URL is:
+During editing, render to the ignored `build/` directory for validation; do not
+maintain a generated copy alongside the source. When the text is ready for the
+vote, export from a specific source commit with a fixed `publishDate` and a
+`thisVersion` pointing to the chosen public snapshot URL. Archive that generated
+file under a dated `reports/CG-DRAFT-ai-content-disclosure-YYYYMMDD/` directory
+and verify that its GitHub Pages URL resolves before announcing the vote.
 
-https://w3c-cg.github.io/ai-content-disclosure/reports/CG-DRAFT-ai-content-disclosure-20260921/
-
-That URL becomes available after this preparation PR is merged and GitHub Pages
-deploys it. The ballot should also identify the exact Git commit containing the
-snapshot and its SHA-256 hash. Preserve that candidate once the vote opens. If
+The ballot should identify that static URL, the source and snapshot commits,
+and the exported file's SHA-256 hash. The archived snapshot is the fixed voting
+artifact, not another editable source. Preserve it once the vote opens. If
 substantive changes are needed, prepare a new candidate for review.
 
 ## Vote
@@ -127,25 +141,22 @@ Follow the [CG report requirements](https://www.w3.org/community/reports/reqs/),
    Send the notifications below using the stable W3C URL and record their
    public links where available.
 
-## Rendering the candidate
+## Rendering during editing
 
-The source is [`../index.html`](../index.html). Use Node.js 24 or later for
-ReSpec 37.4.0. Before the vote opens, the snapshot can be regenerated with:
+Edit only [`../index.html`](../index.html). Use Node.js 24 or later for
+ReSpec 37.4.0. Generate a disposable preview for validation with:
 
 ```sh
-npx --yes respec@37.4.0 --src index.html --out reports/CG-DRAFT-ai-content-disclosure-20260921/index.html --haltonerror --haltonwarn --timeout 60
-python3 - <<'PY'
-from pathlib import Path
-snapshot = Path('reports/CG-DRAFT-ai-content-disclosure-20260921/index.html')
-snapshot.write_text('\n'.join(line.rstrip() for line in snapshot.read_text().splitlines()) + '\n')
-PY
-shasum -a 256 reports/CG-DRAFT-ai-content-disclosure-20260921/index.html
+mkdir -p build
+npx --yes respec@37.4.0 --src index.html --out build/report.html --haltonerror --haltonwarn --timeout 60
 ```
 
 Run these commands from the repository root. ReSpec launches Chromium: on this
 workspace, run the exporter outside the Codex command sandbox in accordance
-with the workspace browser instructions. A final export uses a new directory
-and the final metadata; it does not overwrite the voted-on candidate.
+with the workspace browser instructions. Do not edit or commit `build/report.html`.
+The later vote snapshot and final W3C export are generated from the source with
+their respective publication metadata; the final export does not overwrite the
+voted-on candidate.
 
 To run the illustrative consumer checks, serve the repository over HTTP (for
 example, `python3 -m http.server 8000 --bind 127.0.0.1`) and open

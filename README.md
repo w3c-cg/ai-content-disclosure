@@ -7,9 +7,10 @@ This is the repository of the [AI Content Disclosure Community Group](https://ww
 
 ## Report
 
-Read the [editor's draft](https://w3c-cg.github.io/ai-content-disclosure/) or the
-[21 September 2026 proposed final report](reports/CG-DRAFT-ai-content-disclosure-20260921/index.html).
-The proposed final report remains a draft pending the group's publication vote.
+Read the [editor's draft](https://w3c-cg.github.io/ai-content-disclosure/).
+The root [index.html](index.html) is the single maintained report source.
+The proposed final report remains a draft pending the group's publication vote;
+a static snapshot will be generated when the text is frozen for that vote.
 The [publication plan](reports/README.md) contains the draft ballot, W3C publication
 steps, and notification plan.
 
