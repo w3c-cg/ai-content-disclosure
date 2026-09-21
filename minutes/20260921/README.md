@@ -161,6 +161,18 @@ both invites conflicts between a page-level default and the content beneath it.
 Also noted as not formally codified: the most-granular-wins hierarchy was
 discussed by analogy rather than written down as a rule.
 
+**Where the text stands for the 5 October read.** The report prepared for the
+vote resolves both points rather than leaving them open. The page default is
+taken from the first `meta` element in the document's `head`
+([Inheritance](https://w3c-cg.github.io/ai-content-disclosure/#inheritance)),
+a `meta` element in the body supplies no default, and the most-granular-wins
+cascade is written out as a normative procedure. Note that `<body
+ai-disclosure="...">` already works as an ordinary element declaration and
+covers everything inside the body, so the live question for the group is
+narrower than it was in session: whether `meta` earns its place alongside it.
+Reviewers should treat this as a decision to confirm or change on 5 October,
+not as an open question the text leaves unanswered.
+
 ### Open question: what counts as "human review"
 
 Deliberately **punted.** The chairs agreed that a passing glance should not
