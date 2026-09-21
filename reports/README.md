@@ -19,7 +19,13 @@ repairs ReSpec terminology links, and encourages explicit `human-only`
 declarations instead of leaving provenance ambiguous. It also aligns the
 absence wording with the existing inheritance rules. Sydney Cohen joins the
 current editor list, and Doğu Abaris retains credit as a former editor.
-The three classification values and their review criteria are unchanged.
+The candidate retains the three classification values. Publication review also
+clarifies the definition of human review, the text-only scope (including text
+alternatives), the DOM processing model, value parsing, and metadata inheritance.
+It removes the expired HTTP-draft dependency, corrects the informative IPTC
+correspondence, and adds current Commission guidance and Code of Practice links.
+These processing clarifications are part of the text to be voted on, rather
+than changes to make silently after approval. The report includes a change log.
 There were no open issues or pull requests when preparation began on
 21 September 2026. Recheck before opening the vote; a closed issue list alone
 does not establish approval to publish.
@@ -27,7 +33,10 @@ does not establish approval to publish.
 Validation completed for this candidate: ReSpec export with no errors or
 warnings; unique IDs and working internal fragment links in the rendered
 snapshot; both source JSON examples parsed; and visual inspection of the report
-header and ten-scenario author guide. External links and publication-specific
+header and ten-scenario author guide. The illustrative consumer also passes 13
+browser checks for parsing, inheritance, metadata, text alternatives, mutation,
+templates, and shadow DOM. This is not evidence of independent interoperable
+implementations. External links and publication-specific
 final metadata must be checked again before final publication.
 
 The candidate's eventual public URL is:
@@ -138,6 +147,12 @@ workspace, run the exporter outside the Codex command sandbox in accordance
 with the workspace browser instructions. A final export uses a new directory
 and the final metadata; it does not overwrite the voted-on candidate.
 
+To run the illustrative consumer checks, serve the repository over HTTP (for
+example, `python3 -m http.server 8000 --bind 127.0.0.1`) and open
+`http://127.0.0.1:8000/tests/disclosure.html` in a browser. The page reports each
+check's outcome. The sample consumer uses the proposed unprefixed names;
+it neither fetches prompt URLs nor installs browser reflection properties.
+
 ## Notifications after publication
 
 Confirm recipients at send time. These are proposed destinations and specific
@@ -150,7 +165,7 @@ follow-up requests, not claims of endorsement or completed liaison work.
 | Schema.org | [schemaorg/schemaorg#3391](https://github.com/schemaorg/schemaorg/issues/3391), following [David's January comment](https://github.com/schemaorg/schemaorg/issues/3391#issuecomment-3801268141); [Schema.org CG](https://www.w3.org/community/schemaorg/) | Update the earlier four-value proposal to the final three values and `ai-disclosure` spelling; share the illustrative encoding and leave formal vocabulary design to Schema.org. |
 | W3C Web & AI Interest Group | [Group page](https://www.w3.org/groups/ig/webai/), `public-webai@w3.org` | Share the report and request coordination on adoption and implementation feedback. |
 | WHATWG HTML | Existing [HTML #9479](https://github.com/whatwg/html/issues/9479) discussion | Share the page default plus element-level inheritance design and ask about next steps for HTML consideration. |
-| IPTC | Existing liaison contacts and [Digital Source Type vocabulary](https://cv.iptc.org/newscodes/digitalsourcetype/) | Request review of the illustrative correspondence, especially that source-type terms do not independently prove human review. |
+| IPTC | David's outreach to Brendan Quinn recorded in [#18](https://github.com/w3c-cg/ai-content-disclosure/issues/18), and [Digital Source Type vocabulary](https://cv.iptc.org/newscodes/digitalsourcetype/) | Follow up with the corrected `digitalCreation` correspondence for human-written text and request review; prior outreach does not establish IPTC endorsement of the mapping. |
 | C2PA | Existing liaison contacts and [specification project](https://spec.c2pa.org/) | Explain the complementary, self-declared HTML scope and invite feedback on provenance integration. |
 | W3C TAG and ARIA communities | [TAG reviews](https://github.com/w3ctag/design-reviews), [ARIA WG](https://www.w3.org/groups/wg/aria/) | Share architecture and accessibility considerations; ask for an appropriate review path without implying either group has reviewed or approved the report. |
 

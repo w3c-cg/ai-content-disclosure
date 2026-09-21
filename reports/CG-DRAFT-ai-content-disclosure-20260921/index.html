@@ -325,13 +325,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             discussion of this specification.
 
 
-  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">1.1 </bdi>Motivation</a></li><li class="tocline"><a class="tocxref" href="#regulatory-context"><bdi class="secno">1.2 </bdi>Regulatory context</a></li><li class="tocline"><a class="tocxref" href="#design-goals"><bdi class="secno">1.3 </bdi>Design goals</a></li></ol></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">2. </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#the-ai-disclosure-attribute"><bdi class="secno">3. </bdi>The <code>ai-disclosure</code> attribute</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#attribute-definition"><bdi class="secno">3.1 </bdi>Attribute definition</a></li><li class="tocline"><a class="tocxref" href="#disclosure-values"><bdi class="secno">3.2 </bdi>Disclosure values</a></li><li class="tocline"><a class="tocxref" href="#boundary-guidance"><bdi class="secno">3.3 </bdi>Boundary guidance ("What counts as AI?")</a></li></ol></li><li class="tocline"><a class="tocxref" href="#the-meta-name-ai-disclosure-element"><bdi class="secno">4. </bdi>The <code>&lt;meta name="ai-disclosure"&gt;</code> element</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#syntax"><bdi class="secno">4.1 </bdi>Syntax</a></li></ol></li><li class="tocline"><a class="tocxref" href="#inheritance"><bdi class="secno">5. </bdi>Inheritance</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#cascading-rules"><bdi class="secno">5.1 </bdi>Cascading rules</a></li><li class="tocline"><a class="tocxref" href="#absence-vs-human-only"><bdi class="secno">5.2 </bdi>Absence vs. <code>human-only</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#optional-metadata-attributes"><bdi class="secno">6. </bdi>Optional metadata attributes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ai-model"><bdi class="secno">6.1 </bdi>
+  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">1.1 </bdi>Motivation</a></li><li class="tocline"><a class="tocxref" href="#regulatory-context"><bdi class="secno">1.2 </bdi>Regulatory context</a></li><li class="tocline"><a class="tocxref" href="#design-goals"><bdi class="secno">1.3 </bdi>Design goals</a></li></ol></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">2. </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#the-ai-disclosure-attribute"><bdi class="secno">3. </bdi>The <code>ai-disclosure</code> attribute</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#attribute-definition"><bdi class="secno">3.1 </bdi>Attribute definition</a></li><li class="tocline"><a class="tocxref" href="#disclosure-values"><bdi class="secno">3.2 </bdi>Disclosure values</a></li><li class="tocline"><a class="tocxref" href="#boundary-guidance"><bdi class="secno">3.3 </bdi>Boundary guidance ("What counts as AI?")</a></li></ol></li><li class="tocline"><a class="tocxref" href="#the-meta-name-ai-disclosure-element"><bdi class="secno">4. </bdi>The <code>&lt;meta name="ai-disclosure"&gt;</code> element</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#syntax"><bdi class="secno">4.1 </bdi>Syntax</a></li></ol></li><li class="tocline"><a class="tocxref" href="#inheritance"><bdi class="secno">5. </bdi>Inheritance</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#effective-disclosure"><bdi class="secno">5.1 </bdi>Cascading rules</a></li><li class="tocline"><a class="tocxref" href="#absence-vs-human-only"><bdi class="secno">5.2 </bdi>Absence vs. <code>human-only</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#optional-metadata"><bdi class="secno">6. </bdi>Optional metadata attributes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ai-model"><bdi class="secno">6.1 </bdi>
           <code><span data-dfn-type="element-attr">ai-model</span></code>
         </a></li><li class="tocline"><a class="tocxref" href="#ai-provider"><bdi class="secno">6.2 </bdi>
           <code><span data-dfn-type="element-attr">ai-provider</span></code>
         </a></li><li class="tocline"><a class="tocxref" href="#ai-prompt-url"><bdi class="secno">6.3 </bdi>
           <code><span data-dfn-type="element-attr">ai-prompt-url</span></code>
-        </a></li></ol></li><li class="tocline"><a class="tocxref" href="#relationship-to-http-headers"><bdi class="secno">7. </bdi>Relationship to HTTP headers</a></li><li class="tocline"><a class="tocxref" href="#use-cases-and-examples"><bdi class="secno">8. </bdi>Use cases and examples</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#mixed-content-news-page"><bdi class="secno">8.1 </bdi>Mixed-content news page</a></li><li class="tocline"><a class="tocxref" href="#ai-edited-blog-post"><bdi class="secno">8.2 </bdi>AI-edited blog post</a></li><li class="tocline"><a class="tocxref" href="#automated-weather-feed"><bdi class="secno">8.3 </bdi>Automated weather feed</a></li><li class="tocline"><a class="tocxref" href="#human-only-assertion"><bdi class="secno">8.4 </bdi>Human-only assertion</a></li></ol></li><li class="tocline"><a class="tocxref" href="#author-decision-guide"><bdi class="secno">9. </bdi>Author decision guide</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#decision-tree"><bdi class="secno">9.1 </bdi>Decision tree</a></li><li class="tocline"><a class="tocxref" href="#scenarios"><bdi class="secno">9.2 </bdi>Scenarios</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cross-standard-alignment"><bdi class="secno">10. </bdi>Cross-standard alignment</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ietf-ai-disclosure-header"><bdi class="secno">10.1 </bdi>IETF <code>AI-Disclosure</code> header</a></li><li class="tocline"><a class="tocxref" href="#iptc-digital-source-type"><bdi class="secno">10.2 </bdi>IPTC Digital Source Type</a></li><li class="tocline"><a class="tocxref" href="#schema-org-json-ld"><bdi class="secno">10.3 </bdi>Schema.org / JSON-LD</a></li><li class="tocline"><a class="tocxref" href="#prov-o-and-dublin-core"><bdi class="secno">10.4 </bdi>PROV-O and Dublin Core</a></li><li class="tocline"><a class="tocxref" href="#c2pa"><bdi class="secno">10.5 </bdi>C2PA</a></li><li class="tocline"><a class="tocxref" href="#text-watermarking"><bdi class="secno">10.6 </bdi>Text watermarking</a></li><li class="tocline"><a class="tocxref" href="#ibm-ai-attribution-toolkit"><bdi class="secno">10.7 </bdi>IBM AI Attribution Toolkit</a></li></ol></li><li class="tocline"><a class="tocxref" href="#security-considerations"><bdi class="secno">11. </bdi>Security considerations</a></li><li class="tocline"><a class="tocxref" href="#privacy-considerations"><bdi class="secno">12. </bdi>Privacy considerations</a></li><li class="tocline"><a class="tocxref" href="#accessibility-considerations"><bdi class="secno">13. </bdi>Accessibility considerations</a></li><li class="tocline"><a class="tocxref" href="#internationalization-considerations"><bdi class="secno">14. </bdi>Internationalization considerations</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">15. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">16. </bdi>Acknowledgements</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav>
+        </a></li></ol></li><li class="tocline"><a class="tocxref" href="#http-metadata"><bdi class="secno">7. </bdi>Relationship to HTTP metadata</a></li><li class="tocline"><a class="tocxref" href="#use-cases-and-examples"><bdi class="secno">8. </bdi>Use cases and examples</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#mixed-content-news-page"><bdi class="secno">8.1 </bdi>Mixed-content news page</a></li><li class="tocline"><a class="tocxref" href="#ai-edited-blog-post"><bdi class="secno">8.2 </bdi>AI-edited blog post</a></li><li class="tocline"><a class="tocxref" href="#automated-weather-feed"><bdi class="secno">8.3 </bdi>Automated weather feed</a></li><li class="tocline"><a class="tocxref" href="#human-only-assertion"><bdi class="secno">8.4 </bdi>Human-only assertion</a></li></ol></li><li class="tocline"><a class="tocxref" href="#author-decision-guide"><bdi class="secno">9. </bdi>Author decision guide</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#applying-the-classification-procedure"><bdi class="secno">9.1 </bdi>Applying the classification procedure</a></li><li class="tocline"><a class="tocxref" href="#scenarios"><bdi class="secno">9.2 </bdi>Scenarios</a></li></ol></li><li class="tocline"><a class="tocxref" href="#cross-standard-alignment"><bdi class="secno">10. </bdi>Cross-standard alignment</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#iptc-correspondence"><bdi class="secno">10.1 </bdi>IPTC Digital Source Type</a></li><li class="tocline"><a class="tocxref" href="#schema-org-json-ld"><bdi class="secno">10.2 </bdi>Schema.org / JSON-LD</a></li><li class="tocline"><a class="tocxref" href="#prov-o-and-dublin-core"><bdi class="secno">10.3 </bdi>PROV-O and Dublin Core</a></li><li class="tocline"><a class="tocxref" href="#c2pa"><bdi class="secno">10.4 </bdi>C2PA</a></li><li class="tocline"><a class="tocxref" href="#text-watermarking"><bdi class="secno">10.5 </bdi>Text watermarking</a></li><li class="tocline"><a class="tocxref" href="#ibm-ai-attribution-toolkit"><bdi class="secno">10.6 </bdi>IBM AI Attribution Toolkit</a></li></ol></li><li class="tocline"><a class="tocxref" href="#implementation-status"><bdi class="secno">11. </bdi>Implementation status and adoption</a></li><li class="tocline"><a class="tocxref" href="#security-considerations"><bdi class="secno">12. </bdi>Security considerations</a></li><li class="tocline"><a class="tocxref" href="#privacy-considerations"><bdi class="secno">13. </bdi>Privacy considerations</a></li><li class="tocline"><a class="tocxref" href="#accessibility-considerations"><bdi class="secno">14. </bdi>Accessibility considerations</a></li><li class="tocline"><a class="tocxref" href="#internationalization-considerations"><bdi class="secno">15. </bdi>Internationalization considerations</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">16. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#change-history"><bdi class="secno">17. </bdi>Changes for the proposed final report</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">18. </bdi>Acknowledgements</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav>
 
 
 
@@ -358,12 +358,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             values. It does not support marking individual elements. Commenters
             on that issue identified element-level granularity as the critical
             missing capability.
-          </li>
-          <li>
-            The
-            <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/">IETF <code>AI-Disclosure</code> HTTP response header</a>
-            applies to entire HTTP responses and cannot distinguish mixed
-            content within a page.
           </li>
           <li>
             <a href="https://spec.c2pa.org/">C2PA</a> provides cryptographic
@@ -418,6 +412,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           AI systems placed on the market before 2 August 2026; it does not
           postpone deployers' paragraph 4 disclosure obligation.
         </p>
+        <p>
+          Further context is provided by the Commission's
+          <a href="https://digital-strategy.ec.europa.eu/en/policies/guidelines-ai-transparency-obligations">Guidelines on transparency obligations for providers and deployers
+            of certain AI systems</a> and the
+          <a href="https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content">Code of Practice on Transparency of AI-generated Content</a>. The voluntary Code addresses provider marking and detection as
+          well as deployer labelling. This report proposes an HTML mechanism
+          for author-declared text metadata that can contribute to disclosure
+          workflows; it does not claim that this format is prescribed by the
+          Code or that unverified HTML declarations alone satisfy its measures.
+        </p>
       </section>
 
       <section id="design-goals"><div class="header-wrapper"><h3 id="x1-3-design-goals"><bdi class="secno">1.3 </bdi>Design goals</h3><a class="self-link" href="#design-goals" aria-label="Permalink for Section 1.3"></a></div>
@@ -433,16 +437,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             crawlers.
           </li>
           <li>
-            Make classification depend on <strong>two clear questions</strong>
-            authors can answer from knowledge of how the content was produced:
-            was generative AI involved, and did a human review the resulting
-            content before publication?
+            Make classification depend on <strong>AI involvement and human
+            review</strong>, using the two questions in the
+            <a href="#classification-procedure">classification procedure</a>.
           </li>
           <li>
-            <strong>Align with existing vocabularies</strong> — specifically the
-            IETF <code>AI-Disclosure</code> header and
+            <strong>Relate to existing vocabularies</strong>, including the
             <a href="https://cv.iptc.org/newscodes/digitalsourcetype/">IPTC Digital Source Type</a>
-            taxonomy — for cross-standard consistency.
+            taxonomy, while identifying differences in scope and meaning.
           </li>
           <li>
             <strong>Complement</strong> (not replace) HTTP-level and
@@ -494,7 +496,31 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <a href="#boundary-guidance">Boundary guidance</a> for detailed
           guidance.
         </dd>
+        <dt><dfn id="dfn-human-review" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">human review</dfn></dt>
+        <dd>
+          A person examining the resulting AI-generated or AI-edited text
+          before its <a href="#dfn-publication" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-publication-1">publication</a>. The developer or publisher declaring
+          the disclosure determines the review process and its depth; this
+          specification does not prescribe a minimum duration, reviewer
+          qualification, or required edits. A human must actually examine the
+          resulting text: supplying a prompt or approving an automated workflow
+          alone is not review of its output.
+        </dd>
+        <dt><dfn id="dfn-publication" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">publication</dfn></dt>
+        <dd>
+          Making the particular version of the text available to its intended
+          audience. Review of an earlier version does not establish review of
+          subsequent AI-generated or AI-edited changes.
+        </dd>
       </dl>
+      <div class="note" role="note" id="issue-container-generatedID"><div class="note-title marker" id="h-note"><span>Note</span></div><p class="">
+        These definitions classify author-declared production history. Where
+        legislation, regulators, or another applicable framework specify
+        substantive review, competence, or editorial responsibility, that
+        framework determines whether its own requirements are met. This
+        specification does not replace those requirements. See
+        <a href="#regulatory-context">Regulatory context</a>.
+      </p></div>
     </section>
 
 
@@ -522,25 +548,38 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           This is distinct from <code>human-only</code>, which is a positive
           assertion that no generative AI was involved in producing the text.
         </p>
+        <p>
+          The declaration applies to human-readable text associated with the
+          element, including descendant text and authored text alternatives
+          such as <code>alt</code>, <code>title</code>,
+          <code>aria-label</code>, and <code>placeholder</code>. More specific
+          declarations override it as described in
+          <a href="#inheritance">Inheritance</a>. Script and stylesheet code,
+          and the image, audio, or video data itself, are outside this scope.
+        </p>
+        <div class="note" role="note" id="issue-container-generatedID-0"><div class="note-title marker" id="h-note-0"><span>Note</span></div><p class="">
+          On an <code>img</code> element, the declaration describes its authored
+          text alternative, not the image's provenance. If there is no text,
+          there is no textual content to classify. For media provenance, use
+          a mechanism designed for media, such as C2PA or IPTC metadata.
+          This proposal does not provide separate values for different text
+          attributes on the same element.
+        </p></div>
       </section>
 
       <section id="disclosure-values"><div class="header-wrapper"><h3 id="x3-2-disclosure-values"><bdi class="secno">3.2 </bdi>Disclosure values</h3><a class="self-link" href="#disclosure-values" aria-label="Permalink for Section 3.2"></a></div>
 
         <p>
           The <code>ai-disclosure</code> attribute accepts the following
-          enumerated values, aligned with the
-          <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/">IETF <code>AI-Disclosure</code> header</a>
-          and the
-          <a href="https://cv.iptc.org/newscodes/digitalsourcetype/">IPTC Digital Source Type</a>
-          vocabulary:
+          enumerated values. These definitions govern classification; the
+          <a href="#iptc-correspondence">IPTC correspondence</a> is informative
+          and does not define equivalent values in another vocabulary:
         </p>
         <table class="simple">
           <thead>
             <tr>
               <th>Value</th>
               <th>Meaning</th>
-              <th>IETF equivalent</th>
-              <th>IPTC Digital Source Type</th>
             </tr>
           </thead>
           <tbody>
@@ -552,8 +591,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                 A positive assertion that no AI was involved in producing this
                 content.
               </td>
-              <td><code>none</code></td>
-              <td><code>digitalCapture</code></td>
             </tr>
             <tr>
               <td>
@@ -561,14 +598,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
               </td>
               <td>
                 AI was involved in producing the content, and a human reviewed
-                it before publication. This spans the full range from light AI
+                it before <a href="#dfn-publication" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-publication-2">publication</a>. This spans the full range from light AI
                 editing of human-written text to AI-drafted text, in each case
                 reviewed by a human before publication.
-              </td>
-              <td><code>ai-modified</code> / <code>ai-originated</code></td>
-              <td>
-                <code>compositeWithTrainedAlgorithmicMedia</code> /
-                <code>trainedAlgorithmicMedia</code>
               </td>
             </tr>
             <tr>
@@ -580,8 +612,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                 without human review, regardless of whether a human prompted
                 its generation.
               </td>
-              <td><code>machine-generated</code></td>
-              <td><code>trainedAlgorithmicMedia</code></td>
             </tr>
           </tbody>
         </table>
@@ -589,34 +619,34 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           To choose a <a href="#dfn-disclosure-value" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-disclosure-value-3">disclosure value</a> for the content being disclosed,
           answer these two questions in order:
         </p>
-        <ol>
+        <ol id="classification-procedure">
           <li>
             <strong>Was generative AI involved in producing the content?</strong>
-            If no, use <code>human-only</code>. If yes, continue to the second
+            If no, use <a href="#dfn-human-only" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-human-only-1"><code><code>human-only</code></code></a>. If yes, continue to the second
             question. See <a href="#boundary-guidance">Boundary guidance</a>
             for what counts as AI involvement.
           </li>
           <li>
             <strong>Did a human review the resulting content before
-            publication?</strong> If yes, use <code>ai-assisted</code>.
-            If no, use <code>ai-autonomous</code>.
+            publication?</strong> If yes, use <a href="#dfn-ai-assisted" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-ai-assisted-1"><code><code>ai-assisted</code></code></a>.
+            If no, use <a href="#dfn-ai-autonomous" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-ai-autonomous-1"><code><code>ai-autonomous</code></code></a>.
           </li>
         </ol>
         <p>
           The value <code>ai-assisted</code> is a positive assertion that a
-          human reviewed the content before publication. Authors <em class="rfc2119">MUST</em> use
+          person performed <a href="#dfn-human-review" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-human-review-1">human review</a> before publication. Authors <em class="rfc2119">MUST</em> use
           <code>ai-autonomous</code> when disclosing AI-involved content
           published without human review. Human authorship of the original
           text or of a prompt does not, by itself, constitute review of the
           resulting AI-generated or AI-edited text.
         </p>
-        <div class="note" role="note" id="issue-container-generatedID"><div class="note-title marker" id="h-note"><span>Note</span></div><p class="">
+        <div class="note" role="note" id="issue-container-generatedID-1"><div class="note-title marker" id="h-note-1"><span>Note</span></div><p class="">
           An assertion of human review does not by itself establish eligibility
           for a legal disclosure exception. See
           <a href="#regulatory-context">Regulatory context</a> for the
           relationship to EU AI Act Article 50.
         </p></div>
-        <div class="note" role="note" id="issue-container-generatedID-0"><div class="note-title marker" id="h-note-0"><span>Note</span></div><p class="">
+        <div class="note" role="note" id="issue-container-generatedID-2"><div class="note-title marker" id="h-note-2"><span>Note</span></div><p class="">
           A single <code>ai-assisted</code> value deliberately covers the full
           spectrum of human-plus-AI collaboration. The group considered a finer
           split between "assisted" (human-authored, AI-edited) and "generated"
@@ -624,7 +654,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           apply: with multiple contributors it forces unanswerable questions
           about who counts as the "first author."
         </p></div>
-        <div class="note" role="note" id="issue-container-generatedID-1"><div class="note-title marker" id="h-note-1"><span>Note</span></div><p class="">
+        <div class="note" role="note" id="issue-container-generatedID-3"><div class="note-title marker" id="h-note-3"><span>Note</span></div><p class="">
           The group also considered a percentage of AI authorship but decided
           against defining one. A consistent quantitative measure would require
           agreed definitions of both the numerator (what counts as AI-authored)
@@ -634,10 +664,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           does not define a percentage attribute. See
           <a href="https://github.com/w3c-cg/ai-content-disclosure/issues/25">issue #25</a> for the proposal.
         </p></div>
-        <p>
-          If the <code>ai-disclosure</code> attribute is present but its value
-          is not one of the above, user agents <em class="rfc2119">MUST</em> treat it as invalid and
-          behave as if the attribute were absent (i.e., "unknown").
+        <p id="value-parsing">
+          Consumers <em class="rfc2119">MUST</em> compare the complete attribute value with the three
+          keywords using
+          <a href="https://infra.spec.whatwg.org/#ascii-case-insensitive">ASCII case-insensitive</a> matching. Leading or trailing whitespace is not stripped. This
+          follows HTML's
+          <a href="https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#keywords-and-enumerated-attributes">enumerated attribute</a> convention. Authors <em class="rfc2119">SHOULD</em> use the lowercase spellings shown above.
+          Empty and unrecognized values supply no local declaration; consumers
+          <em class="rfc2119">MUST</em> continue the inheritance lookup rather than discard a valid
+          ancestor or page default. These parsing rules also apply to the
+          <code>content</code> of the page-level disclosure <code>meta</code>.
         </p>
       </section>
 
@@ -742,7 +778,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <code>name="ai-disclosure"</code> sets the
           <a href="#dfn-page-level-default" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-page-level-default-1">page-level default</a> for the document. The
           <code>content</code> attribute <em class="rfc2119">MUST</em> contain a valid
-          <a href="#dfn-disclosure-value" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-disclosure-value-5">disclosure value</a>.
+          <a href="#dfn-disclosure-value" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-disclosure-value-5">disclosure value</a>, parsed using
+          <a href="#value-parsing">the same rules as the attribute</a>.
         </p>
         <div class="example" id="example-1">
         <div class="marker">
@@ -752,8 +789,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <p>
           There <em class="rfc2119">MUST NOT</em> be more than one
           <code>&lt;meta name="ai-disclosure"&gt;</code> element per document.
-          If more than one is present, user agents <em class="rfc2119">MUST</em> use the first one in
-          document order and ignore the rest.
+          The page default is taken from the first <code>meta</code> element in
+          the document's <code>head</code>, in tree order, whose
+          <code>name</code> is an ASCII case-insensitive match for
+          <code>ai-disclosure</code>. Consumers <em class="rfc2119">MUST</em> ignore later matching
+          elements, even if the first has an invalid or missing
+          <code>content</code> value. An invalid first value supplies no default.
         </p>
       </section>
     </section>
@@ -764,35 +805,65 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <section id="inheritance"><div class="header-wrapper"><h2 id="x5-inheritance"><bdi class="secno">5. </bdi>Inheritance</h2><a class="self-link" href="#inheritance" aria-label="Permalink for Section 5."></a></div>
 
 
-      <section id="cascading-rules"><div class="header-wrapper"><h3 id="x5-1-cascading-rules"><bdi class="secno">5.1 </bdi>Cascading rules</h3><a class="self-link" href="#cascading-rules" aria-label="Permalink for Section 5.1"></a></div>
+      <section id="effective-disclosure"><div class="header-wrapper"><h3 id="x5-1-cascading-rules"><bdi class="secno">5.1 </bdi>Cascading rules</h3><a class="self-link" href="#effective-disclosure" aria-label="Permalink for Section 5.1"></a></div>
 
         <p>
-          The <code>ai-disclosure</code> value for a given element is determined
-          as follows, in order of priority:
+          Consumers <em class="rfc2119">MUST</em> determine the effective <code>ai-disclosure</code>
+          value for a given element or text node using this procedure:
         </p>
         <ol class="algorithm">
           <li>
-            If the element has an explicit <code>ai-disclosure</code> attribute
-            with a valid value, that value applies.
+            For a text node, start with its parent element. For an element
+            (including when classifying one of its text attributes), start
+            with that element. If there is no starting element, return
+            "unknown."
           </li>
           <li>
-            Otherwise, if the element has an ancestor with an explicit
-            <code>ai-disclosure</code> attribute, the value of the nearest such
-            ancestor applies.
+            If the current element has an <code>ai-disclosure</code> attribute
+            that parses to a valid value, return its canonical lowercase value.
+            Otherwise, move to its parent element and repeat. Stop when there
+            is no parent element.
           </li>
           <li>
-            Otherwise, if a
-            <code>&lt;meta name="ai-disclosure"&gt;</code> element is present
-            with a valid <a href="#dfn-disclosure-value" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-disclosure-value-6">disclosure value</a>, that value applies as
-            the <a href="#dfn-page-level-default" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-page-level-default-2">page-level default</a>.
+            If the starting element is connected to a document, use that
+            document's <a href="#dfn-page-level-default" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-page-level-default-2">page-level default</a>, if valid, and return its
+            canonical lowercase value.
           </li>
-          <li>Otherwise, the element's disclosure status is "unknown."</li>
+          <li>Otherwise, return "unknown."</li>
         </ol>
         <p>
           Child elements <em class="rfc2119">MAY</em> override their parent's value by specifying their
           own <code>ai-disclosure</code> attribute. This allows authors to mark
           fine-grained regions within a larger container.
         </p>
+        <p>
+          Parent and ancestor relationships in this procedure follow the DOM
+          tree, not the flattened tree. Slot assignment does not change a
+          node's disclosure ancestry. Lookup within a shadow root does not
+          cross to its host, although a connected node can still use its
+          document's page default. A detached subtree or inert
+          <code>template</code> content can inherit from ancestors within that
+          subtree, but has no page default until connected to a document.
+        </p>
+        <p>
+          The result describes the current DOM. Consumers <em class="rfc2119">MUST</em> recompute it
+          when relevant declarations, ancestry, or the page default change.
+          Dynamically inserted content uses the same procedure. Authors remain
+          responsible for updating declarations when the production history
+          changes, including AI edits made after human review.
+        </p>
+        <div class="example" id="example-2">
+        <div class="marker">
+    <a class="self-link" href="#example-2">Example<bdi> 2</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ai-disclosure"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"human-only"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Human-written reporting inherits the page default.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">ai-disclosure</span>=<span class="hljs-string">"ai-autonomous"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This unreviewed AI summary overrides the page default.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">ai-disclosure</span>=<span class="hljs-string">"human-only"</span>&gt;</span>A human-written correction overrides the section.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span></code></pre>
+      </div>
       </section>
 
       <section id="absence-vs-human-only"><div class="header-wrapper"><h3 id="x5-2-absence-vs-human-only"><bdi class="secno">5.2 </bdi>Absence vs. <code>human-only</code></h3><a class="self-link" href="#absence-vs-human-only" aria-label="Permalink for Section 5.2"></a></div>
@@ -818,14 +889,44 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 
 
-    <section id="optional-metadata-attributes"><div class="header-wrapper"><h2 id="x6-optional-metadata-attributes"><bdi class="secno">6. </bdi>Optional metadata attributes</h2><a class="self-link" href="#optional-metadata-attributes" aria-label="Permalink for Section 6."></a></div>
+    <section id="optional-metadata"><div class="header-wrapper"><h2 id="x6-optional-metadata-attributes"><bdi class="secno">6. </bdi>Optional metadata attributes</h2><a class="self-link" href="#optional-metadata" aria-label="Permalink for Section 6."></a></div>
 
       <p>
-        The following attributes <em class="rfc2119">MAY</em> appear on any element that also carries an
-        <code>ai-disclosure</code> attribute. They provide supplementary
+        The following attributes <em class="rfc2119">MAY</em> appear on an element with an explicit or
+        inherited AI-involved disclosure value, or on the page-level
+        disclosure <code>meta</code> element. They provide supplementary
         information about the AI system used. All are <em class="rfc2119">OPTIONAL</em> — authors may
         have legitimate reasons not to disclose specific tools or providers.
       </p>
+      <p>
+        Consumers <em class="rfc2119">MUST</em> resolve each metadata attribute independently: use the
+        attribute on the element itself if present, otherwise the nearest DOM
+        ancestor carrying that attribute, otherwise the attribute on the
+        document's first matching disclosure <code>meta</code> element if the
+        target is connected to that document. If none is present, no value is
+        supplied. An explicitly empty attribute clears that metadata field and
+        stops lookup. Text nodes start at their parent element. The same DOM,
+        shadow-root, and connection rules apply as for disclosure inheritance.
+      </p>
+      <p>
+        Overriding <code>ai-disclosure</code> does not by itself override the
+        inherited model, provider, or prompt URL. Authors should override or
+        clear metadata that no longer describes the content. Consumers <em class="rfc2119">MUST</em>
+        ignore AI metadata for a target whose effective disclosure is
+        <code>human-only</code> or "unknown." Optional metadata alone does not
+        establish AI involvement or human review.
+      </p>
+      <div class="example" id="example-3">
+        <div class="marker">
+    <a class="self-link" href="#example-3">Example<bdi> 3</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ai-disclosure"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"ai-assisted"</span>
+      <span class="hljs-attr">ai-model</span>=<span class="hljs-string">"example-model-v1"</span> <span class="hljs-attr">ai-provider</span>=<span class="hljs-string">"Example Provider"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Inherits ai-assisted, the model, and the provider.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">ai-model</span>=<span class="hljs-string">"example-model-v2"</span>&gt;</span>Overrides only the model.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">ai-model</span>=<span class="hljs-string">""</span>&gt;</span>Clears the model; still inherits the provider.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></code></pre>
+      </div>
 
       <section id="ai-model"><div class="header-wrapper"><h3 id="x6-1-ai-model"><bdi class="secno">6.1 </bdi>
           <code><dfn data-dfn-type="element-attr" id="dfn-ai-model" tabindex="0" aria-haspopup="dialog" data-export="">ai-model</dfn></code>
@@ -833,11 +934,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
         <p>
           A free-form string identifying the AI model used (e.g.,
-          <code>"claude-3.5-sonnet"</code>, <code>"gpt-4o"</code>).
+          <code>"example-model-v1"</code>, <code>"example-model-v2"</code>).
         </p>
         <p>
-          This attribute <em class="rfc2119">SHOULD NOT</em> be present when
-          <code>ai-disclosure="human-only"</code>.
+          This attribute <em class="rfc2119">SHOULD NOT</em> be present when the effective disclosure
+          value is <code>human-only</code>.
         </p>
       </section>
 
@@ -847,11 +948,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
         <p>
           A free-form string identifying the AI provider or vendor (e.g.,
-          <code>"Anthropic"</code>, <code>"OpenAI"</code>).
+          <code>"Example Provider"</code>).
         </p>
         <p>
-          This attribute <em class="rfc2119">SHOULD NOT</em> be present when
-          <code>ai-disclosure="human-only"</code>.
+          This attribute <em class="rfc2119">SHOULD NOT</em> be present when the effective disclosure
+          value is <code>human-only</code>.
         </p>
       </section>
 
@@ -860,25 +961,25 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         </h3><a class="self-link" href="#ai-prompt-url" aria-label="Permalink for Section 6.3"></a></div>
 
         <p>
-          A <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url">URL</a> pointing to documentation of the prompt or methodology used
+          A nonempty value is a <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url">URL</a> pointing to documentation of the prompt or methodology used
           to generate the content (e.g.,
           <code>"/ai-methodology#summary"</code>).
         </p>
-        <div class="note" role="note" id="issue-container-generatedID-2"><div class="note-title marker" id="h-note-2"><span>Note</span></div><p class="">
+        <div class="note" role="note" id="issue-container-generatedID-4"><div class="note-title marker" id="h-note-4"><span>Note</span></div><p class="">
           This attribute is optional. When provided, the URL is expected to
           resolve to a resource containing prompt or methodology information.
           This specification does not prescribe that resource's format, schema,
           or required fields. It does not require publication of the exact
           prompt, model parameters, source materials, or evidence of review.
         </p></div>
+        <div class="note" role="note" id="issue-container-generatedID-5"><div class="note-title marker" id="h-note-5"><span>Note</span></div><p class="">
+          The attribute carries a link, not inline prompt text. A separate
+          resource lets authors choose what to disclose without requiring the
+          prompt to be embedded in the page.
+        </p></div>
         <p>
-          The prompt text itself <em class="rfc2119">MUST NOT</em> be embedded in the HTML. This
-          attribute links to an external resource, giving authors control over
-          what they disclose and when they revoke access.
-        </p>
-        <p>
-          This attribute <em class="rfc2119">SHOULD NOT</em> be present when
-          <code>ai-disclosure="human-only"</code>.
+          This attribute <em class="rfc2119">SHOULD NOT</em> be present when the effective disclosure
+          value is <code>human-only</code>.
         </p>
       </section>
     </section>
@@ -886,46 +987,23 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 
 
-    <section class="informative" id="relationship-to-http-headers"><div class="header-wrapper"><h2 id="x7-relationship-to-http-headers"><bdi class="secno">7. </bdi>Relationship to HTTP headers</h2><a class="self-link" href="#relationship-to-http-headers" aria-label="Permalink for Section 7."></a></div><p><em>This section is non-normative.</em></p>
+    <section id="http-metadata"><div class="header-wrapper"><h2 id="x7-relationship-to-http-metadata"><bdi class="secno">7. </bdi>Relationship to HTTP metadata</h2><a class="self-link" href="#http-metadata" aria-label="Permalink for Section 7."></a></div>
 
       <p>
-        The
-        <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/">IETF <code>AI-Disclosure</code> HTTP response header</a>
-        provides disclosure at the HTTP response level. The HTML mechanisms
-        defined in this specification complement it by adding page-level and
-        element-level granularity.
+        This specification defines HTML disclosure independently of any HTTP
+        disclosure header. Consumers <em class="rfc2119">MUST</em> determine the effective HTML
+        disclosure value using <a href="#inheritance">Inheritance</a>.
+        HTTP metadata <em class="rfc2119">MUST NOT</em> replace that value or supply a missing HTML
+        declaration under this specification.
       </p>
-      <table class="simple">
-        <thead>
-          <tr>
-            <th>Layer</th>
-            <th>Mechanism</th>
-            <th>Granularity</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>HTTP</td>
-            <td><code>AI-Disclosure</code> response header</td>
-            <td>Entire response</td>
-          </tr>
-          <tr>
-            <td>HTML page</td>
-            <td><code>&lt;meta name="ai-disclosure"&gt;</code></td>
-            <td>Entire document</td>
-          </tr>
-          <tr>
-            <td>HTML element</td>
-            <td><code>ai-disclosure</code> attribute</td>
-            <td>Any element</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        These layers are complementary. A CDN or reverse proxy can set the HTTP
-        header; a CMS can set the meta tag; an author or AI tool can set
-        element-level attributes. None supersedes the others.
-      </p>
+      <div class="note" role="note" id="issue-container-generatedID-6"><div class="note-title marker" id="h-note-6"><span>Note</span></div><p class="">
+        An application may also display or evaluate declarations from HTTP
+        headers or other provenance systems. If these disagree with HTML
+        metadata, the application can expose both assertions and their scopes;
+        this specification does not establish which assertion is factually
+        correct. A header describing a whole response and an attribute
+        describing one passage may legitimately describe different content.
+      </p></div>
     </section>
 
 
@@ -940,19 +1018,19 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           A newsroom publishes an investigative piece with a human-written
           article and an AI-written summary reviewed by a human before
           publication. Each region declares its own
-          <a href="#dfn-disclosure-value" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-disclosure-value-7">disclosure value</a>, so no <a href="#dfn-page-level-default" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-page-level-default-4">page-level default</a> is needed.
+          <a href="#dfn-disclosure-value" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-disclosure-value-6">disclosure value</a>, so no <a href="#dfn-page-level-default" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-page-level-default-4">page-level default</a> is needed.
           Elements outside these regions have an "unknown" disclosure status:
         </p>
-        <div class="example" id="example-2">
+        <div class="example" id="example-4">
         <div class="marker">
-    <a class="self-link" href="#example-2">Example<bdi> 2</bdi></a>
+    <a class="self-link" href="#example-4">Example<bdi> 4</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">ai-disclosure</span>=<span class="hljs-string">"human-only"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Exclusive: City Budget Shortfall<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>After six months of records review...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">aside</span> <span class="hljs-attr">ai-disclosure</span>=<span class="hljs-string">"ai-assisted"</span>
-       <span class="hljs-attr">ai-model</span>=<span class="hljs-string">"gpt-4o"</span> <span class="hljs-attr">ai-provider</span>=<span class="hljs-string">"OpenAI"</span>&gt;</span>
+       <span class="hljs-attr">ai-model</span>=<span class="hljs-string">"example-model-v2"</span> <span class="hljs-attr">ai-provider</span>=<span class="hljs-string">"Example Provider"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Key Takeaways (AI-Generated)<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>$4.2M discrepancy found...<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span></code></pre>
@@ -966,13 +1044,13 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           clarity improvements, then reviews the edited text before
           publication:
         </p>
-        <div class="example" id="example-3">
+        <div class="example" id="example-5">
         <div class="marker">
-    <a class="self-link" href="#example-3">Example<bdi> 3</bdi></a>
+    <a class="self-link" href="#example-5">Example<bdi> 5</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ai-disclosure"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"ai-assisted"</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">ai-disclosure</span>=<span class="hljs-string">"ai-assisted"</span>
-         <span class="hljs-attr">ai-model</span>=<span class="hljs-string">"claude-3.5-sonnet"</span> <span class="hljs-attr">ai-provider</span>=<span class="hljs-string">"Anthropic"</span>&gt;</span>
+         <span class="hljs-attr">ai-model</span>=<span class="hljs-string">"example-model-v1"</span> <span class="hljs-attr">ai-provider</span>=<span class="hljs-string">"Example Provider"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>My Trip to Kyoto<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The bamboo grove felt otherworldly at dawn...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></code></pre>
@@ -985,9 +1063,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           An automated system generates and publishes weather reports without
           human review:
         </p>
-        <div class="example" id="example-4">
+        <div class="example" id="example-6">
         <div class="marker">
-    <a class="self-link" href="#example-4">Example<bdi> 4</bdi></a>
+    <a class="self-link" href="#example-6">Example<bdi> 6</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ai-disclosure"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"ai-autonomous"</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ai-disclosure</span>=<span class="hljs-string">"ai-autonomous"</span>
@@ -1001,9 +1079,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <section id="human-only-assertion"><div class="header-wrapper"><h3 id="x8-4-human-only-assertion"><bdi class="secno">8.4 </bdi>Human-only assertion</h3><a class="self-link" href="#human-only-assertion" aria-label="Permalink for Section 8.4"></a></div>
 
         <p>A literary journal positively asserts that no AI was used:</p>
-        <div class="example" id="example-5">
+        <div class="example" id="example-7">
         <div class="marker">
-    <a class="self-link" href="#example-5">Example<bdi> 5</bdi></a>
+    <a class="self-link" href="#example-7">Example<bdi> 7</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ai-disclosure"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"human-only"</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">ai-disclosure</span>=<span class="hljs-string">"human-only"</span>&gt;</span>
@@ -1026,42 +1104,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
       <p>
         This guide applies the <a href="#disclosure-values">disclosure
-        values</a> to common publishing workflows. Classification depends on
-        two questions: was <a href="#dfn-generative-ai" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-generative-ai-3">generative AI</a> involved in producing the text,
-        and did a human review the resulting content before publication?
+        values</a> to common publishing workflows. Use the normative
+        <a href="#classification-procedure">two-question classification
+        procedure</a> to choose a value.
         The amount of AI-authored text and the extent of human editing do not
         determine the value.
       </p>
 
-      <section id="decision-tree"><div class="header-wrapper"><h3 id="x9-1-decision-tree"><bdi class="secno">9.1 </bdi>Decision tree</h3><a class="self-link" href="#decision-tree" aria-label="Permalink for Section 9.1"></a></div>
+      <section id="applying-the-classification-procedure"><div class="header-wrapper"><h3 id="x9-1-applying-the-classification-procedure"><bdi class="secno">9.1 </bdi>Applying the classification procedure</h3><a class="self-link" href="#applying-the-classification-procedure" aria-label="Permalink for Section 9.1"></a></div>
 
-        <ol>
-          <li>
-            <strong>Was <a href="#dfn-generative-ai" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-generative-ai-4">generative AI</a> involved in producing the textual
-            content itself?</strong>
-            <ul>
-              <li>
-                No → <a href="#dfn-human-only" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-human-only-1"><code><code>human-only</code></code></a>
-              </li>
-              <li>
-                Yes → go to step 2
-              </li>
-            </ul>
-          </li>
-          <li>
-            <strong>Did a human review the resulting content before
-            publication?</strong>
-            <ul>
-              <li>
-                Yes → <a href="#dfn-ai-assisted" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-ai-assisted-1"><code><code>ai-assisted</code></code></a>
-              </li>
-              <li>
-                No → <a href="#dfn-ai-autonomous" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-ai-autonomous-1"><code><code>ai-autonomous</code></code></a>, including output
-                generated from a human prompt but published unread
-              </li>
-            </ul>
-          </li>
-        </ol>
         <p>
           Human authorship of notes, a prompt, or an earlier draft does not
           establish review of the resulting AI-generated or AI-edited text.
@@ -1082,7 +1133,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           content with different disclosure values (for example, a
           human-written article with an AI-generated summary), disclose each
           part individually. A <a href="#dfn-page-level-default" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-page-level-default-5">page-level default</a> is optional; if one is
-          supplied, use a valid <a href="#dfn-disclosure-value" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-disclosure-value-8">disclosure value</a> and override it on
+          supplied, use a valid <a href="#dfn-disclosure-value" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-disclosure-value-7">disclosure value</a> and override it on
           elements where a different value applies.
         </p>
       </section>
@@ -1171,74 +1222,58 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         duplicating each other's responsibilities.
       </p>
 
-      <section id="ietf-ai-disclosure-header"><div class="header-wrapper"><h3 id="x10-1-ietf-ai-disclosure-header"><bdi class="secno">10.1 </bdi>IETF <code>AI-Disclosure</code> header</h3><a class="self-link" href="#ietf-ai-disclosure-header" aria-label="Permalink for Section 10.1"></a></div>
-
-        <p>
-          The
-          <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/">IETF <code>AI-Disclosure</code> header</a>
-          provides response-level disclosure. The HTML attribute values are
-          aligned with the IETF header modes:
-        </p>
-        <table class="simple">
-          <thead>
-            <tr>
-              <th><code>ai-disclosure</code> value</th>
-              <th>IETF header mode</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>human-only</code></td>
-              <td><code>none</code></td>
-            </tr>
-            <tr>
-              <td><code>ai-assisted</code></td>
-              <td><code>ai-modified</code> / <code>ai-originated</code></td>
-            </tr>
-            <tr>
-              <td><code>ai-autonomous</code></td>
-              <td><code>machine-generated</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section id="iptc-digital-source-type"><div class="header-wrapper"><h3 id="x10-2-iptc-digital-source-type"><bdi class="secno">10.2 </bdi>IPTC Digital Source Type</h3><a class="self-link" href="#iptc-digital-source-type" aria-label="Permalink for Section 10.2"></a></div>
+      <section id="iptc-correspondence"><div class="header-wrapper"><h3 id="x10-1-iptc-digital-source-type"><bdi class="secno">10.1 </bdi>IPTC Digital Source Type</h3><a class="self-link" href="#iptc-correspondence" aria-label="Permalink for Section 10.1"></a></div>
 
         <p>
           The
           <a href="https://cv.iptc.org/newscodes/digitalsourcetype/">IPTC Digital Source Type</a>
-          vocabulary is widely used in news media. The following mapping aligns
-          the HTML attribute values with IPTC terms:
+          vocabulary describes how media was produced. The following examples
+          show related terms for text; they are not a lossless mapping or an
+          IPTC endorsement. Source type alone does not establish whether human
+          review occurred, so consumers cannot derive this specification's
+          disclosure values from an IPTC term alone.
         </p>
         <table class="simple">
           <thead>
             <tr>
               <th><code>ai-disclosure</code> value</th>
-              <th>IPTC Digital Source Type</th>
+              <th>Related IPTC terms and limits</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><code>human-only</code></td>
-              <td><code>digitalCapture</code></td>
+              <td>
+                <a href="https://cv.iptc.org/newscodes/digitalsourcetype/digitalCreation"><code>digitalCreation</code></a> for human-written text created with non-generative tools.
+                This is not a universal mapping for every deterministic data
+                feed covered by <code>human-only</code>.
+              </td>
             </tr>
             <tr>
               <td><code>ai-assisted</code></td>
               <td>
                 <code>compositeWithTrainedAlgorithmicMedia</code> /
-                <code>trainedAlgorithmicMedia</code>
+                <code>trainedAlgorithmicMedia</code>, depending on production
+                history; human review is an additional assertion here.
               </td>
             </tr>
             <tr>
               <td><code>ai-autonomous</code></td>
-              <td><code>trainedAlgorithmicMedia</code></td>
+              <td>
+                <code>trainedAlgorithmicMedia</code> can describe generated
+                text; absence of human review is an additional assertion here.
+              </td>
             </tr>
           </tbody>
         </table>
+        <p>
+          IPTC's
+          <a href="https://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture"><code>digitalCapture</code></a> describes capture from real life by a digital camera or recording
+          device, rather than human authorship of text.
+        </p>
       </section>
 
-      <section id="schema-org-json-ld"><div class="header-wrapper"><h3 id="x10-3-schema-org-json-ld"><bdi class="secno">10.3 </bdi>Schema.org / JSON-LD</h3><a class="self-link" href="#schema-org-json-ld" aria-label="Permalink for Section 10.3"></a></div>
+      <section id="schema-org-json-ld"><div class="header-wrapper"><h3 id="x10-2-schema-org-json-ld"><bdi class="secno">10.2 </bdi>Schema.org / JSON-LD</h3><a class="self-link" href="#schema-org-json-ld" aria-label="Permalink for Section 10.2"></a></div>
 
         <p>
           <a href="https://www.w3.org/TR/json-ld11/">JSON-LD</a> is a useful
@@ -1257,7 +1292,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <a href="https://github.com/schemaorg/schemaorg/issues/3391">schemaorg/schemaorg#3391</a> and
           <a href="https://github.com/w3c-cg/ai-content-disclosure/issues/17">issue #17</a>.
         </p>
-        <div class="note" role="note" id="issue-container-generatedID-3"><div class="note-title marker" id="h-note-3"><span>Note</span></div><p class="">
+        <div class="note" role="note" id="issue-container-generatedID-7"><div class="note-title marker" id="h-note-7"><span>Note</span></div><p class="">
           The following examples share possible designs for discussion. The
           <code>aiDisclosure</code> property and its expanded fields are
           illustrative; these examples do not define standardized Schema.org
@@ -1265,9 +1300,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           is not required for conformance to this specification.
         </p></div>
         <p>A simple form could associate a disclosure value with a work:</p>
-        <div class="example" id="example-6">
+        <div class="example" id="example-8">
         <div class="marker">
-    <a class="self-link" href="#example-6">Example<bdi> 6</bdi></a>
+    <a class="self-link" href="#example-8">Example<bdi> 8</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"@context"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://schema.org"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"@type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"NewsArticle"</span><span class="hljs-punctuation">,</span>
@@ -1277,9 +1312,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 <span class="hljs-punctuation">}</span></code></pre>
       </div>
         <p>An expanded form could carry additional metadata:</p>
-        <div class="example" id="example-7">
+        <div class="example" id="example-9">
         <div class="marker">
-    <a class="self-link" href="#example-7">Example<bdi> 7</bdi></a>
+    <a class="self-link" href="#example-9">Example<bdi> 9</bdi></a>
   </div> <pre aria-busy="false"><code class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"@context"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://schema.org"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"@type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"NewsArticle"</span><span class="hljs-punctuation">,</span>
@@ -1287,8 +1322,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   <span class="hljs-attr">"author"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">"@type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Person"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Jane Doe"</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"aiDisclosure"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"level"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"ai-assisted"</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"tool"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Claude 3.5 Sonnet"</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">"provider"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Anthropic"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"tool"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Example Model"</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">"provider"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"Example Provider"</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">"description"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"AI used for copy editing and fact-checking assistance"</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">"methodologyUrl"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://example.com/ai-methodology"</span>
   <span class="hljs-punctuation">}</span>
@@ -1296,7 +1331,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </div>
       </section>
 
-      <section id="prov-o-and-dublin-core"><div class="header-wrapper"><h3 id="x10-4-prov-o-and-dublin-core"><bdi class="secno">10.4 </bdi>PROV-O and Dublin Core</h3><a class="self-link" href="#prov-o-and-dublin-core" aria-label="Permalink for Section 10.4"></a></div>
+      <section id="prov-o-and-dublin-core"><div class="header-wrapper"><h3 id="x10-3-prov-o-and-dublin-core"><bdi class="secno">10.3 </bdi>PROV-O and Dublin Core</h3><a class="self-link" href="#prov-o-and-dublin-core" aria-label="Permalink for Section 10.3"></a></div>
 
         <p>
           <a href="https://www.w3.org/TR/prov-o/">W3C PROV-O</a> describes
@@ -1315,7 +1350,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         </p>
       </section>
 
-      <section id="c2pa"><div class="header-wrapper"><h3 id="x10-5-c2pa"><bdi class="secno">10.5 </bdi>C2PA</h3><a class="self-link" href="#c2pa" aria-label="Permalink for Section 10.5"></a></div>
+      <section id="c2pa"><div class="header-wrapper"><h3 id="x10-4-c2pa"><bdi class="secno">10.4 </bdi>C2PA</h3><a class="self-link" href="#c2pa" aria-label="Permalink for Section 10.4"></a></div>
 
         <p>
           <a href="https://spec.c2pa.org/">C2PA</a> provides cryptographic,
@@ -1328,7 +1363,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         </p>
       </section>
 
-      <section id="text-watermarking"><div class="header-wrapper"><h3 id="x10-6-text-watermarking"><bdi class="secno">10.6 </bdi>Text watermarking</h3><a class="self-link" href="#text-watermarking" aria-label="Permalink for Section 10.6"></a></div>
+      <section id="text-watermarking"><div class="header-wrapper"><h3 id="x10-5-text-watermarking"><bdi class="secno">10.5 </bdi>Text watermarking</h3><a class="self-link" href="#text-watermarking" aria-label="Permalink for Section 10.5"></a></div>
 
         <p>
           Text watermarking embeds a detectable statistical signal in generated
@@ -1357,7 +1392,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         </p>
       </section>
 
-      <section id="ibm-ai-attribution-toolkit"><div class="header-wrapper"><h3 id="x10-7-ibm-ai-attribution-toolkit"><bdi class="secno">10.7 </bdi>IBM AI Attribution Toolkit</h3><a class="self-link" href="#ibm-ai-attribution-toolkit" aria-label="Permalink for Section 10.7"></a></div>
+      <section id="ibm-ai-attribution-toolkit"><div class="header-wrapper"><h3 id="x10-6-ibm-ai-attribution-toolkit"><bdi class="secno">10.6 </bdi>IBM AI Attribution Toolkit</h3><a class="self-link" href="#ibm-ai-attribution-toolkit" aria-label="Permalink for Section 10.6"></a></div>
 
         <p>
           The
@@ -1375,7 +1410,41 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 
 
-    <section class="informative" id="security-considerations"><div class="header-wrapper"><h2 id="x11-security-considerations"><bdi class="secno">11. </bdi>Security considerations</h2><a class="self-link" href="#security-considerations" aria-label="Permalink for Section 11."></a></div><p><em>This section is non-normative.</em></p>
+    <section class="informative" id="implementation-status"><div class="header-wrapper"><h2 id="x11-implementation-status-and-adoption"><bdi class="secno">11. </bdi>Implementation status and adoption</h2><a class="self-link" href="#implementation-status" aria-label="Permalink for Section 11."></a></div><p><em>This section is non-normative.</em></p>
+
+      <p>
+        This report proposes new HTML attributes; it does not make them part of
+        the HTML Living Standard. Native browser support, a reflected
+        <code>element.aiDisclosure</code> property, and acceptance by HTML
+        validators are not established by this report. The adoption path is
+        implementation experiments and review by the HTML standards community,
+        including the existing
+        <a href="https://github.com/whatwg/html/issues/9479">WHATWG discussion</a>.
+        A future HTML integration would need to specify any IDL reflection.
+      </p>
+      <p>
+        Experimental consumers can use <code>getAttribute()</code> and the
+        <a href="#effective-disclosure">processing algorithm</a>. A publisher
+        needing conforming custom HTML attributes during experimentation can
+        use a private <code>data-ai-disclosure</code> convention, with equivalent
+        <code>data-</code> names for metadata, and explicitly configure its
+        consumer for those names. Those experimental names are not aliases
+        defined by this specification and are not automatically interoperable
+        with consumers of the proposed unprefixed attributes.
+      </p>
+      <p>
+        The repository includes an
+        <a href="https://github.com/w3c-cg/ai-content-disclosure/blob/7d6a4bc/examples/resolve-disclosure.js">illustrative JavaScript consumer</a> and
+        <a href="https://github.com/w3c-cg/ai-content-disclosure/blob/7d6a4bc/tests/disclosure.js">executable processing checks</a> for inheritance, parsing, text alternatives, metadata overrides,
+        dynamic content, templates, and shadow roots. These demonstrate the
+        proposed algorithm, not independent implementations or browser
+        interoperability. No cross-browser implementation report is claimed.
+        The IBM toolkit described above is related work, not evidence of
+        conformance to this processing model.
+      </p>
+    </section>
+
+    <section class="informative" id="security-considerations"><div class="header-wrapper"><h2 id="x12-security-considerations"><bdi class="secno">12. </bdi>Security considerations</h2><a class="self-link" href="#security-considerations" aria-label="Permalink for Section 12."></a></div><p><em>This section is non-normative.</em></p>
 
       <p>
         The <code>ai-disclosure</code> attribute is voluntary, author-declared
@@ -1389,6 +1458,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         (<code>robots.txt</code>, <code>rel=nofollow</code>, Schema.org markup).
       </p>
       <p>
+        Sanitizers, rich-text editors, and CMS transformations may remove
+        unfamiliar attributes. For example,
+        <a href="https://github.com/cure53/DOMPurify#control-our-allow-lists-and-block-lists">DOMPurify provides attribute allow-list configuration</a>. Publishers should test that their actual sanitization and publishing
+        pipeline preserves the disclosure and metadata attributes they intend
+        to support, using narrowly scoped configuration rather than disabling
+        sanitization. Losing a local override can silently expose an unrelated
+        inherited value, including a <code>human-only</code> page default.
+        Declarations from untrusted authors remain unverified even when kept.
+      </p>
+      <p>
         No new information about the user (reader) is exposed. The attribute
         describes the content, not the person viewing it. No new fingerprinting
         surface is introduced — the attribute is author-declared metadata, not a
@@ -1399,18 +1478,19 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 
 
-    <section class="informative" id="privacy-considerations"><div class="header-wrapper"><h2 id="x12-privacy-considerations"><bdi class="secno">12. </bdi>Privacy considerations</h2><a class="self-link" href="#privacy-considerations" aria-label="Permalink for Section 12."></a></div><p><em>This section is non-normative.</em></p>
+    <section class="informative" id="privacy-considerations"><div class="header-wrapper"><h2 id="x13-privacy-considerations"><bdi class="secno">13. </bdi>Privacy considerations</h2><a class="self-link" href="#privacy-considerations" aria-label="Permalink for Section 13."></a></div><p><em>This section is non-normative.</em></p>
 
       <p>
         The <code>ai-model</code> and <code>ai-provider</code> attributes are
-        <em class="rfc2119">OPTIONAL</em> to avoid requiring disclosure of trade secrets or proprietary
+        optional to avoid requiring disclosure of trade secrets or proprietary
         tooling.
       </p>
       <p>
-        Prompt text <em class="rfc2119">MUST NOT</em> be embedded directly in HTML. The
-        <code>ai-prompt-url</code> attribute links to an external resource,
-        giving authors control over what they disclose and when they revoke
-        access.
+        The <code>ai-prompt-url</code> attribute links to a resource rather than
+        carrying prompt text inline. Authors should avoid disclosing confidential
+        prompts or personal information through that resource. Consumers should
+        not fetch a prompt URL automatically merely to compute disclosure;
+        fetching can reveal reader activity to the resource's operator.
       </p>
       <p>
         This specification does not introduce any mechanisms that allow tracking
@@ -1421,13 +1501,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 
 
-    <section class="informative" id="accessibility-considerations"><div class="header-wrapper"><h2 id="x13-accessibility-considerations"><bdi class="secno">13. </bdi>Accessibility considerations</h2><a class="self-link" href="#accessibility-considerations" aria-label="Permalink for Section 13."></a></div><p><em>This section is non-normative.</em></p>
+    <section class="informative" id="accessibility-considerations"><div class="header-wrapper"><h2 id="x14-accessibility-considerations"><bdi class="secno">14. </bdi>Accessibility considerations</h2><a class="self-link" href="#accessibility-considerations" aria-label="Permalink for Section 14."></a></div><p><em>This section is non-normative.</em></p>
 
       <p>
         Browsers and screen readers could optionally announce AI disclosure to
         users (e.g., "AI-generated content follows"). The
-        <code>ai-disclosure</code> attribute <em class="rfc2119">SHOULD</em> be exposed via the
-        <a href="https://wicg.github.io/aom/">Accessibility Object Model</a>.
+        disclosure could be exposed through accessibility APIs and appropriate
+        user-facing controls. This report does not define an accessibility-tree
+        mapping or require a particular browser API. AI-generated text
+        alternatives, including <code>alt</code> text, are within the textual
+        scope; the declaration does not describe the associated image itself.
       </p>
       <p>
         No change to existing content rendering is required — the attribute is
@@ -1440,7 +1523,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 
 
-    <section class="informative" id="internationalization-considerations"><div class="header-wrapper"><h2 id="x14-internationalization-considerations"><bdi class="secno">14. </bdi>Internationalization considerations</h2><a class="self-link" href="#internationalization-considerations" aria-label="Permalink for Section 14."></a></div><p><em>This section is non-normative.</em></p>
+    <section class="informative" id="internationalization-considerations"><div class="header-wrapper"><h2 id="x15-internationalization-considerations"><bdi class="secno">15. </bdi>Internationalization considerations</h2><a class="self-link" href="#internationalization-considerations" aria-label="Permalink for Section 15."></a></div><p><em>This section is non-normative.</em></p>
 
       <p>
         The attribute values (<code>human-only</code>, <code>ai-assisted</code>,
@@ -1458,24 +1541,50 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 
 
-    <section id="conformance"><div class="header-wrapper"><h2 id="x15-conformance"><bdi class="secno">15. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 15."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
+    <section id="conformance"><div class="header-wrapper"><h2 id="x16-conformance"><bdi class="secno">16. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 16."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
         The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">MUST NOT</em>, <em class="rfc2119">OPTIONAL</em>, <em class="rfc2119">RECOMMENDED</em>, <em class="rfc2119">REQUIRED</em>, <em class="rfc2119">SHALL</em>, <em class="rfc2119">SHALL NOT</em>, <em class="rfc2119">SHOULD</em>, and <em class="rfc2119">SHOULD NOT</em> in this document
         are to be interpreted as described in
         <a href="https://www.rfc-editor.org/info/bcp14">BCP 14</a>
         [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
         when, and only when, they appear in all
         capitals, as shown here.
-      </p>
-      <p>
-        All assertions, diagrams, examples, and notes in this specification are
-        non-normative. Everything else is normative.
-      </p>
+      </p></section>
+
+    <section class="informative" id="change-history"><div class="header-wrapper"><h2 id="x17-changes-for-the-proposed-final-report"><bdi class="secno">17. </bdi>Changes for the proposed final report</h2><a class="self-link" href="#change-history" aria-label="Permalink for Section 17."></a></div><p><em>This section is non-normative.</em></p>
+
+      <ul>
+        <li>
+          Removed the <code>mixed</code> page value and clarified that AI use
+          only for page structure does not affect textual disclosure
+          (<a href="https://github.com/w3c-cg/ai-content-disclosure/pull/39">PR #39</a>).
+        </li>
+        <li>
+          Required human review for <code>ai-assisted</code>, removed AI
+          percentages, clarified optional prompt links and the limits of
+          related-work mappings, and expanded regulatory context
+          (<a href="https://github.com/w3c-cg/ai-content-disclosure/pull/40">PR #40</a>).
+        </li>
+        <li>
+          Added an author guide with common publishing scenarios
+          (<a href="https://github.com/w3c-cg/ai-content-disclosure/pull/20">PR #20</a>).
+        </li>
+        <li>
+          During publication preparation, defined review and publication,
+          clarified DOM processing and optional-metadata inheritance, scoped
+          declarations on media elements to their text alternatives, corrected
+          the IPTC correspondence, and removed dependency on an expired HTTP
+          disclosure proposal. Added an illustrative consumer and processing
+          checks, updated regulatory references and editor credits, and
+          encouraged explicit <code>human-only</code> declarations
+          (<a href="https://github.com/w3c-cg/ai-content-disclosure/pull/41">PR #41</a>).
+        </li>
+      </ul>
     </section>
 
 
 
 
-    <section class="informative" id="acknowledgements"><div class="header-wrapper"><h2 id="x16-acknowledgements"><bdi class="secno">16. </bdi>Acknowledgements</h2><a class="self-link" href="#acknowledgements" aria-label="Permalink for Section 16."></a></div><p><em>This section is non-normative.</em></p>
+    <section class="informative" id="acknowledgements"><div class="header-wrapper"><h2 id="x18-acknowledgements"><bdi class="secno">18. </bdi>Acknowledgements</h2><a class="self-link" href="#acknowledgements" aria-label="Permalink for Section 18."></a></div><p><em>This section is non-normative.</em></p>
 
       <p>
         The editors thank the participants of the
@@ -1487,8 +1596,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <a href="https://github.com/dweekly/ai-content-disclosure">original proposal</a>
         and incorporates ideas from the
         <a href="https://github.com/whatwg/html/issues/9479">WHATWG HTML #9479</a>
-        discussion, the
-        <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/">IETF <code>AI-Disclosure</code> header draft</a>, and the
+        discussion and the
         <a href="https://cv.iptc.org/newscodes/digitalsourcetype/">IPTC Digital Source Type</a>
         vocabulary.
       </p>
@@ -1539,11 +1647,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     </li><li>
       <a href="#ref-for-dfn-disclosure-value-5" title="§ 4.1 Syntax">§ 4.1 Syntax</a>
     </li><li>
-      <a href="#ref-for-dfn-disclosure-value-6" title="§ 5.1 Cascading rules">§ 5.1 Cascading rules</a>
+      <a href="#ref-for-dfn-disclosure-value-6" title="§ 8.1 Mixed-content news page">§ 8.1 Mixed-content news page</a>
     </li><li>
-      <a href="#ref-for-dfn-disclosure-value-7" title="§ 8.1 Mixed-content news page">§ 8.1 Mixed-content news page</a>
-    </li><li>
-      <a href="#ref-for-dfn-disclosure-value-8" title="§ 9.1 Decision tree">§ 9.1 Decision tree</a>
+      <a href="#ref-for-dfn-disclosure-value-7" title="§ 9.1 Applying the classification procedure">§ 9.1 Applying the classification procedure</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-page-level-default" aria-label="Links in this document to definition: page-level default">
@@ -1564,7 +1670,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     </li><li>
       <a href="#ref-for-dfn-page-level-default-4" title="§ 8.1 Mixed-content news page">§ 8.1 Mixed-content news page</a>
     </li><li>
-      <a href="#ref-for-dfn-page-level-default-5" title="§ 9.1 Decision tree">§ 9.1 Decision tree</a>
+      <a href="#ref-for-dfn-page-level-default-5" title="§ 9.1 Applying the classification procedure">§ 9.1 Applying the classification procedure</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-generative-ai" aria-label="Links in this document to definition: generative AI">
@@ -1580,10 +1686,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <a href="#ref-for-dfn-generative-ai-1" title="§ 3.3 Boundary guidance (&quot;What counts as AI?&quot;)">§ 3.3 Boundary guidance ("What counts as AI?")</a>
     </li><li>
       <a href="#ref-for-dfn-generative-ai-2" title="§ 5.2 Absence vs. human-only">§ 5.2 Absence vs. human-only</a>
-    </li><li>
-      <a href="#ref-for-dfn-generative-ai-3" title="§ 9. Author decision guide">§ 9. Author decision guide</a>
-    </li><li>
-      <a href="#ref-for-dfn-generative-ai-4" title="§ 9.1 Decision tree">§ 9.1 Decision tree</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-deterministic" aria-label="Links in this document to definition: deterministic">
@@ -1597,6 +1699,34 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <ul>
     <li>
       <a href="#ref-for-dfn-deterministic-1" title="§ 3.3 Boundary guidance (&quot;What counts as AI?&quot;)">§ 3.3 Boundary guidance ("What counts as AI?")</a>
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-human-review" aria-label="Links in this document to definition: human review">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-human-review" aria-label="Permalink for definition: human review. Activate to close this dialog.">Permalink</a>
+
+
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-human-review-1" title="§ 3.2 Disclosure values">§ 3.2 Disclosure values</a>
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-publication" aria-label="Links in this document to definition: publication">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-publication" aria-label="Permalink for definition: publication. Activate to close this dialog.">Permalink</a>
+
+
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-publication-1" title="§ 2. Terminology">§ 2. Terminology</a>
+    </li><li>
+      <a href="#ref-for-dfn-publication-2" title="§ 3.2 Disclosure values">§ 3.2 Disclosure values</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-ai-disclosure-0" aria-label="Links in this document to definition: ai-disclosure">
@@ -1620,7 +1750,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-human-only-1" title="§ 9.1 Decision tree">§ 9.1 Decision tree</a>
+      <a href="#ref-for-dfn-human-only-1" title="§ 3.2 Disclosure values">§ 3.2 Disclosure values</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-ai-assisted" aria-label="Links in this document to definition: ai-assisted">
@@ -1633,7 +1763,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-ai-assisted-1" title="§ 9.1 Decision tree">§ 9.1 Decision tree</a>
+      <a href="#ref-for-dfn-ai-assisted-1" title="§ 3.2 Disclosure values">§ 3.2 Disclosure values</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-ai-autonomous" aria-label="Links in this document to definition: ai-autonomous">
@@ -1646,7 +1776,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-ai-autonomous-1" title="§ 9.1 Decision tree">§ 9.1 Decision tree</a>
+      <a href="#ref-for-dfn-ai-autonomous-1" title="§ 3.2 Disclosure values">§ 3.2 Disclosure values</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-ai-model" aria-label="Links in this document to definition: ai-model">
