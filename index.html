@@ -909,34 +909,54 @@
           <a href="https://cv.iptc.org/newscodes/digitalsourcetype/"
             >IPTC Digital Source Type</a
           >
-          vocabulary is widely used in news media. The following mapping aligns
-          the HTML attribute values with IPTC terms:
+          vocabulary describes how media was produced. The following examples
+          show related terms for text; they are not a lossless mapping or an
+          IPTC endorsement. Source type alone does not establish whether human
+          review occurred, so consumers cannot derive this specification's
+          disclosure values from an IPTC term alone.
         </p>
         <table class="simple">
           <thead>
             <tr>
               <th><code>ai-disclosure</code> value</th>
-              <th>IPTC Digital Source Type</th>
+              <th>Related IPTC terms and limits</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><code>human-only</code></td>
-              <td><code>digitalCapture</code></td>
+              <td>
+                <a href="https://cv.iptc.org/newscodes/digitalsourcetype/digitalCreation"
+                  ><code>digitalCreation</code></a
+                > for human-written text created with non-generative tools.
+                This is not a universal mapping for every deterministic data
+                feed covered by <code>human-only</code>.
+              </td>
             </tr>
             <tr>
               <td><code>ai-assisted</code></td>
               <td>
                 <code>compositeWithTrainedAlgorithmicMedia</code> /
-                <code>trainedAlgorithmicMedia</code>
+                <code>trainedAlgorithmicMedia</code>, depending on production
+                history; human review is an additional assertion here.
               </td>
             </tr>
             <tr>
               <td><code>ai-autonomous</code></td>
-              <td><code>trainedAlgorithmicMedia</code></td>
+              <td>
+                <code>trainedAlgorithmicMedia</code> can describe generated
+                text; absence of human review is an additional assertion here.
+              </td>
             </tr>
           </tbody>
         </table>
+        <p>
+          IPTC's
+          <a href="https://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture"
+            ><code>digitalCapture</code></a
+          > describes capture from real life by a digital camera or recording
+          device, rather than human authorship of text.
+        </p>
       </section>
 
       <section>
