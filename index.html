@@ -264,7 +264,31 @@
           <a href="#boundary-guidance">Boundary guidance</a> for detailed
           guidance.
         </dd>
+        <dt><dfn>human review</dfn></dt>
+        <dd>
+          A person examining the resulting AI-generated or AI-edited text
+          before its <a>publication</a>. The developer or publisher declaring
+          the disclosure determines the review process and its depth; this
+          specification does not prescribe a minimum duration, reviewer
+          qualification, or required edits. A human must actually examine the
+          resulting text: supplying a prompt or approving an automated workflow
+          alone is not review of its output.
+        </dd>
+        <dt><dfn>publication</dfn></dt>
+        <dd>
+          Making the particular version of the text available to its intended
+          audience. Review of an earlier version does not establish review of
+          subsequent AI-generated or AI-edited changes.
+        </dd>
       </dl>
+      <p class="note">
+        These definitions classify author-declared production history. Where
+        legislation, regulators, or another applicable framework specify
+        substantive review, competence, or editorial responsibility, that
+        framework determines whether its own requirements are met. This
+        specification does not replace those requirements. See
+        <a href="#regulatory-context">Regulatory context</a>.
+      </p>
     </section>
 
     <!-- ============================================================ -->
@@ -330,7 +354,7 @@
               </td>
               <td>
                 AI was involved in producing the content, and a human reviewed
-                it before publication. This spans the full range from light AI
+                it before <a>publication</a>. This spans the full range from light AI
                 editing of human-written text to AI-drafted text, in each case
                 reviewed by a human before publication.
               </td>
@@ -351,7 +375,7 @@
           To choose a <a>disclosure value</a> for the content being disclosed,
           answer these two questions in order:
         </p>
-        <ol>
+        <ol id="classification-procedure">
           <li>
             <strong>Was generative AI involved in producing the content?</strong>
             If no, use <code>human-only</code>. If yes, continue to the second
@@ -366,7 +390,7 @@
         </ol>
         <p>
           The value <code>ai-assisted</code> is a positive assertion that a
-          human reviewed the content before publication. Authors MUST use
+          person performed <a>human review</a> before publication. Authors MUST use
           <code>ai-autonomous</code> when disclosing AI-involved content
           published without human review. Human authorship of the original
           text or of a prompt does not, by itself, constitute review of the
