@@ -325,7 +325,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             discussion of this specification.
 
 
-  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">1.1 </bdi>Motivation</a></li><li class="tocline"><a class="tocxref" href="#regulatory-context"><bdi class="secno">1.2 </bdi>Regulatory context</a></li><li class="tocline"><a class="tocxref" href="#design-goals"><bdi class="secno">1.3 </bdi>Design goals</a></li></ol></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">2. </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#the-ai-disclosure-attribute"><bdi class="secno">3. </bdi>The <code>ai-disclosure</code> attribute</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#attribute-definition"><bdi class="secno">3.1 </bdi>Attribute definition</a></li><li class="tocline"><a class="tocxref" href="#disclosure-values"><bdi class="secno">3.2 </bdi>Disclosure values</a></li><li class="tocline"><a class="tocxref" href="#boundary-guidance"><bdi class="secno">3.3 </bdi>Boundary guidance ("What counts as AI?")</a></li></ol></li><li class="tocline"><a class="tocxref" href="#the-meta-name-ai-disclosure-element"><bdi class="secno">4. </bdi>The <code>&lt;meta name="ai-disclosure"&gt;</code> element</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#syntax"><bdi class="secno">4.1 </bdi>Syntax</a></li></ol></li><li class="tocline"><a class="tocxref" href="#inheritance"><bdi class="secno">5. </bdi>Inheritance</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#effective-disclosure"><bdi class="secno">5.1 </bdi>Cascading rules</a></li><li class="tocline"><a class="tocxref" href="#absence-vs-human-only"><bdi class="secno">5.2 </bdi>Absence vs. <code>human-only</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#optional-metadata"><bdi class="secno">6. </bdi>Optional metadata attributes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ai-model"><bdi class="secno">6.1 </bdi>
+  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#motivation"><bdi class="secno">1.1 </bdi>Motivation</a></li><li class="tocline"><a class="tocxref" href="#regulatory-context"><bdi class="secno">1.2 </bdi>Regulatory context</a></li><li class="tocline"><a class="tocxref" href="#design-goals"><bdi class="secno">1.3 </bdi>Design goals</a></li><li class="tocline"><a class="tocxref" href="#scope-and-non-goals"><bdi class="secno">1.4 </bdi>Scope and non-goals</a></li></ol></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">2. </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#the-ai-disclosure-attribute"><bdi class="secno">3. </bdi>The <code>ai-disclosure</code> attribute</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#attribute-definition"><bdi class="secno">3.1 </bdi>Attribute definition</a></li><li class="tocline"><a class="tocxref" href="#disclosure-values"><bdi class="secno">3.2 </bdi>Disclosure values</a></li><li class="tocline"><a class="tocxref" href="#boundary-guidance"><bdi class="secno">3.3 </bdi>Boundary guidance ("What counts as AI?")</a></li></ol></li><li class="tocline"><a class="tocxref" href="#the-meta-name-ai-disclosure-element"><bdi class="secno">4. </bdi>The <code>&lt;meta name="ai-disclosure"&gt;</code> element</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#syntax"><bdi class="secno">4.1 </bdi>Syntax</a></li></ol></li><li class="tocline"><a class="tocxref" href="#inheritance"><bdi class="secno">5. </bdi>Inheritance</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#effective-disclosure"><bdi class="secno">5.1 </bdi>Cascading rules</a></li><li class="tocline"><a class="tocxref" href="#absence-vs-human-only"><bdi class="secno">5.2 </bdi>Absence vs. <code>human-only</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#optional-metadata"><bdi class="secno">6. </bdi>Optional metadata attributes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ai-model"><bdi class="secno">6.1 </bdi>
           <code><span data-dfn-type="element-attr">ai-model</span></code>
         </a></li><li class="tocline"><a class="tocxref" href="#ai-provider"><bdi class="secno">6.2 </bdi>
           <code><span data-dfn-type="element-attr">ai-provider</span></code>
@@ -451,6 +451,58 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             cryptographic provenance mechanisms.
           </li>
         </ol>
+      </section>
+
+      <section id="scope-and-non-goals"><div class="header-wrapper"><h3 id="x1-4-scope-and-non-goals"><bdi class="secno">1.4 </bdi>Scope and non-goals</h3><a class="self-link" href="#scope-and-non-goals" aria-label="Permalink for Section 1.4"></a></div>
+
+        <p>
+          This report defines author-declared metadata for textual content in
+          HTML, including text alternatives, and rules for interpreting and
+          inheriting that metadata. Its purpose is to communicate AI
+          involvement and whether human review occurred. The following limits
+          apply to this work:
+        </p>
+        <ul>
+          <li>
+            <strong>Detection and verification:</strong> the report does not
+            detect AI use, verify the truth of declarations, or certify
+            provenance. Its metadata is self-declared.
+          </li>
+          <li>
+            <strong>Content policy and quality:</strong> the report does not
+            judge content quality, prescribe whether AI should be used, or
+            determine how platforms should act on disclosure signals.
+          </li>
+          <li>
+            <strong>Legal and professional requirements:</strong> the report
+            does not determine legal compliance, establish editorial
+            responsibility, or set the standard of review required by an
+            external framework. Those requirements remain with the relevant
+            authorities and frameworks; see
+            <a href="#regulatory-context">Regulatory context</a>.
+          </li>
+          <li>
+            <strong>Additional provenance detail:</strong> media provenance,
+            quantitative percentages of AI authorship, and registries of
+            models or providers are outside this report's scope. Optional
+            metadata does not create a registry or require a particular
+            methodology-document format.
+          </li>
+          <li>
+            <strong>Other communities' specifications:</strong> the report
+            does not define HTTP disclosure headers, a JSON-LD disclosure
+            vocabulary, Schema.org properties, or extensions to IPTC or C2PA.
+            Examples and correspondences support coordination with those
+            communities.
+          </li>
+          <li>
+            <strong>Standardization and implementation:</strong> publication
+            as a Community Group Report does not establish a W3C Standard,
+            adoption into HTML, or browser support. See
+            <a href="#implementation-status">Implementation status and
+            adoption</a> for the proposed next steps.
+          </li>
+        </ul>
       </section>
     </section>
 
