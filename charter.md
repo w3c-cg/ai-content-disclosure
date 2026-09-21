@@ -4,7 +4,7 @@
 |---|---|
 | **This Charter** | https://github.com/w3c-cg/ai-content-disclosure/blob/main/charter.md |
 | **Start Date** | 2026-02-03 |
-| **Last Modified** | 2026-06-08 |
+| **Last Modified** | 2026-09-21 |
 
 ## Goals
 
@@ -24,9 +24,9 @@ The group intends to produce a Community Group Report suitable for adoption by a
 
 2. **Disclosure vocabulary.** A set of values (such as `human-only`, `ai-assisted`, `ai-autonomous`) with boundary guidance on what falls into each category. The vocabulary should align with existing taxonomies (IETF, IPTC) where practical.
 
-3. **Cross-standard coordination.** How the HTML-level disclosure relates to the IETF `AI-Disclosure` HTTP response header, IPTC Digital Source Type vocabulary, Schema.org structured data, and C2PA cryptographic provenance. The layers should complement each other without duplicating work.
+3. **Cross-standard coordination.** How the HTML-level disclosure relates to the HTTP-level disclosure, IPTC Digital Source Type vocabulary, Schema.org structured data, and C2PA cryptographic provenance. The layers should complement each other without duplicating work.
 
-4. **Accessibility integration.** How disclosure attributes are exposed to assistive technology through the Accessibility Object Model, and how user agents might present disclosure information.
+4. **Accessibility integration.** How disclosure attributes are exposed to assistive technology through accessibility APIs, and how user agents might present disclosure information.
 
 5. **Implementation guidance.** Non-normative advice for content authors, CMS developers, AI tool vendors, and browser implementers.
 
@@ -42,7 +42,7 @@ The group intends to produce a Community Group Report suitable for adoption by a
 
 5. **Rendering requirements.** How browsers display or surface disclosure information is a user-agent decision, not part of this specification.
 
-6. **Owning related specifications.** The IETF `AI-Disclosure` header and Schema.org `aiDisclosure` property are governed by their respective communities. This group coordinates alignment but does not author those specifications.
+6. **Owning related specifications.** HTTP disclosure mechanisms and Schema.org vocabulary proposals are governed by their respective communities. This group coordinates alignment but does not author those specifications.
 
 7. **Interpreting regulation.** The group produces technical standards. It does not offer legal advice or prescribe how to comply with specific regulations.
 
@@ -58,7 +58,7 @@ The group may produce reports including:
 
 - **Explainer** -- A document describing the problem, motivation, proposed solution, key scenarios, alternatives considered, and privacy/security/accessibility considerations, following the W3C Explainer format.
 
-- **Cross-Standard Alignment Guide** -- A report documenting the relationship between HTML disclosure attributes and the IETF AI-Disclosure header, IPTC Digital Source Type vocabulary, Schema.org integration, and C2PA, including vocabulary mapping tables and guidance on how the layers work together.
+- **Cross-Standard Alignment Guide** -- A report documenting the relationship between HTML disclosure attributes and the HTTP-level disclosure, IPTC Digital Source Type vocabulary, Schema.org integration, and C2PA, including vocabulary mapping tables and guidance on how the layers work together.
 
 - **Implementation Guide** -- Practical guidance for content authors, CMS developers, AI tool vendors, and browser implementers.
 
@@ -77,12 +77,12 @@ The group may produce:
 
 - **[WHATWG HTML](https://whatwg.org/)** -- The HTML Living Standard, where `ai-disclosure` could ultimately land.
 - **[W3C Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/)** -- For architectural review of the proposal.
-- **[Accessible Rich Internet Applications (ARIA) Working Group](https://www.w3.org/WAI/ARIA/)** -- For guidance on exposing disclosure attributes to assistive technology through the Accessibility Object Model.
+- **[Accessible Rich Internet Applications (ARIA) Working Group](https://www.w3.org/WAI/ARIA/)** -- For guidance on exposing disclosure attributes to assistive technology through accessibility APIs.
 - **[Schema.org Community Group](https://www.w3.org/community/schemaorg/)** -- For alignment of the `aiDisclosure` structured data property with the HTML attribute vocabulary.
 
 ### External Organizations
 
-- **[IETF](https://www.ietf.org/)** -- For coordination on the `AI-Disclosure` HTTP response header ([draft-abaris-aicdh](https://datatracker.ietf.org/doc/draft-abaris-aicdh/)).
+- **[IETF](https://www.ietf.org/)** -- For coordination on HTTP-level disclosure and related metadata proposals; this charter does not depend on a particular Internet-Draft.
 - **[IPTC](https://iptc.org/)** -- For vocabulary alignment with the [Digital Source Type](https://cv.iptc.org/newscodes/digitalsourcetype/) taxonomy.
 - **[C2PA](https://c2pa.org/)** -- For ensuring HTML-level disclosure and cryptographic media provenance work together.
 - **[European Commission, DG CNECT](https://commission.europa.eu/about/departments-and-executive-agencies/communications-networks-content-and-technology_en)** -- For alignment with EU AI Act Article 50 transparency requirements and the [Code of Practice on Transparency of AI-Generated Content](https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content).
@@ -140,7 +140,7 @@ Participants in this group choose their Chair(s) and can replace their Chair(s) 
 
 However, if 5 participants -- no two from the same organization -- call for an election, the group must use the following process: any participant may nominate themselves during a 14-day candidacy period; votes are cast during a 21-day voting period; the candidate with the most votes wins; ties are broken using [RFC 2777](https://www.rfc-editor.org/rfc/rfc2777).
 
-Current Chairs: [David Weekly](https://github.com/dweekly) and [Dogu Abaris](https://github.com/doguabaris).
+Current Chairs: [David Weekly](https://github.com/dweekly) and [Sydney Cohen](https://www.linkedin.com/in/sydney-cohen-159566171/).
 
 ## Amendments to this Charter
 

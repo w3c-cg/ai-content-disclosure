@@ -5,6 +5,14 @@
 
 This is the repository of the [AI Content Disclosure Community Group](https://www.w3.org/community/ai-content-disclosure/).
 
+## Report
+
+Read the [editor's draft](https://w3c-cg.github.io/ai-content-disclosure/) or the
+[21 September 2026 proposed final report](reports/CG-DRAFT-ai-content-disclosure-20260921/index.html).
+The proposed final report remains a draft pending the group's publication vote.
+The [publication plan](reports/README.md) contains the draft ballot, W3C publication
+steps, and notification plan.
+
 ## Background
 
 This specification builds on the original proposal at [dweekly/ai-content-disclosure](https://github.com/dweekly/ai-content-disclosure), which provides a comprehensive explainer covering the attribute design, inheritance rules, vocabulary, use cases, cross-standard alignment tables, privacy/security/accessibility considerations, and legislative context. The explainer follows the [W3C Explainer format](https://www.w3.org/TR/explainer-explainer/) and serves as the non-normative companion to this spec.

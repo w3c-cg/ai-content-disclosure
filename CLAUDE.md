@@ -4,13 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-W3C Community Group specification for **AI Content Disclosure for HTML** — a proposed standard HTML mechanism (`ai-disclosure` global attribute and `<meta name="ai-disclosure">`) that lets authors disclose AI involvement in web content. Co-chaired by David Weekly and Dogu Abaris.
+W3C Community Group specification for **AI Content Disclosure for HTML** — a proposed standard HTML mechanism (`ai-disclosure` global attribute and `<meta name="ai-disclosure">`) that lets authors disclose AI involvement in web content. Co-chaired by David Weekly and Sydney Cohen.
 
 Key motivation: EU AI Act Article 50 requires machine-readable AI-generated text marking by August 2026. The spec also serves publishers, accessibility tools, and search engines.
 
 ## Repository Structure
 
-- `index.html` — The spec itself, built with [ReSpec](https://respec.org/docs/) (W3C's spec authoring tool). Currently a skeleton/template.
+- `index.html` — The spec itself, built with [ReSpec](https://respec.org/docs/) (W3C's spec authoring tool). A proposed final report candidate remains a draft pending the group publication vote.
 - `charter.md` — The CG charter defining scope, deliverables, and governance.
 - `minutes/` — Meeting minutes, one folder per meeting (`minutes/YYYYMMDD/README.md`).
 - `w3c.json` — W3C group metadata (group ID 174458).
@@ -24,7 +24,7 @@ ReSpec docs: https://respec.org/docs/
 ## Coordination Context
 
 The spec intentionally complements (not duplicates) work in:
-- **IETF** `AI-Disclosure` HTTP header ([draft-abaris-aicdh](https://datatracker.ietf.org/doc/draft-abaris-aicdh/))
+- **HTTP metadata** — independent declarations; the HTML processing model does not depend on an HTTP disclosure header.
 - **IPTC** Digital Source Type vocabulary
 - **Schema.org** `aiDisclosure` structured data
 - **C2PA** cryptographic media provenance
