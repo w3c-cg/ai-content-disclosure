@@ -24,7 +24,7 @@ The group intends to produce a Community Group Report suitable for adoption by a
 
 2. **Disclosure vocabulary.** A set of values (such as `human-only`, `ai-assisted`, `ai-autonomous`) with boundary guidance on what falls into each category. The vocabulary should align with existing taxonomies (IETF, IPTC) where practical.
 
-3. **Cross-standard coordination.** How the HTML-level disclosure relates to the IETF `AI-Disclosure` HTTP response header, IPTC Digital Source Type vocabulary, Schema.org structured data, and C2PA cryptographic provenance. The layers should complement each other without duplicating work.
+3. **Cross-standard coordination.** How the HTML-level disclosure relates to the HTTP-level disclosure, IPTC Digital Source Type vocabulary, Schema.org structured data, and C2PA cryptographic provenance. The layers should complement each other without duplicating work.
 
 4. **Accessibility integration.** How disclosure attributes are exposed to assistive technology through the Accessibility Object Model, and how user agents might present disclosure information.
 
@@ -42,7 +42,7 @@ The group intends to produce a Community Group Report suitable for adoption by a
 
 5. **Rendering requirements.** How browsers display or surface disclosure information is a user-agent decision, not part of this specification.
 
-6. **Owning related specifications.** The IETF `AI-Disclosure` header and Schema.org `aiDisclosure` property are governed by their respective communities. This group coordinates alignment but does not author those specifications.
+6. **Owning related specifications.** The HTTP-level disclosure and Schema.org `aiDisclosure` property are governed by their respective communities. This group coordinates alignment but does not author those specifications.
 
 7. **Interpreting regulation.** The group produces technical standards. It does not offer legal advice or prescribe how to comply with specific regulations.
 
@@ -58,7 +58,7 @@ The group may produce reports including:
 
 - **Explainer** -- A document describing the problem, motivation, proposed solution, key scenarios, alternatives considered, and privacy/security/accessibility considerations, following the W3C Explainer format.
 
-- **Cross-Standard Alignment Guide** -- A report documenting the relationship between HTML disclosure attributes and the IETF AI-Disclosure header, IPTC Digital Source Type vocabulary, Schema.org integration, and C2PA, including vocabulary mapping tables and guidance on how the layers work together.
+- **Cross-Standard Alignment Guide** -- A report documenting the relationship between HTML disclosure attributes and the HTTP-level disclosure, IPTC Digital Source Type vocabulary, Schema.org integration, and C2PA, including vocabulary mapping tables and guidance on how the layers work together.
 
 - **Implementation Guide** -- Practical guidance for content authors, CMS developers, AI tool vendors, and browser implementers.
 
@@ -82,7 +82,7 @@ The group may produce:
 
 ### External Organizations
 
-- **[IETF](https://www.ietf.org/)** -- For coordination on the `AI-Disclosure` HTTP response header ([draft-abaris-aicdh](https://datatracker.ietf.org/doc/draft-abaris-aicdh/)).
+- **[IETF](https://www.ietf.org/)** -- For coordination on HTTP-level disclosure and related metadata proposals; this charter does not depend on a particular Internet-Draft.
 - **[IPTC](https://iptc.org/)** -- For vocabulary alignment with the [Digital Source Type](https://cv.iptc.org/newscodes/digitalsourcetype/) taxonomy.
 - **[C2PA](https://c2pa.org/)** -- For ensuring HTML-level disclosure and cryptographic media provenance work together.
 - **[European Commission, DG CNECT](https://commission.europa.eu/about/departments-and-executive-agencies/communications-networks-content-and-technology_en)** -- For alignment with EU AI Act Article 50 transparency requirements and the [Code of Practice on Transparency of AI-Generated Content](https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content).

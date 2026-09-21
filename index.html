@@ -130,14 +130,6 @@
             missing capability.
           </li>
           <li>
-            The
-            <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/"
-              >IETF <code>AI-Disclosure</code> HTTP response header</a
-            >
-            applies to entire HTTP responses and cannot distinguish mixed
-            content within a page.
-          </li>
-          <li>
             <a href="https://spec.c2pa.org/">C2PA</a> provides cryptographic
             provenance for media files but does not support HTML text content
             and is designed for file-level, not element-level, assertions.
@@ -216,12 +208,11 @@
             content before publication?
           </li>
           <li>
-            <strong>Align with existing vocabularies</strong> — specifically the
-            IETF <code>AI-Disclosure</code> header and
+            <strong>Relate to existing vocabularies</strong>, including the
             <a href="https://cv.iptc.org/newscodes/digitalsourcetype/"
               >IPTC Digital Source Type</a
             >
-            taxonomy — for cross-standard consistency.
+            taxonomy, while identifying differences in scope and meaning.
           </li>
           <li>
             <strong>Complement</strong> (not replace) HTTP-level and
@@ -312,23 +303,15 @@
         <h3>Disclosure values</h3>
         <p>
           The <code>ai-disclosure</code> attribute accepts the following
-          enumerated values, aligned with the
-          <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/"
-            >IETF <code>AI-Disclosure</code> header</a
-          >
-          and the
-          <a href="https://cv.iptc.org/newscodes/digitalsourcetype/"
-            >IPTC Digital Source Type</a
-          >
-          vocabulary:
+          enumerated values. These definitions govern classification; the
+          <a href="#iptc-correspondence">IPTC correspondence</a> is informative
+          and does not define equivalent values in another vocabulary:
         </p>
         <table class="simple">
           <thead>
             <tr>
               <th>Value</th>
               <th>Meaning</th>
-              <th>IETF equivalent</th>
-              <th>IPTC Digital Source Type</th>
             </tr>
           </thead>
           <tbody>
@@ -340,8 +323,6 @@
                 A positive assertion that no AI was involved in producing this
                 content.
               </td>
-              <td><code>none</code></td>
-              <td><code>digitalCapture</code></td>
             </tr>
             <tr>
               <td>
@@ -353,11 +334,6 @@
                 editing of human-written text to AI-drafted text, in each case
                 reviewed by a human before publication.
               </td>
-              <td><code>ai-modified</code> / <code>ai-originated</code></td>
-              <td>
-                <code>compositeWithTrainedAlgorithmicMedia</code> /
-                <code>trainedAlgorithmicMedia</code>
-              </td>
             </tr>
             <tr>
               <td>
@@ -368,8 +344,6 @@
                 without human review, regardless of whether a human prompted
                 its generation.
               </td>
-              <td><code>machine-generated</code></td>
-              <td><code>trainedAlgorithmicMedia</code></td>
             </tr>
           </tbody>
         </table>
@@ -674,47 +648,22 @@
     <!-- ============================================================ -->
     <!-- 7. Relationship to HTTP headers                               -->
     <!-- ============================================================ -->
-    <section class="informative">
-      <h2>Relationship to HTTP headers</h2>
+    <section id="http-metadata">
+      <h2>Relationship to HTTP metadata</h2>
       <p>
-        The
-        <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/"
-          >IETF <code>AI-Disclosure</code> HTTP response header</a
-        >
-        provides disclosure at the HTTP response level. The HTML mechanisms
-        defined in this specification complement it by adding page-level and
-        element-level granularity.
+        This specification defines HTML disclosure independently of any HTTP
+        disclosure header. Consumers MUST determine the effective HTML
+        disclosure value using <a href="#inheritance">Inheritance</a>.
+        HTTP metadata MUST NOT replace that value or supply a missing HTML
+        declaration under this specification.
       </p>
-      <table class="simple">
-        <thead>
-          <tr>
-            <th>Layer</th>
-            <th>Mechanism</th>
-            <th>Granularity</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>HTTP</td>
-            <td><code>AI-Disclosure</code> response header</td>
-            <td>Entire response</td>
-          </tr>
-          <tr>
-            <td>HTML page</td>
-            <td><code>&lt;meta name="ai-disclosure"&gt;</code></td>
-            <td>Entire document</td>
-          </tr>
-          <tr>
-            <td>HTML element</td>
-            <td><code>ai-disclosure</code> attribute</td>
-            <td>Any element</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        These layers are complementary. A CDN or reverse proxy can set the HTTP
-        header; a CMS can set the meta tag; an author or AI tool can set
-        element-level attributes. None supersedes the others.
+      <p class="note">
+        An application may also display or evaluate declarations from HTTP
+        headers or other provenance systems. If these disagree with HTML
+        metadata, the application can expose both assertions and their scopes;
+        this specification does not establish which assertion is factually
+        correct. A header describing a whole response and an attribute
+        describing one passage may legitimately describe different content.
       </p>
     </section>
 
@@ -953,41 +902,7 @@
         duplicating each other's responsibilities.
       </p>
 
-      <section>
-        <h3>IETF <code>AI-Disclosure</code> header</h3>
-        <p>
-          The
-          <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/"
-            >IETF <code>AI-Disclosure</code> header</a
-          >
-          provides response-level disclosure. The HTML attribute values are
-          aligned with the IETF header modes:
-        </p>
-        <table class="simple">
-          <thead>
-            <tr>
-              <th><code>ai-disclosure</code> value</th>
-              <th>IETF header mode</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>human-only</code></td>
-              <td><code>none</code></td>
-            </tr>
-            <tr>
-              <td><code>ai-assisted</code></td>
-              <td><code>ai-modified</code> / <code>ai-originated</code></td>
-            </tr>
-            <tr>
-              <td><code>ai-autonomous</code></td>
-              <td><code>machine-generated</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section>
+      <section id="iptc-correspondence">
         <h3>IPTC Digital Source Type</h3>
         <p>
           The
@@ -1282,10 +1197,7 @@
         <a href="https://github.com/whatwg/html/issues/9479"
           >WHATWG HTML #9479</a
         >
-        discussion, the
-        <a href="https://datatracker.ietf.org/doc/draft-abaris-aicdh/"
-          >IETF <code>AI-Disclosure</code> header draft</a
-        >, and the
+        discussion and the
         <a href="https://cv.iptc.org/newscodes/digitalsourcetype/"
           >IPTC Digital Source Type</a
         >
