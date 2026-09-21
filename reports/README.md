@@ -6,6 +6,24 @@ maintained report source; static HTML is generated output. The group has not
 yet voted on the report. Publication and external notifications follow the
 vote; the message drafts below have not been sent.
 
+## Frozen candidate for the 5 October 2026 vote
+
+The voting artifact is
+[`CG-DRAFT-ai-content-disclosure-20260921/index.html`](CG-DRAFT-ai-content-disclosure-20260921/index.html),
+exported from source commit `7c53bf8`.
+
+| Field | Value |
+| --- | --- |
+| Static URL | https://w3c-cg.github.io/ai-content-disclosure/reports/CG-DRAFT-ai-content-disclosure-20260921/ |
+| Source commit | `7c53bf8` |
+| SHA-256 | `c34e8caee5cea5d4facc2967c9e414ea887052564406865c4a25a36c56c71ea3` |
+
+The export differs from a render of the source in five lines, all publication
+metadata (`publishDate` and `thisVersion`); the technical text is identical.
+This file is the fixed voting artifact, not a second editable source. Preserve
+it once the vote opens. If substantive changes are needed, prepare a new
+candidate and reissue the ballot against it.
+
 ## Report and review record
 
 The report includes the three disclosure values, required human review for
