@@ -510,7 +510,7 @@
     <!-- ============================================================ -->
     <!-- 5. Inheritance                                                -->
     <!-- ============================================================ -->
-    <section>
+    <section id="inheritance">
       <h2>Inheritance</h2>
 
       <section>
@@ -753,6 +753,147 @@
           Note: <code>ai-disclosure="human-only"</code> is a positive assertion.
           The <em>absence</em> of the attribute means "unknown," not
           "human-only."
+        </p>
+      </section>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 8b. Author decision guide                                     -->
+    <!-- ============================================================ -->
+    <section class="informative">
+      <h2>Author decision guide</h2>
+      <p>
+        This guide applies the <a href="#disclosure-values">disclosure
+        values</a> to common publishing workflows. Classification depends on
+        two questions: was <a>generative AI</a> involved in producing the text,
+        and did a human review the resulting content before publication?
+        The amount of AI-authored text and the extent of human editing do not
+        determine the value.
+      </p>
+
+      <section>
+        <h3>Decision tree</h3>
+        <ol>
+          <li>
+            <strong>Was <a>generative AI</a> involved in producing the textual
+            content itself?</strong>
+            <ul>
+              <li>
+                No → <a><code>human-only</code></a>
+              </li>
+              <li>
+                Yes → go to step 2
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Did a human review the resulting content before
+            publication?</strong>
+            <ul>
+              <li>
+                Yes → <a><code>ai-assisted</code></a>
+              </li>
+              <li>
+                No → <a><code>ai-autonomous</code></a>, including output
+                generated from a human prompt but published unread
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <p>
+          Human authorship of notes, a prompt, or an earlier draft does not
+          establish review of the resulting AI-generated or AI-edited text.
+          Review does not require making edits. Translation follows the same
+          review rule as other AI-involved text. See
+          <a href="#boundary-guidance">Boundary guidance</a> for exclusions,
+          including deterministic tools and AI-generated page structure that
+          does not generate or modify the text.
+        </p>
+        <p>
+          If the production history is unknown, do not guess a disclosure
+          value. Omitting a declaration makes no new assertion; the applicable
+          value is then determined by <a href="#inheritance">Inheritance</a>,
+          and is "unknown" if no ancestor or page-level default supplies one.
+        </p>
+        <p>
+          This guide covers a single piece of content. When one page combines
+          content with different disclosure values (for example, a
+          human-written article with an AI-generated summary), disclose each
+          part individually. A <a>page-level default</a> is optional; if one is
+          supplied, use a valid <a>disclosure value</a> and override it on
+          elements where a different value applies.
+        </p>
+      </section>
+
+      <section>
+        <h3>Scenarios</h3>
+        <table class="simple">
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>Human reviewed the resulting text before publication?</th>
+              <th>Recommended value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Author writes a blog post, uses AI for grammar and style fixes, then reviews the edited text</td>
+              <td>Yes</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>Author writes bullet notes; AI expands them into a memo that the author reviews before publishing</td>
+              <td>Yes</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>AI substantially rewrites a human draft; the author reviews the rewritten text</td>
+              <td>Yes</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>AI produces a first draft; a human reviews it, with light edits, heavy edits, or no edits</td>
+              <td>Yes</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>A human dictates ideas; AI structures and expands them into prose that the human reviews</td>
+              <td>Yes</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>A human supplies a prompt; the AI response is published unread</td>
+              <td>No</td>
+              <td><code>ai-autonomous</code></td>
+            </tr>
+            <tr>
+              <td>AI translates text; a human reviews the translation, with or without edits</td>
+              <td>Yes</td>
+              <td><code>ai-assisted</code></td>
+            </tr>
+            <tr>
+              <td>AI translates a page automatically; the translation is published without human review</td>
+              <td>No</td>
+              <td><code>ai-autonomous</code></td>
+            </tr>
+            <tr>
+              <td>Automated agent publishes daily summaries without human review</td>
+              <td>No</td>
+              <td><code>ai-autonomous</code></td>
+            </tr>
+            <tr>
+              <td>Human writes all the text; AI is used only for HTML, CSS, or JavaScript scaffolding without changing the text</td>
+              <td>Not applicable — no AI involvement in the text</td>
+              <td><code>human-only</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          These scenarios illustrate the disclosure definitions; they do not
+          establish legal compliance or eligibility for an exception to a
+          disclosure obligation. See
+          <a href="#regulatory-context">Regulatory context</a> for how the
+          human-review assertion relates to EU AI Act Article 50.
         </p>
       </section>
     </section>
