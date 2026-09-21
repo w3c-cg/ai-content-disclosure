@@ -6,9 +6,9 @@ maintained report source; static HTML is generated output. The group has not
 yet voted on the report. Publication and external notifications follow the
 vote; the message drafts below have not been sent.
 
-## Candidate and review record
+## Report and review record
 
-The candidate includes the three disclosure values, required human review for
+The report includes the three disclosure values, required human review for
 `ai-assisted`, the textual-content boundary, the author decision guide, and the
 scope clarifications agreed during issue triage. It incorporates
 [PR #39](https://github.com/w3c-cg/ai-content-disclosure/pull/39),
@@ -20,7 +20,7 @@ repairs ReSpec terminology links, and encourages explicit `human-only`
 declarations instead of leaving provenance ambiguous. It also aligns the
 absence wording with the existing inheritance rules. Sydney Cohen joins the
 current editor list, and Doğu Abaris retains credit as a former editor.
-The candidate retains the three classification values. Publication review also
+The report retains the three classification values. Publication review also
 clarifies the definition of human review, the text-only scope (including text
 alternatives), the DOM processing model, value parsing, and metadata inheritance.
 It removes the expired HTTP-draft dependency, corrects the informative IPTC
@@ -31,9 +31,9 @@ There were no open issues or pull requests when preparation began on
 21 September 2026. Recheck before opening the vote; a closed issue list alone
 does not establish approval to publish.
 
-Validation completed for this candidate: ReSpec export with no errors or
+Validation completed for the proposed text: ReSpec export with no errors or
 warnings; unique IDs and working internal fragment links in the rendered
-snapshot; both source JSON examples parsed; and visual inspection of the report
+output; both source JSON examples parsed; and visual inspection of the report
 header and ten-scenario author guide. The illustrative consumer also passes 13
 browser checks for parsing, inheritance, metadata, text alternatives, mutation,
 templates, and shadow DOM. This is not evidence of independent interoperable
