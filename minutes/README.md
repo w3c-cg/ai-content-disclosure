@@ -14,6 +14,7 @@ This directory contains meeting minutes for the W3C AI Content Disclosure Commun
   - [8 June 2026](20260608/) — Regulatory updates; consensus to move to three disclosure levels
   - [13 July 2026](20260713/) — Consensus that `ai-assisted` requires human review; AI-intensity signal deferred; `ai-evidence-url` questions teed up
   - [10 August 2026](20260810/) — Light attendance (Bontcheva and most regulars no-showed); informal spec walkthrough with a new participant; agenda pushed to the mailing list
+  - [21 September 2026](20260921/) — Co-chair working session; all 21 open issues and the open PRs cleared; `meta` vs `body` and the rigor of "human review" left open; 5 October ratification meeting set
 
 ## Template
 Create a new folder per meeting (example: `minutes/20260212/`) and add `README.md` with the following structure:
